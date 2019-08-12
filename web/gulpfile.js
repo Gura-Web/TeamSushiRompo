@@ -29,7 +29,7 @@ gulp.task('sass',function(done){
       outputStyle:'expanded'
     }))
     .pipe(autoprefixer({
-      browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.4']
+      overrideBrowserslist: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.4']
     }))
     .pipe(gcmq())
     .pipe(sourcemaps.write())
