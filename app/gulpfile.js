@@ -95,7 +95,7 @@ var browserSync = require('browser-sync');
 
 gulp.task('sync', function (done) {
   browserSync({
-    proxy: "localhost/SushiRompo/web"
+    proxy: "localhost/SushiRompo/app"
   });
   done();
 });
