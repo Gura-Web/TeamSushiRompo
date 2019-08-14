@@ -6,6 +6,15 @@
   background: $base;
 }
 
+
+.sc-regi,
+.sc-conf .box-btns,
+.sc-conf .head-be,
+.sc-comp .head-be,
+.sc-log .head-be{
+  padding: 0 16px
+}
+
 /* sc-top */
 .sc-top{
   text-align: center;
@@ -32,7 +41,6 @@
 
 /* sc-regi */
 .sc-regi{
-  padding: 0 16px;
   .box-btns{
     margin: 56px 0 26px;
   }
@@ -193,10 +201,6 @@ input[name="regi-partner"]+label{
 .sc-conf{
   .box-btns{
     margin: 56px 0 26px;
-    padding: 0 16px;
-  }
-  .head-be{
-    padding: 0 16px;
   }
   .form-parts{
     padding-left: 38px;
@@ -254,9 +258,75 @@ input[name="regi-partner"]+label{
   .partner-name{
     font-size: 1.4rem;
   }
+  >p{
+    color: $yellow;
+  }
 }
 
 
+/* sc-comp */
+.sc-comp{
+  position: relative;
+  .head-be{
+    border: none;
+  }
+  p{
+    margin-bottom: 45px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .box-btns{
+    width: 290px;
+  }
+  .box-comp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+
+/* sc-log */
+.sc-log{
+  position: relative;
+  .head-be{
+    border: none;
+    margin-bottom: 94px;
+  }
+  h2{
+    span{
+      display: block;
+      width: 108px;
+      margin: 0 auto;
+    }
+    p{
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+  .form{
+    margin: 0 26px 0 32px;
+  }
+  .btn-forget{
+    margin: 16px 16px 0 0;
+    text-align: right;
+    a{
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+  }
+  .box-btns{
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    position: absolute;
+    bottom: 34px;
+    p{
+      text-align: center;
+    }
+  }
+}
 
 
 
