@@ -215,6 +215,196 @@
     <div class="wrap-af">
       <!-- ログイン後の画面だけを囲む -->
       <div class="af-screens">
+
+        <!-- *************************** 生活チェック *************************** -->
+        <div class="sc sc-check">
+          <div class="sc-quest">
+            <header class="header-qu">
+              <p>1/7</p>
+            </header>
+            <p>今日の朝食は食べましたか？</p>
+
+            <div class="box-choice">
+              <p>
+                <input type="radio" name="morning" value="0" id="morning01">
+                <label for="morning01">
+                  <p>NO...</p>
+                </label>
+              </p>
+              <p>
+                <input type="radio" name="morning" value="1" id="morning02">
+                <label for="morning02">
+                  <p>YES...</p>
+                </label>
+              </p>
+            </div>
+
+            <button class="btn-next">次へ</button>
+          </div>
+
+          <div class="sc-quest">
+            <header class="header-qu">
+              <button class="btn-return-quest"></button>
+              <p>2/7</p>
+            </header>
+            <p>今日の昼食は食べましたか？</p>
+          
+            <div class="box-choice">
+              <p>
+                <input type="radio" name="lunch" value="0" id="lunch01">
+                <label for="lunch01">
+                  <p>NO...</p>
+                </label>
+              </p>
+              <p>
+                <input type="radio" name="lunch" value="1" id="lunch02">
+                <label for="lunch02">
+                  <p>YES...</p>
+                </label>
+              </p>
+            </div>
+          
+            <button class="btn-next">次へ</button>
+          </div>
+
+          <div class="sc-quest">
+            <header class="header-qu">
+              <button class="btn-return-quest"></button>
+              <p>2/7</p>
+            </header>
+            <p>今日の夕食は食べましたか？</p>
+          
+            <div class="box-choice">
+              <p>
+                <input type="radio" name="dinner" value="0" id="dinner01">
+                <label for="dinner01">
+                  <p>NO...</p>
+                </label>
+              </p>
+              <p>
+                <input type="radio" name="dinner" value="1" id="dinner02">
+                <label for="dinner02">
+                  <p>YES...</p>
+                </label>
+              </p>
+            </div>
+          
+            <button class="btn-next">次へ</button>
+          </div>
+
+          <div class="sc-quest">
+            <header class="header-qu">
+              <button class="btn-return-quest"></button>
+              <p>2/7</p>
+            </header>
+            <p>今日、<br>野菜は食べましたか？<br><span>※複数選択可</span></p>
+          
+            <div class="box-check">
+              <p>
+                <input type="checkbox" name="vege" value="0" id="vege01">
+                <label for="vege01">朝食に食べた<span><img src="" alt=""></span></label>
+              </p>
+              <p>
+                <input type="checkbox" name="vege" value="1" id="vege02">
+                <label for="vege02">昼食に食べた<span><img src="" alt=""></span></label>
+              </p>
+              <p>
+                <input type="checkbox" name="vege" value="2" id="vege03">
+                <label for="vege03">夕食に食べた<span><img src="" alt=""></span></label>
+              </p>
+            </div>
+          
+            <button class="btn-next">次へ</button>
+          </div>
+
+          <div class="sc-quest">
+            <header class="header-qu">
+              <button class="btn-return-quest"></button>
+              <p>2/7</p>
+            </header>
+            <p>今日、<br>魚は食べましたか？<br><span>※複数選択可</span></p>
+          
+            <div class="box-check">
+              <p>
+                <input type="checkbox" name="fish" value="0" id="fish01">
+                <label for="fish01">朝食に食べた<span><img src="" alt=""></span></label>
+              </p>
+              <p>
+                <input type="checkbox" name="fish" value="1" id="fish02">
+                <label for="fish02">昼食に食べた<span><img src="" alt=""></span></label>
+              </p>
+              <p>
+                <input type="checkbox" name="fish" value="2" id="fish03">
+                <label for="fish03">夕食に食べた<span><img src="" alt=""></span></label>
+              </p>
+            </div>
+          
+            <button class="btn-next">次へ</button>
+          </div>
+
+          <div class="sc-quest">
+            <header class="header-qu">
+              <button class="btn-return-quest"></button>
+              <p>2/7</p>
+            </header>
+            <p>今日、<br>フルーツは食べましたか？<br><span>※複数選択可</span></p>
+            
+            <div class="box-check">
+              <p>
+                <input type="checkbox" name="fru" value="0" id="fru01">
+                <label for="fru01">朝食に食べた<span><img src="" alt=""></span></label>
+              </p>
+              <p>
+                <input type="checkbox" name="fru" value="1" id="fru02">
+                <label for="fru02">昼食に食べた<span><img src="" alt=""></span></label>
+              </p>
+              <p>
+                <input type="checkbox" name="fru" value="2" id="fru03">
+                <label for="fru03">夕食に食べた<span><img src="" alt=""></span></label>
+              </p>
+            </div>
+          
+            <button class="btn-next">次へ</button>
+          </div>
+
+          <div class="sc-quest">
+            <header class="header-qu">
+              <button class="btn-return-quest"></button>
+              <p><span>7</span>/<span>7</span></p>
+            </header>
+            <p>今日、<br>タバコは何本吸いました？</p>
+          
+            <div class="box-select">
+              <div></div>
+              <button class="btn-smoke-no">吸ってない</button>
+            </div>
+          
+            <button class="btn-next">結果へ</button>
+          </div>
+
+          <div class="sc-quest">
+            <div>
+              <p>今日の健康点数</p>
+              <p><span>35</span>/100<span>点</span></p>
+            </div>
+            <ul>
+              <li>
+                <p><span>Good</span><img src="" alt=""></p>
+                <p>ええ感じで肥えてますね</p>
+              </li>
+              <li>
+                <p><span>Good</span><img src="" alt=""></p>
+                <p>ええ感じで肥えてますね</p>
+              </li>
+            </ul>
+            <div>
+              <p>まとめると、<br>まだまだこれからってことやな。<br>今までのデータ振り返ってなんか。<br>アドバイス的なの。</p>
+              <p><img src="" alt=""></p>
+            </div>
+          </div>
+        </div>
+
+
         <!-- *************************** ホーム画面 *************************** -->
         <div class="sc sc-home">
           <div class="box-chara">
@@ -325,6 +515,24 @@
             </div>
 
           </div>
+
+          <div class="my-year">
+            <div>
+              <button class="btn-month-prev"><img src="" alt=""></button>
+              <p>6<span>2019</span></p>
+              <button class="btn-month-next"><img src="" alt=""></button>
+            </div>
+            <div>
+              <!-- カレンダー -->
+              <div>
+                <div>
+                  <p>2019.6.22(木曜)</p>
+                  <p>健康点数</p>
+                </div>
+                <p><span>10</span>/100点</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- *************************** 設定画面 *************************** -->
@@ -433,11 +641,12 @@
       </div>
 
       <!-- ログイン後に表示されてるナビ -->
-      <nav class="af-nav">
+      <!--  <= このspanの中のimgとttlをpositionで動かす ttlは固定で表示/非表示 -->
+      <!-- <nav class="af-nav">
         <ul>
           <li>
             <button class="btn-move-home btn-menu on">
-              <span><!--  <= このspanの中のimgとttlをpositionで動かす ttlは固定で表示/非表示 -->
+              <span>
                 <span class="btn-menu__img"><img src="img/btn-home.svg" alt=""></span>
                 <span class="btn-menu__ttl">ホーム</span>
               </span>
@@ -460,12 +669,9 @@
             </button>
           </li>
         </ul>
-      </nav>
+      </nav> -->
 
-      <!-- 生活チェック -->
-      <!-- <div class="sc sc-check">
-
-      </div> -->
+      
 
     </div>
   </div>
