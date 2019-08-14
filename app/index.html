@@ -13,34 +13,217 @@
 
     <!-- ログイン前の画面たち -->
     <div class="wrap-be">
-      <!-- アプリの最初の画面 -->
-      <div class="sc sc-top"></div>
+      <!--------------------------------- アプリの最初の画面 --------------------------------->
+      <div class="sc sc-top">
+        <h1 class="sc-top__logo">
+          <img src="img/logo.svg" alt="生活リズムさん">
+        </h1>
 
-      <!-- ログインか会員登録か選ぶ画面 -->
-      <div class="sc sc-sele"></div>
+        <p class="sc-top__ttl"><span>ようこそ</span><br>生活リズムさんへ</p>
 
-      <!-- 会員登録の画面 -->
-      <div class="sc sc-regi"></div>
+        <div class="box-btns">
+          <button class="btn">登録する</button>
 
-      <!-- 会員登録の確認画面 -->
-      <div class="sc sc-conf"></div>
+          <p>既に登録された方は</p>
+          <button class="btn--re">ログイン</button>
+        </div>
+      </div>
 
-      <!-- ログインの画面 -->
-      <div class="sc sc-log"></div>
+      <!--------------------------------- 会員登録の画面 --------------------------------->
+      <div class="sc sc-regi">
+        <header class="head-be">
+          <button><img src="img/arrow.svg" alt="＜"></button>
+          <h2>生活リズムさんを始めましょう。</h2>
+        </header>
+        <div class="form">
+          <div class="form__parts form-name">
+            <h3>名前</h3>
+            <p><input type="text" name="regi-name" placeholder="あなたのお名前を入力"></p>
+          </div>
+          
+          <div class="form__parts form-mail">
+            <h3>メールアドレス</h3>
+            <p><input type="text" name="regi-mail" placeholder="YamadaTaro@gmail.com"></p>
+          </div>
+
+          <div class="form__parts form-pass01">
+            <h3>パスワード</h3>
+            <p><input type="password" name="regi-pass01" placeholder="パスワードを入力"></p>
+          </div>
+
+          <div class="form__parts form-pass02">
+            <h3>パスワード確認</h3>
+            <p><input type="password" name="regi-pass02" placeholder="もう一度パスワードを入力"></p>
+          </div>
+
+          <div　class="form__parts form-gender">
+            <h3>性別</h3>
+            <ul>
+              <li>
+                <input type="radio" name="regi-gender" id="geander01" value="0">
+                <label for="geander01">男性</label>
+              </li>
+              <li>
+                <input type="radio" name="regi-gender" id="geander02" value="1">
+                <label for="geander02">女性</label>
+              </li>
+              <li>
+                <input type="radio" name="regi-gender" id="geander03" value="2">
+                <label for="geander03">その他</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="form__parts form-birth">
+            <h3>生年月日</h3>
+            <div>
+              <p><input type="text" name="regi-birthY" maxlength="4"></p>
+              <p><input type="text" name="regi-birthM" maxlength="2"></p>
+              <p><input type="text" name="regi-birthD" maxlength="2"></p>
+            </div>
+          </div>
+
+          <div class="form__parts form-partner">
+            <h3>あなたのパートナーを選んでください</h3>
+            <ul>
+              <li>
+                <input type="radio" name="regi-partner" id="partner01" value="0">
+                <label for="partner01"><img src="" alt=""></label>
+              </li>
+              <li>
+                <input type="radio" name="regi-partner" id="partner02" value="1">
+                <label for="partner02"><img src="" alt=""></label>
+              </li>
+              <li>
+                <input type="radio" name="regi-partner" id="partner03" value="2">
+                <label for="partner03"><img src="" alt=""></label>
+              </li>
+            </ul>
+            <p>※パートナーは後から変更できません。</p>
+          </div>
+        </div>
+
+        <div class="box-btns">
+          <button class="btn btn-conf">確認する</button>
+        </div>
+      </div>
+
+      <!--------------------------------- 会員登録の確認画面 --------------------------------->
+      <div class="sc sc-conf">
+        <header class="head-be">
+          <button><img src="img/arrow.svg" alt="＜"></button>
+          <h2>生活リズムさんを始めましょう。</h2>
+        </header>
+        <div class="form">
+          <div class="form__parts form-name">
+            <h3>名前</h3>
+            <p><input type="text" name="conf-name" placeholder="あなたのお名前を入力"></p>
+          </div>
+        
+          <div class="form__parts form-mail">
+            <h3>メールアドレス</h3>
+            <p><input type="text" name="conf-mail" placeholder="YamadaTaro@gmail.com"></p>
+          </div>
+        
+          <div class="form__parts form-pass01">
+            <h3>パスワード</h3>
+            <p><input type="password" name="conf-pass01" placeholder="パスワードを入力"></p>
+          </div>
+        
+          <div class="form__parts form-pass02">
+            <h3>パスワード確認</h3>
+            <p><input type="password" name="conf-pass02" placeholder="もう一度パスワードを入力"></p>
+          </div>
+        
+          <div　class="form__parts form-gender">
+            <h3>性別</h3>
+            <ul>
+              <li>
+                <input type="radio" name="conf-gender" id="geander01" value="0">
+                <label for="geander01">男性</label>
+              </li>
+              <li>
+                <input type="radio" name="conf-gender" id="geander02" value="1">
+                <label for="geander02">女性</label>
+              </li>
+              <li>
+                <input type="radio" name="conf-gender" id="geander03" value="2">
+                <label for="geander03">その他</label>
+              </li>
+            </ul>
+          </div>
+        
+          <div class="form__parts form-birth">
+            <h3>生年月日</h3>
+            <div>
+              <p><input type="text" name="conf-birthY" maxlength="4"></p>
+              <p><input type="text" name="conf-birthM" maxlength="2"></p>
+              <p><input type="text" name="conf-birthD" maxlength="2"></p>
+            </div>
+          </div>
+        
+          <div class="form__parts form-partner">
+            <h3>あなたのパートナーを選んでください</h3>
+            <ul>
+              <li>
+                <input type="radio" name="conf-partner" id="partner01" value="0">
+                <label for="partner01"><img src="" alt=""></label>
+              </li>
+              <li>
+                <input type="radio" name="conf-partner" id="partner02" value="1">
+                <label for="partner02"><img src="" alt=""></label>
+              </li>
+              <li>
+                <input type="radio" name="conf-partner" id="partner03" value="2">
+                <label for="partner03"><img src="" alt=""></label>
+              </li>
+            </ul>
+            <p>※パートナーは後から変更できません。</p>
+          </div>
+        </div>
+
+        <div class="box-btns">
+          <button class="btn btn-regi">登録する</button>
+        </div>
+      </div>
+
+      <!--------------------------------- ログインの画面 --------------------------------->
+      <div class="sc sc-log">
+        <header class="head-be">
+          <button><img src="img/arrow.svg" alt="＜"></button>
+        </header>
+        <div class="form">
+          <div class="form__parts form-mail">
+            <h3>メールアドレス</h3>
+            <p><input type="text" name="log-mail" placeholder="YamadaTaro@gmail.com"></p>
+          </div>
+        
+          <div class="form__parts form-mail">
+            <h3>パスワード</h3>
+            <p><input type="text" name="log-pass" placeholder="パスワードを入力"></p>
+          </div>
+          <p><a href="">パスワードを忘れた？</a></p>
+      </div>
+
+      <div class="box-btns">
+        <button class="btn btn-log">ログイン</button>
+
+        <p>まだユーザー登録をしていませんか？</p>
+        <button class="btn btn-move-regi">ユーザー登録画面へ</button>
+      </div>
     </div>
 
     <!-- ログイン後の画面たち -->
     <div class="wrap-af">
       <!-- ログイン後の画面だけを囲む -->
-      <div class="af-sc">
-
-        <!-- ホーム画面 -->
+      <div class="af-screens">
+        <!--------------------------------- ホーム画面 --------------------------------->
         <div class="sc sc-home"></div>
 
-        <!-- マイページ画面 -->
+        <!--------------------------------- マイページ画面 --------------------------------->
         <div class="sc sc-my"></div>
 
-        <!-- 設定画面 -->
+        <!--------------------------------- 設定画面 --------------------------------->
         <div class="sc sc-set"></div>
       </div>
 
