@@ -1,0 +1,20 @@
+/* sc-top */
+.sc-top{
+  text-align: center;
+  .box-btns{
+    width: 290px;
+  }
+  &__logo{
+    width: 156px;
+    margin: 0 auto;
+  }
+  &__ttl{
+    font-size: 2.4rem;
+    span{
+      font-size: 1.6rem;
+    }
+  }
+}
+.box-logo{
+  margin: 42% 0;
+}
