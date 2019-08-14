@@ -23,9 +23,9 @@
         </div>
 
         <div class="box-btns">
-          <button class="btn">登録する</button>
+          <button class="btn btn-move-regi">登録する</button>
           <p>既に登録された方は</p>
-          <button class="btn btn--re">ログイン</button>
+          <button class="btn btn--re btn-move-log">ログイン</button>
         </div>
       </div>
 
@@ -113,8 +113,8 @@
       <!--------------------------------- 会員登録の確認画面 --------------------------------->
       <div class="sc sc-conf">
         <header class="head-be">
-          <button><img src="img/arrow.svg" alt="＜"></button>
-          <h2>生活リズムさんを始めましょう。</h2>
+          <button class="btn-return"><img src="img/arrow.svg" alt="＜"></button>
+          <h2>この入力内容でよろしいですか？</h2>
         </header>
         <div class="form">
           <div class="form-parts form-name">
@@ -150,8 +150,8 @@
           <div class="form-parts form-partner">
             <h3>選択したパートナー</h3>
             <div class="conf-partner">
-              <p><img src="img/partner.svg" alt=""></p>
-              <p>生活リズムくん</p>
+              <p class="partner-img"><span><img src="img/partner.svg" alt=""></span></p>
+              <p class="partner-name">生活リズムくん</p>
             </div>
             <p>※パートナーは後から変更できません。</p>
           </div>
@@ -161,6 +161,21 @@
           <button class="btn btn-regi">登録する</button>
         </div>
       </div>
+
+
+      <!--------------------------------- 会員登録の完了画面 --------------------------------->
+      <div class="sc sc-comp">
+        <header class="head-be">
+          <button class="btn-return"><img src="img/arrow.svg" alt="＜"></button>
+        </header>
+        
+        <p>登録が完了しました。</p>
+
+        <div class="box-btns">
+          <button class="btn btn-move-log">ログインする</button>
+        </div>
+      </div>
+
 
       <!--------------------------------- ログインの画面 --------------------------------->
       <div class="sc sc-log">

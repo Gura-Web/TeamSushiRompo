@@ -7,6 +7,13 @@ body,
   height: 100%;
 }
 
+.sc-top,
+.sc-regi,
+.sc-conf,
+.sc-log{
+  background: $base;
+}
+
 html{
   font-size: 62.5%;
 }
@@ -16,6 +23,10 @@ html{
   height: 100vh;
   border: solid 1px blue;
   overflow-x: hidden;
+}
+
+.wrap-be{
+  color: #fff;
 }
 
 img{

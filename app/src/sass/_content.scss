@@ -1,3 +1,11 @@
+.sc-top,
+.sc-regi,
+.sc-conf,
+.sc-log,
+.sc-comp{
+  background: $base;
+}
+
 /* sc-top */
 .sc-top{
   text-align: center;
@@ -20,11 +28,16 @@
 }
 
 
+
+
 /* sc-regi */
 .sc-regi{
   padding: 0 16px;
   .box-btns{
     margin: 56px 0 26px;
+  }
+  .form-parts{
+    margin-left: 20px;
   }
 }
 
@@ -32,7 +45,6 @@
 
 /* form類 */
 .form-parts{
-  margin-left: 20px;
   h3,p{
     font-size: 1.3rem;
   }
@@ -41,6 +53,10 @@
   }
   p input{
     width: 100%;
+    &::placeholder{
+      color: #fff;
+      opacity: 0.2;
+    }
   }
 }
 .form-name{
@@ -82,10 +98,19 @@ input[name="regi-gender"]+label{
   display: block;
   width: 74px;
   height: 30px;
+  position: relative;
   text-align: center;
   line-height: 30px;
   font-size: 1.2rem;
-  background: #fff;
+  background: $base;
+  &::before{
+    display: block;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.06);
+  }
 }
 #geander01:checked + label{
   background: $blue;
@@ -164,7 +189,72 @@ input[name="regi-partner"]+label{
 }
 
 
-
+/* sc-conf */
+.sc-conf{
+  .box-btns{
+    margin: 56px 0 26px;
+    padding: 0 16px;
+  }
+  .head-be{
+    padding: 0 16px;
+  }
+  .form-parts{
+    padding-left: 38px;
+  }
+  .form-pass02,
+  .form-gender,
+  .form-birth{
+    border-bottom: solid 1px rgba(255,255,255,0.15);
+  }
+  .form-gender,
+  .form-birth{
+    margin: 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .form-gender p{
+    width: 74px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1.2rem;
+    background: $blue;
+    color: #fff;
+  }
+  .form-gender p.gender0{
+    background: $blue;
+  }
+  .form-birth p{
+    font-size: 1.8rem;
+  }
+  .form-partner{
+    margin-top: 15px;
+  }
+}
+.conf-partner{
+  display: flex;
+  align-items: center;
+  .partner-img{
+    display: flex;
+    align-items: center;
+    width: 74px;
+    height: 74px;
+    margin-right: 15px;
+    background: #fff;
+    border: solid 2px $blue;
+    span{
+      display: block;
+      margin: 0 auto;
+      width: 18px;
+    }
+    &.partner0{
+      border: solid 2px $blue;
+    }
+  }
+  .partner-name{
+    font-size: 1.4rem;
+  }
+}
 
 
 
