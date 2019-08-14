@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="グループ_14" data-name="グループ 14" transform="translate(-2561 -1430)">
+    <g id="_person" data-name=" person" transform="translate(2427 -2668)">
+      <rect id="Path" width="24" height="24" transform="translate(134 4098)" fill="rgba(0,0,0,0)"/>
+      <path id="Icon" d="M153,4118H139a1,1,0,0,1-1-1v-1c0-.819.52-2,3-3a12.977,12.977,0,0,1,10,0c2.478.994,3,2.179,3,3v1A1,1,0,0,1,153,4118Zm-7-8a4,4,0,1,1,4-4A4,4,0,0,1,146,4110Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>
