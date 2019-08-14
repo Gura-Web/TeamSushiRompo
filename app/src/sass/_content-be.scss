@@ -1,8 +1,39 @@
+.wrap-be{
+  position: relative;
+  .sc{
+    position: absolute;
+  }
+}
+.sc-regi,
+.sc-conf,
+.sc-comp,
+.sc-log{
+  left: 100%;
+  transition: ease 0.4s;
+}
+
+.sc-regi.show,
+.sc-conf.show,
+.sc-comp.show,
+.sc-log.show{
+  left: 0%;
+}
+
+.sc-regi.show{
+  z-index: 1;
+}
+
+
 /* sc-top */
 .sc-top{
   text-align: center;
+  position: relative;
   .box-btns{
     width: 290px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   &__logo{
     width: 156px;
@@ -44,6 +75,10 @@
       color: #fff;
       opacity: 0.2;
     }
+    &.er::placeholder{
+      color: $yellow;
+      opacity: 1;
+    }
   }
 }
 .form-name{
@@ -61,6 +96,12 @@
 .form-pass01,
 .box-form-txt{
   border-bottom: solid 1px rgba(255,255,255,0.15);
+}
+.form-name.er,
+.form-mail.er,
+.form-pass01.er,
+.box-form-txt.er{
+  border-bottom: solid 1px $yellow;
 }
 
 .form-gender{
@@ -80,6 +121,9 @@
 }
 input[name="regi-gender"]{
   display: none;
+  &.er + label{
+    border: solid 1px $yellow;
+  }
 }
 input[name="regi-gender"]+label{
   display: block;
@@ -153,6 +197,9 @@ input[name="regi-gender"]+label{
 }
 input[name="regi-partner"]{
   display: none;
+  &.er + label{
+    border: solid 1px $yellow;
+  }
 }
 input[name="regi-partner"]+label{
   display: flex;
