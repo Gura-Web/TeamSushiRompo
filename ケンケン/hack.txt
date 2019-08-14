@@ -1,0 +1,28 @@
+////////////////////////////////////////////
+
+----個人情報　テーブル名hacku_user
+CREATE TABLE hacku_user(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    user_name VARCHAR(64) NOT NULL, 
+    password VARCHAR(256) NOT NULL, 
+    mail VARCHAR(32),
+    first INT UNSIGNED,
+    sex INT UNSIGNED, -- 1女2男
+    Mon INT UNSIGNED, -- 月曜日
+    Tue INT UNSIGNED, -- 火曜日
+    Wed INT UNSIGNED, -- 水曜日
+    Thu INT UNSIGNED, -- 木曜日
+    Fri INT UNSIGNED, -- 金曜日
+    Sat INT UNSIGNED, -- 土曜日
+    Sun INT UNSIGNED, -- 日曜日
+    kyara longtext, 
+    created_at DATETIME NOT NULL
+)ENGINE=INNODB;
+INSERT INTO hacku_user(
+  user_name,password,sex,mail,first,Mon,Tue,Wed,Thu,Fri,Sat,Sun,kyara,created_at
+)
+VALUES 
+('ケンケン','password',1,'kenken@gmail.com',10,20,30,40,50,60,70,80,'character',now());
+
+--------------------------------------------
+
