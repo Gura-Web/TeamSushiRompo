@@ -19,13 +19,11 @@
           <h1 class="sc-top__logo">
             <img src="img/logo.svg" alt="生活リズムさん">
           </h1>
-
           <p class="sc-top__ttl"><span>ようこそ</span><br>生活リズムさんへ</p>
         </div>
 
         <div class="box-btns">
           <button class="btn">登録する</button>
-
           <p>既に登録された方は</p>
           <button class="btn btn--re">ログイン</button>
         </div>
@@ -34,33 +32,35 @@
       <!--------------------------------- 会員登録の画面 --------------------------------->
       <div class="sc sc-regi">
         <header class="head-be">
-          <button><img src="img/arrow.svg" alt="＜"></button>
+          <button class="btn-return"><img src="img/arrow.svg" alt="＜"></button>
           <h2>生活リズムさんを始めましょう。</h2>
         </header>
         <div class="form">
-          <div class="form__parts form-name">
-            <h3>名前</h3>
-            <p><input type="text" name="regi-name" placeholder="あなたのお名前を入力"></p>
-          </div>
-          
-          <div class="form__parts form-mail">
-            <h3>メールアドレス</h3>
-            <p><input type="text" name="regi-mail" placeholder="YamadaTaro@gmail.com"></p>
+          <div class="box-form-txt">
+            <div class="form-parts form-name">
+              <h3>名前</h3>
+              <p><input type="text" name="regi-name" placeholder="あなたのお名前を入力"></p>
+            </div>
+            
+            <div class="form-parts form-mail">
+              <h3>メールアドレス</h3>
+              <p><input type="text" name="regi-mail" placeholder="YamadaTaro@gmail.com"></p>
+            </div>
+
+            <div class="form-parts form-pass01">
+              <h3>パスワード</h3>
+              <p><input type="password" name="regi-pass01" placeholder="パスワードを入力"></p>
+            </div>
+
+            <div class="form-parts form-pass02">
+              <h3>パスワード確認</h3>
+              <p><input type="password" name="regi-pass02" placeholder="もう一度パスワードを入力"></p>
+            </div>
           </div>
 
-          <div class="form__parts form-pass01">
-            <h3>パスワード</h3>
-            <p><input type="password" name="regi-pass01" placeholder="パスワードを入力"></p>
-          </div>
-
-          <div class="form__parts form-pass02">
-            <h3>パスワード確認</h3>
-            <p><input type="password" name="regi-pass02" placeholder="もう一度パスワードを入力"></p>
-          </div>
-
-          <div class="form__parts form-gender">
+          <div class="form-parts form-gender">
             <h3>性別</h3>
-            <ul>
+            <ul class="list-gender">
               <li>
                 <input type="radio" name="regi-gender" id="geander01" value="0">
                 <label for="geander01">男性</label>
@@ -76,29 +76,29 @@
             </ul>
           </div>
 
-          <div class="form__parts form-birth">
+          <div class="form-parts form-birth">
             <h3>生年月日</h3>
-            <div>
-              <p><input type="text" name="regi-birthY" maxlength="4"></p>
-              <p><input type="text" name="regi-birthM" maxlength="2"></p>
-              <p><input type="text" name="regi-birthD" maxlength="2"></p>
+            <div class="box-birth">
+              <p><input type="text" name="regi-birthY" maxlength="4" placeholder="1999"></p>
+              <p><input type="text" name="regi-birthM" maxlength="2" placeholder="3"></p>
+              <p><input type="text" name="regi-birthD" maxlength="2" placeholder="3"></p>
             </div>
           </div>
 
-          <div class="form__parts form-partner">
+          <div class="form-parts form-partner">
             <h3>あなたのパートナーを選んでください</h3>
-            <ul>
+            <ul class="list-partner">
               <li>
                 <input type="radio" name="regi-partner" id="partner01" value="0">
-                <label for="partner01"><img src="img/partner.svg" alt="パートナーの画像"></label>
+                <label for="partner01"><span><img src="img/partner.svg" alt="パートナーの画像"></span></label>
               </li>
               <li>
                 <input type="radio" name="regi-partner" id="partner02" value="1">
-                <label for="partner02"><img src="img/partner.svg" alt="パートナーの画像"></label>
+                <label for="partner02"><span><img src="img/partner.svg" alt="パートナーの画像"></span></label>
               </li>
               <li>
                 <input type="radio" name="regi-partner" id="partner03" value="2">
-                <label for="partner03"><img src="img/partner.svg" alt="パートナーの画像"></label>
+                <label for="partner03"><span><img src="img/partner.svg" alt="パートナーの画像"></span></label>
               </li>
             </ul>
             <p>※パートナーは後から変更できません。</p>
@@ -117,69 +117,42 @@
           <h2>生活リズムさんを始めましょう。</h2>
         </header>
         <div class="form">
-          <div class="form__parts form-name">
+          <div class="form-parts form-name">
             <h3>名前</h3>
-            <p><input type="text" name="conf-name" placeholder="あなたのお名前を入力"></p>
+            <p class="conf-name">あいう</p>
           </div>
         
-          <div class="form__parts form-mail">
+          <div class="form-parts form-mail">
             <h3>メールアドレス</h3>
-            <p><input type="text" name="conf-mail" placeholder="YamadaTaro@gmail.com"></p>
+            <p class="conf-mail">aaaa@gmail.com</p>
           </div>
         
-          <div class="form__parts form-pass01">
+          <div class="form-parts form-pass01">
             <h3>パスワード</h3>
-            <p><input type="password" name="conf-pass01" placeholder="パスワードを入力"></p>
+            <p class="conf-pass01">*****</p>
           </div>
         
-          <div class="form__parts form-pass02">
+          <div class="form-parts form-pass02">
             <h3>パスワード確認</h3>
-            <p><input type="password" name="conf-pass02" placeholder="もう一度パスワードを入力"></p>
+            <p class="conf-pass02">*****</p>
           </div>
         
-          <div class="form__parts form-gender">
+          <div class="form-parts form-gender">
             <h3>性別</h3>
-            <ul>
-              <li>
-                <input type="radio" name="conf-gender" id="geander01-conf" value="0">
-                <label for="geander01-conf">男性</label>
-              </li>
-              <li>
-                <input type="radio" name="conf-gender" id="geander02-conf" value="1">
-                <label for="geander02-conf">女性</label>
-              </li>
-              <li>
-                <input type="radio" name="conf-gender" id="geander03-conf" value="2">
-                <label for="geander03-conf">その他</label>
-              </li>
-            </ul>
+            <p class="conf-gender">男性</p>
           </div>
         
-          <div class="form__parts form-birth">
+          <div class="form-parts form-birth">
             <h3>生年月日</h3>
-            <div>
-              <p><input type="text" name="conf-birthY" maxlength="4"></p>
-              <p><input type="text" name="conf-birthM" maxlength="2"></p>
-              <p><input type="text" name="conf-birthD" maxlength="2"></p>
-            </div>
+            <p class="conf-birth">1999年&nbsp;3月&nbsp;25日</p>
           </div>
         
-          <div class="form__parts form-partner">
-            <h3>あなたのパートナーを選んでください</h3>
-            <ul>
-              <li>
-                <input type="radio" name="conf-partner" id="partner01-conf" value="0">
-                <label for="partner01-conf"><img src="img/partner.svg" alt="パートナーの画像"></label>
-              </li>
-              <li>
-                <input type="radio" name="conf-partner" id="partner02-conf" value="1">
-                <label for="partner02-conf"><img src="img/partner.svg" alt="パートナーの画像"></label>
-              </li>
-              <li>
-                <input type="radio" name="conf-partner" id="partner03-conf" value="2">
-                <label for="partner03-conf"><img src="img/partner.svg" alt="パートナーの画像"></label>
-              </li>
-            </ul>
+          <div class="form-parts form-partner">
+            <h3>選択したパートナー</h3>
+            <div class="conf-partner">
+              <p><img src="img/partner.svg" alt=""></p>
+              <p>生活リズムくん</p>
+            </div>
             <p>※パートナーは後から変更できません。</p>
           </div>
         </div>
@@ -195,12 +168,12 @@
           <button><img src="img/arrow.svg" alt="＜"></button>
         </header>
         <div class="form">
-          <div class="form__parts form-mail">
+          <div class="form-parts form-mail">
             <h3>メールアドレス</h3>
             <p><input type="text" name="log-mail" placeholder="YamadaTaro@gmail.com"></p>
           </div>
         
-          <div class="form__parts form-mail">
+          <div class="form-parts form-mail">
             <h3>パスワード</h3>
             <p><input type="text" name="log-pass" placeholder="パスワードを入力"></p>
           </div>
