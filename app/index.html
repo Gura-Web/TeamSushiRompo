@@ -217,8 +217,10 @@
       <div class="af-screens">
         <!-- *************************** ホーム画面 *************************** -->
         <div class="sc sc-home">
-          <p>Fuck you！！！！！！！！！！</p>
-          <p><img src="img/partner.svg" alt=""></p>
+          <div class="box-chara">
+            <p class="box-chara__mes">Fuck you！！！！！！！！！！</p>
+            <p class="box-chara__img"><img src="img/partner.svg" alt="生活リズムさん"></p>
+          </div>
 
           <div>
             <p><img src="" alt=""></p>
@@ -228,17 +230,27 @@
             </div>
           </div>
 
-          <div>
-            <ul>
-              <li><button>生活チェック</button></li>
-              <li><button>おはよう</button></li>
-              <li><button>おやすみ</button></li>
-              <li><button>食べた</button></li>
-            </ul>
+          <ul class="list-btn">
+            <li><button>生活チェック</button></li>
+            <li><button>おはよう</button></li>
+            <li><button>おやすみ</button></li>
+            <li><button>食べた</button></li>
+          </ul>
+
+          <div class="modal-ohayo">
+
           </div>
 
-          <div>
+          <div class="modal-oyasumi">
+          
+          </div>
 
+          <div class="modal-tabeta">
+            <p>朝食は食べた？</p>
+            <div>
+              <button class="btn-tabe-n">いいえ</button>
+              <button class="btn-tabe-y">はい</button>
+            </div>
           </div>
         </div>
 
@@ -317,115 +329,146 @@
 
         <!-- *************************** 設定画面 *************************** -->
         <div class="sc sc-set">
-          <p>設定</p>
-          <div>
-            <p>プッシュ通知</p>
-            <div>
-              <p>OFF</p>
-              <button><span></span></button>
-              <p>ON</p>
+          <h2>設定</h2>
+          <div class="box-push">
+            <h3>プッシュ通知</h3>
+            <div class="box-push__btns">
+              <button class="btn-push-off">OFF</button>
+              <button class="btn-push on"><span></span></button>
+              <button class="btn-push-on check">ON</button>
             </div>
           </div>
-          <div>
-            <div>
+
+          <div class="box-time">
+            <div class="time-display">
               <span>起床時間</span>
               <div>
-                <p>07</p><span>：</span><p>30</p>
+                <p class="hour">07</p><span>：</span><p class="minute">30</p>
               </div>
             </div>
-            <ul>
-              <li>01</li>
-              <li>02</li>
-              <li>03</li>
-              <li>04</li>
-              <li>05</li>
-              <li>06</li>
-              <li>07</li>
-              <li>08</li>
-              <li>09</li>
-              <li>10</li>
-              <li>11</li>
-              <li>12</li>
-            </ul>
 
-            <ul>
-              <li>01</li>
-              <li>02</li>
-              <li>03</li>
-              <li>04</li>
-              <li>05</li>
-              <li>06</li>
-              <li>07</li>
-              <li>08</li>
-              <li>09</li>
-              <li>10</li>
-              <li>11</li>
-              <li>12</li>
-              <li>13</li>
-              <li>14</li>
-              <li>15</li>
-              <li>16</li>
-              <li>17</li>
-              <li>18</li>
-              <li>19</li>
-              <li>10</li>
-              <li>21</li>
-              <li>22</li>
-              <li>23</li>
-              <li>24</li>
-              <li>25</li>
-              <li>26</li>
-              <li>27</li>
-              <li>28</li>
-              <li>29</li>
-              <li>30</li>
-              <li>31</li>
-              <li>32</li>
-              <li>33</li>
-              <li>34</li>
-              <li>35</li>
-              <li>36</li>
-              <li>37</li>
-              <li>38</li>
-              <li>39</li>
-              <li>40</li>
-              <li>41</li>
-              <li>42</li>
-              <li>43</li>
-              <li>44</li>
-              <li>45</li>
-              <li>46</li>
-              <li>47</li>
-              <li>48</li>
-              <li>49</li>
-              <li>50</li>
-              <li>51</li>
-              <li>52</li>
-              <li>53</li>
-              <li>54</li>
-              <li>55</li>
-              <li>56</li>
-              <li>57</li>
-              <li>58</li>
-              <li>59</li>
-              <li>60</li>
-            </ul>
+            <div class="time-change">
+              <ul class="list-hour">
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+                <li>04</li>
+                <li>05</li>
+                <li>06</li>
+                <li>07</li>
+                <li>08</li>
+                <li>09</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+              </ul>
+
+              <ul class="list-minute">
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+                <li>04</li>
+                <li>05</li>
+                <li>06</li>
+                <li>07</li>
+                <li>08</li>
+                <li>09</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>10</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+                <li>32</li>
+                <li>33</li>
+                <li>34</li>
+                <li>35</li>
+                <li>36</li>
+                <li>37</li>
+                <li>38</li>
+                <li>39</li>
+                <li>40</li>
+                <li>41</li>
+                <li>42</li>
+                <li>43</li>
+                <li>44</li>
+                <li>45</li>
+                <li>46</li>
+                <li>47</li>
+                <li>48</li>
+                <li>49</li>
+                <li>50</li>
+                <li>51</li>
+                <li>52</li>
+                <li>53</li>
+                <li>54</li>
+                <li>55</li>
+                <li>56</li>
+                <li>57</li>
+                <li>58</li>
+                <li>59</li>
+                <li>60</li>
+              </ul>
+            </div>
           </div>
 
-          <button>ログアウト</button>
+          <button class="btn-logout">ログアウト</button>
         </div>
       </div>
 
       <!-- ログイン後に表示されてるナビ -->
       <nav class="af-nav">
         <ul>
-          <li><button><img src="img/btn-home.svg" alt=""><span>ホーム</span></button></li>
-          <li><button><img src="img/btn-my.svg" alt=""><span>マイページ</span></button></li>
-          <li><button><img src="img/btn-set.svg" alt=""><span>設定</span></button></li>
+          <li>
+            <button class="btn-move-home btn-menu on">
+              <span><!--  <= このspanの中のimgとttlをpositionで動かす ttlは固定で表示/非表示 -->
+                <span class="btn-menu__img"><img src="img/btn-home.svg" alt=""></span>
+                <span class="btn-menu__ttl">ホーム</span>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="btn-move-my btn-menu">
+              <span>
+                <span class="btn-menu__img"><img src="img/btn-my.svg" alt=""></span>
+                <span class="btn-menu__ttl">マイページ</span>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="btn-move-set btn-menu">
+              <span>
+                <span class="btn-menu__img"><img src="img/btn-set.svg" alt=""></span>
+                <span class="btn-menu__ttl">設定</span>
+              </span>
+            </button>
+          </li>
         </ul>
       </nav>
+
+      <!-- 生活チェック -->
+      <!-- <div class="sc sc-check">
+
+      </div> -->
+
     </div>
   </div>
-  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500,700&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500,700&display=swap" rel="stylesheet"> -->
 </body>
 </html>

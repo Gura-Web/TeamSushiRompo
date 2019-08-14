@@ -1,0 +1,188 @@
+/* wrap-af */
+.wrap-af{
+  position: relative;
+}
+
+.af-nav{
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  background: $base;
+  ul{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    li{
+      border: solid 1px red;
+      list-style-type: none;
+      width: 118px;
+      height: 42px;
+      position: absolute;
+      &:first-child{
+      left: 10%;
+      }
+      &:nth-of-type(2){
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      &:last-child{
+        right: 10%;
+      }
+    }
+    
+  }
+}
+.btn-menu{
+  width: 30%;
+  height: 100%;
+  border: solid 1px blue;
+  transition: ease 5s;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  >span{
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    border: solid 1px green;
+  }
+  &__img{
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+
+  }
+  &__ttl{
+    display: none;
+    color: #fff;
+    font-size: 1.3rem;
+    position: absolute;
+    //
+    left: 44px;
+  }
+  &.on .btn-menu__ttl{
+    display: block;
+  }
+  &.on .btn-menu__img{
+    left: 20px;
+  }
+  &.on{
+    width: 100%;
+  }
+}
+.btn-move-home{
+  .btn-menu__ttl{
+    margin-left: 6px;
+  }
+}
+.btn-move-my{
+  .btn-menu__ttl{
+    margin-left: 2px;
+  }
+}
+.btn-move-set{
+  .btn-menu__ttl{
+    margin-left: 6px;
+  }
+}
+
+
+/* sc-home */
+.sc-home{
+  .box-chara{
+    // &__mes{
+
+    // }
+    &__img{
+      width: 86px;
+    }
+  }
+  .list-btn{
+    li{
+      width: 100%;
+      height: 30px;
+      border: solid 1px red;
+      button{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+/* sc-set */
+.sc-set{
+  padding: 0 40px;
+  h2{
+    font-size: 3.2rem;
+  }
+  .box-push{
+    display: flex;
+    justify-content: space-between;
+    h3{
+      font-size: 2rem;
+    }
+    &__btns{
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.btn-push{
+  width: 60px;
+  height: 32px;
+  border-radius: 100px;
+  position: relative;
+  span{
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+  }
+  &.on{
+    border: solid 1px $base;
+    span{
+      left: 30px;
+      background: $base;
+    }
+  }
+  &.off{
+    border: solid 1px $pink;
+    span{
+      left: 2px;
+      background: $pink;
+    }
+  }
+}
+.btn-push-off,
+.btn-push-on{
+  font-size: 1.4rem;
+}
+.btn-push-off.check{
+  color: $pink;
+}
+.btn-push-on.check{
+  color: $base;
+}
+
+.time-display{
+  div{
+    display: flex;
+    p{
+      font-size: 2.8rem;
+    }
+  }
+}
+
+.list-hour,
+.list-minute{
+  list-style-type: none;
+}

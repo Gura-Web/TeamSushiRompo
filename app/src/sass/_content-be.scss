@@ -19,9 +19,6 @@
   margin: 42% 0;
 }
 
-
-
-
 /* sc-regi */
 .sc-regi{
   .box-btns{
@@ -31,8 +28,6 @@
     margin-left: 20px;
   }
 }
-
-
 
 /* form類 */
 .form-parts{
@@ -181,7 +176,6 @@ input[name="regi-partner"]+label{
   border: solid 2px $yellow;
 }
 
-
 /* sc-conf */
 .sc-conf{
   .box-btns{
@@ -249,7 +243,6 @@ input[name="regi-partner"]+label{
   }
 }
 
-
 /* sc-comp */
 .sc-comp{
   position: relative;
@@ -272,7 +265,6 @@ input[name="regi-partner"]+label{
     }
   }
 }
-
 
 /* sc-log */
 .sc-log{
@@ -313,10 +305,4 @@ input[name="regi-partner"]+label{
       text-align: center;
     }
   }
-}
-
-
-
-.wrap-af{
-  display: none;
 }
