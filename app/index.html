@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>生活リズムさん</title>
-  <!-- <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500,700&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,6 +29,7 @@
           <button class="btn btn--re btn-move-log">ログイン</button>
         </div>
       </div>
+      
 
       <!-- *************************** 会員登録の画面 *************************** -->
       <div class="sc sc-regi">
@@ -60,34 +61,41 @@
           </div>
 
           <div class="form-parts form-gender">
-            <h3>性別</h3>
-            <ul class="list-gender">
-              <li>
-                <input type="radio" name="regi-gender" id="geander01" value="0">
-                <label for="geander01">男性</label>
-              </li>
-              <li>
-                <input type="radio" name="regi-gender" id="geander02" value="1">
-                <label for="geander02">女性</label>
-              </li>
-              <li>
-                <input type="radio" name="regi-gender" id="geander03" value="2">
-                <label for="geander03">その他</label>
-              </li>
-            </ul>
+            <div class="inner-gender">
+              <h3>性別</h3>
+              <ul class="list-gender">
+                <li>
+                  <input type="radio" name="regi-gender" id="geander01" value="0">
+                  <label for="geander01">男性</label>
+                </li>
+                <li>
+                  <input type="radio" name="regi-gender" id="geander02" value="1">
+                  <label for="geander02">女性</label>
+                </li>
+                <li>
+                  <input type="radio" name="regi-gender" id="geander03" value="2">
+                  <label for="geander03">その他</label>
+                </li>
+              </ul>
+            </div>
+            <p class="error-text"></p>
           </div>
 
           <div class="form-parts form-birth">
-            <h3>生年月日</h3>
-            <div class="box-birth">
-              <p><input type="text" name="regi-birthY" maxlength="4" placeholder="1999"></p>
-              <p><input type="text" name="regi-birthM" maxlength="2" placeholder="3"></p>
-              <p><input type="text" name="regi-birthD" maxlength="2" placeholder="3"></p>
+            <div class="inner-birth">
+              <h3>生年月日</h3>
+              <div class="box-birth">
+                <p><input type="text" name="regi-birthY" maxlength="4" placeholder="1999"></p>
+                <p><input type="text" name="regi-birthM" maxlength="2" placeholder="3"></p>
+                <p><input type="text" name="regi-birthD" maxlength="2" placeholder="3"></p>
+              </div>
             </div>
+            <p class="error-text"></p>
           </div>
 
           <div class="form-parts form-partner">
             <h3>あなたのパートナーを選んでください</h3>
+            <p class="error-text"></p>
             <ul class="list-partner">
               <li>
                 <input type="radio" name="regi-partner" id="partner01" value="0">
@@ -102,7 +110,7 @@
                 <label for="partner03"><span><img src="img/partner.svg" alt="パートナーの画像"></span></label>
               </li>
             </ul>
-            <p>※パートナーは後から変更できません。</p>
+            <p class="attent-text">※パートナーは後から変更できません。</p>
           </div>
         </div>
 
