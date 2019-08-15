@@ -18,6 +18,10 @@ $(function(){
       scLog.removeClass("show");
       scConf.removeClass("show");
       scComp.removeClass("show");
+      $("input[name='log-address']").removeClass("er");
+      $("input[name='log-pass']").removeClass("er");
+      $("input[name='log-address']").val("");
+      $("input[name='log-pass']").val("");
     },400);
   })
 
@@ -37,9 +41,6 @@ $(function(){
   btnReturn.on("click",function(){
     $(this).parents(".sc").removeClass("show");
   })
-  
-  
-
 
 
 })

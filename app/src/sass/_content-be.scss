@@ -83,20 +83,25 @@
 }
 .form-mail,
 .form-pass01,
-.form-pass02{
+.form-pass02,
+.form-address{
   padding-top: 34px;
   padding-bottom: 10px;
 }
 .form-name,
 .form-mail,
 .form-pass01,
-.box-form-txt{
+.box-form-txt,
+.form-pass,
+.form-address{
   border-bottom: solid 1px rgba(255,255,255,0.15);
 }
 .form-name.er,
 .form-mail.er,
 .form-pass01.er,
-.box-form-txt.er{
+.box-form-txt.er,
+.form-pass.er,
+.form-address.er{
   border-bottom: solid 1px $yellow;
 }
 
@@ -390,6 +395,10 @@ input[name="regi-partner"]+label{
   }
   .form{
     margin: 0 26px 0 32px;
+  }
+  .form-pass{
+    margin-top: 26px;
+    padding-bottom: 10px;
   }
   .btn-forget{
     margin: 16px 16px 0 0;

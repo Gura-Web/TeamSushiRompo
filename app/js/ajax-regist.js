@@ -31,5 +31,4 @@ function ajaxRegist(name,mail,pass,gender,birth,partner){
   .fail(function(error){
     console.log(error)
   })
-
 }
