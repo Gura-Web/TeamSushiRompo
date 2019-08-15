@@ -30,6 +30,36 @@
         </div>
       </div>
       
+      <!-- *************************** ログインの画面 *************************** -->
+      <div class="sc sc-log">
+        <header class="head-be">
+        </header>
+      
+        <h2>
+          <span><img src="img/logo.svg" alt="生活リズムさん"></span>
+          ログイン
+        </h2>
+      
+        <div class="form">
+          <div class="form-parts form-mail">
+            <h3>メールアドレス</h3>
+            <p><input type="text" name="log-mail" placeholder="YamadaTaro@gmail.com"></p>
+          </div>
+      
+          <div class="form-parts form-mail">
+            <h3>パスワード</h3>
+            <p><input type="text" name="log-pass" placeholder="パスワードを入力"></p>
+          </div>
+          <p class="btn-forget"><a href="">パスワードを忘れた？</a></p>
+        </div>
+      
+        <div class="box-btns">
+          <button class="btn btn-log">ログイン</button>
+      
+          <p>まだユーザー登録をしていませんか？</p>
+          <button class="btn btn--re btn-move-regi">ユーザー登録画面へ</button>
+        </div>
+      </div>
 
       <!-- *************************** 会員登録の画面 *************************** -->
       <div class="sc sc-regi">
@@ -138,7 +168,7 @@
         
           <div class="form-parts form-pass01">
             <h3>パスワード</h3>
-            <p class="conf-pass01" data-pass=""></p>
+            <p class="conf-pass01"></p>
           </div>
         
           <div class="form-parts form-pass02">
@@ -187,37 +217,7 @@
       </div>
 
 
-      <!-- *************************** ログインの画面 *************************** -->
-      <div class="sc sc-log">
-        <header class="head-be">
-          <button class="btn-return"><img src="img/arrow.svg" alt="＜"></button>
-        </header>
-
-        <h2>
-          <span><img src="img/logo.svg" alt="生活リズムさん"></span>
-          ログイン
-        </h2>
-
-        <div class="form">
-          <div class="form-parts form-mail">
-            <h3>メールアドレス</h3>
-            <p><input type="text" name="log-mail" placeholder="YamadaTaro@gmail.com"></p>
-          </div>
-        
-          <div class="form-parts form-mail">
-            <h3>パスワード</h3>
-            <p><input type="text" name="log-pass" placeholder="パスワードを入力"></p>
-          </div>
-          <p class="btn-forget"><a href="">パスワードを忘れた？</a></p>
-        </div>
-
-        <div class="box-btns">
-          <button class="btn btn-log">ログイン</button>
-
-          <p>まだユーザー登録をしていませんか？</p>
-          <button class="btn btn--re btn-move-regi">ユーザー登録画面へ</button>
-        </div>
-      </div>
+      
     </div>
 
     <!-- ログイン後の画面たち -->
@@ -685,10 +685,10 @@
     </div>
   </div>
   <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/event.js"></script>
-  <script src="js/validat-regist.js"></script>
   <script src="js/ajax-regist.js"></script>
   <script src="js/ajax-login.js"></script>
   <script src="js/ajax-check.js"></script>
+  <script src="js/event.js"></script>
+  <script src="js/validat-regist.js"></script>
 </body>
 </html>

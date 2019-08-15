@@ -1,6 +1,7 @@
 $(function(){
   // 確認画面
   let btnConf = $(".btn-conf");
+  let btnRegi = $(".btn-regi");
   let scConf = $(".sc-conf");
   let confName = $(".conf-name");
   let confMail = $(".conf-mail");
@@ -10,25 +11,26 @@ $(function(){
   let confBirth = $(".conf-birth");
   let confPartnerImg = $(".partner-img");
   let confPartnerName = $(".partner-name");
-
+  let btnReturnRegi = $(".sc-regi .btn-return");
 
   // 新規登録のバリデーション
   let errorFlg = false;
   let errorBirthFlg = false;
-
   let name = $("input[name='regi-name']");
   let mail = $("input[name='regi-mail']");
   let pass01 = $("input[name='regi-pass01']");
   let pass02 = $("input[name='regi-pass02']");
 
-  btnConf.on("click", function () {
-    
+  btnConf.on("click", function () {    
     let gender = $("input[name='regi-gender']:checked");
     let birthY = $("input[name='regi-birthY']").val();
     let birthM = $("input[name='regi-birthM']").val();
     let birthD = $("input[name='regi-birthD']").val();
     let partner = $("input[name='regi-partner']:checked");
 
+    // *********************************************************
+    //  ↓↓↓　入力エラー処理ここから ↓↓↓
+    // *********************************************************
     // エラー初期化
     $(".form-parts").removeClass("er");
     $(".box-form-txt").removeClass("er");
@@ -36,9 +38,9 @@ $(function(){
     mail.removeClass("er");
     pass01.removeClass("er");
     pass02.removeClass("er");
+
     errorFlg = false;
     errorBirthFlg = false;
-
     // 名前：入力必須(優先), 16文字以下
     if (!name.val()) {
       errorFlg = true;
@@ -53,7 +55,6 @@ $(function(){
       name.addClass("er");
       $(".form-name").addClass("er");
     }
-
     // メール：入力必須(優先) , 正規表現(https://qiita.com/sakuro/items/1eaa307609ceaaf51123) & 254文字以内
     if (!mail.val()) {
       errorFlg = true;
@@ -68,7 +69,6 @@ $(function(){
       mail.addClass("er");
       $(".form-mail").addClass("er");
     }
-
     // パスワード：入力必須 , 半角英数字を1文字以上含む、8文字以上12文字以内(https://qiita.com/mpyw/items/886218e7b418dfed254b) , ２回一致
     if (!pass01.val() || !pass02.val()) {
       errorFlg = true;
@@ -103,15 +103,12 @@ $(function(){
       $(".form-pass01").addClass("er");
       $(".box-form-txt").addClass("er");
     }
-    
-
     // 性別：入力必須
     if (gender.val() == null){
       errorFlg = true;
       $(".form-gender .error-text").text("性別を選択してください。");
       $(".form-gender").addClass("er");
     }
-
     // 生年月日：入力必須(優先) , ありえない数字を判定
     if (birthY == "" || birthM == "" || birthD == "") {
       errorFlg = true;
@@ -142,42 +139,49 @@ $(function(){
         }
       }
     }
-
     if(errorBirthFlg){
       $(".form-birth .error-text").text("不適切な生年月日です。");
       $(".form-birth").addClass("er");
     }
-
-    
-
     // パートナー：入力必須
     if (partner.val() == null) {
       errorFlg = true;
       $(".form-partner").addClass("er");
       $(".form-partner .error-text").text("パートナーを選択してください。");
     }
+    // *********************************************************
+    //  ↑↑↑ 入力エラー処理ここまで ↑↑↑
+    // *********************************************************
 
 
-    // ***********************************************
+
     //  エラーがなかった時、確認画面へ
-    // ***********************************************
-
     if (!errorFlg){
       // 確認画面へデータを入れる
+      confGender.removeClass("gender0");
+      confGender.removeClass("gender1");
+      confGender.removeClass("gender2");
+      confPartnerImg.removeClass("partner0");
+      confPartnerImg.removeClass("partner1");
+      confPartnerImg.removeClass("partner2");
+
       confName.text(name.val());
       confMail.text(mail.val());
       confPass01.text("********");
       confPass02.text("********");
-      $(".conf-pass01").attr("data-pass", pass01.val());
+      
       switch (gender.val()){
         case "0":
           confGender.text("男性");
+          confGender.addClass("gender0");
           break;
         case "1":
           confGender.text("女性");
+          confGender.addClass("gender1");
           break;
         case "2":
           confGender.text("その他");
+          confGender.addClass("gender2");
           break;
       }
       confBirth.html(birthY + "年&nbsp;" + birthM + "月&nbsp;" + birthD + "日");
@@ -185,14 +189,17 @@ $(function(){
         case "0":
           confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムくん'></span>");
           confPartnerName.text("生活リズムくん");
+          confPartnerImg.addClass("partner0");
           break;
         case "1":
           confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムさん'></span>");
           confPartnerName.text("生活リズムさん");
+          confPartnerImg.addClass("partner1");
           break;
         case "2":
           confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムぶた'></span>");
           confPartnerName.text("生活リズムぶた");
+          confPartnerImg.addClass("partner2");
           break;
       }
 
@@ -203,7 +210,22 @@ $(function(){
       scConf.addClass("show");
     }
   })
-  
+
+
+  // 戻るボタン押した時の処理
+  btnReturnRegi.on("click", function () {
+    setTimeout(function () {
+      // エラー初期化
+      $(".form-parts").removeClass("er");
+      $(".box-form-txt").removeClass("er");
+      name.removeClass("er");
+      mail.removeClass("er");
+      pass01.removeClass("er");
+      pass02.removeClass("er");
+      errorFlg = false;
+    }, 400)
+  })
+
 
   // エラー出した後、入力した場合エラースタイルをなくす
   name.keyup(function(){
@@ -254,5 +276,22 @@ $(function(){
   partner.change(function () {
     $(".form-partner").removeClass("er");
   })
+
+  
+
+  // ******************************************
+  //  新規登録のajax関数
+  // ******************************************
+  btnRegi.on("click",function(){
+    ajaxRegist(
+      name.val(),
+      mail.val(),
+      pass01.val(),
+      $("input[name='regi-gender']:checked").val(),
+      birthY.val() + "/" + birthM.val() + "/" + birthD.val(),
+      $("input[name='regi-partner']:checked").val()
+    )
+  })
+  
 })
 
