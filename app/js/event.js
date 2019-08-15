@@ -109,13 +109,12 @@ $(function(){
     $(".quest0" + nextNum).addClass("on");
   })
 
-  btnResult.on("click",function(){
-    result.addClass("on");
-    scCheck.css("z-index",1);
-    setTimeout(function(){
-      afNav.removeClass("down");
-    },100)
-  })
+  
 
+  // 生活チェック 戻るボタン
+  let btnReturnQuest = $(".btn-return-quest");
+  btnReturnQuest.on("click",function(){
+    $(this).parents(".sc-quest").removeClass("on");
+  })
 
 })
