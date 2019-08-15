@@ -1,5 +1,6 @@
 <?php
 
+// id => ユーザーid
 // morning => 朝ごはん
 // lunch => 昼ごはん
 // dinner => 夜ご飯

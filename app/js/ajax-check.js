@@ -81,6 +81,7 @@ $(function(){
       dataType: "json",
       cashe: false,
       data: {
+        // id:id, // ストレージから？？
         morning: morning,
         lunch: lunch,
         dinner: dinner,
