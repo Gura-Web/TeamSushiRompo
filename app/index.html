@@ -219,12 +219,9 @@
 
     <!-- ログイン後の画面たち -->
     <div class="wrap-af">
-      <!-- ログイン後の画面だけを囲む -->
-      <div class="af-screens">
-
-        <!-- *************************** 生活チェック *************************** -->
+      <!-- *************************** 生活チェック *************************** -->
         <div class="sc sc-check">
-          <div class="sc-quest">
+          <div class="sc-quest quest01">
             <header class="header-qu">
               <p>1/7</p>
             </header>
@@ -248,7 +245,7 @@
             <button class="btn-next">次へ</button>
           </div>
 
-          <div class="sc-quest">
+          <div class="sc-quest quest02">
             <header class="header-qu">
               <button class="btn-return-quest"></button>
               <p>2/7</p>
@@ -273,7 +270,7 @@
             <button class="btn-next">次へ</button>
           </div>
 
-          <div class="sc-quest">
+          <div class="sc-quest quest03">
             <header class="header-qu">
               <button class="btn-return-quest"></button>
               <p>2/7</p>
@@ -298,7 +295,7 @@
             <button class="btn-next">次へ</button>
           </div>
 
-          <div class="sc-quest">
+          <div class="sc-quest quest04">
             <header class="header-qu">
               <button class="btn-return-quest"></button>
               <p>2/7</p>
@@ -323,7 +320,7 @@
             <button class="btn-next">次へ</button>
           </div>
 
-          <div class="sc-quest">
+          <div class="sc-quest quest05">
             <header class="header-qu">
               <button class="btn-return-quest"></button>
               <p>2/7</p>
@@ -348,7 +345,7 @@
             <button class="btn-next">次へ</button>
           </div>
 
-          <div class="sc-quest">
+          <div class="sc-quest quest06">
             <header class="header-qu">
               <button class="btn-return-quest"></button>
               <p>2/7</p>
@@ -373,7 +370,7 @@
             <button class="btn-next">次へ</button>
           </div>
 
-          <div class="sc-quest">
+          <div class="sc-quest quest07">
             <header class="header-qu">
               <button class="btn-return-quest"></button>
               <p><span>7</span>/<span>7</span></p>
@@ -385,10 +382,10 @@
               <button class="btn-smoke-no">吸ってない</button>
             </div>
           
-            <button class="btn-next">結果へ</button>
+            <button class="btn-result">結果へ</button>
           </div>
 
-          <div class="sc-quest">
+          <div class="sc-quest result">
             <div>
               <p>今日の健康点数</p>
               <p><span>35</span>/100<span>点</span></p>
@@ -410,7 +407,8 @@
           </div>
         </div>
 
-
+      <!-- ログイン後の画面だけを囲む -->
+      <div class="af-screens">
         <!-- *************************** ホーム画面 *************************** -->
         <div class="sc sc-home">
           <div class="box-chara">
@@ -427,10 +425,10 @@
           </div>
 
           <ul class="list-btn">
-            <li><button>生活チェック</button></li>
-            <li><button>おはよう</button></li>
-            <li><button>おやすみ</button></li>
-            <li><button>食べた</button></li>
+            <li><button class="btn-check">生活チェック</button></li>
+            <li><button class="btn-morn">おはよう</button></li>
+            <li><button class="btn-night">おやすみ</button></li>
+            <li><button class="btn-ate">食べた</button></li>
           </ul>
 
           <div class="modal-ohayo">
@@ -647,35 +645,28 @@
       </div>
 
       <!-- ログイン後に表示されてるナビ -->
-      <!--  <= このspanの中のimgとttlをpositionで動かす ttlは固定で表示/非表示 -->
-      <!-- <nav class="af-nav">
+      <nav class="af-nav">
         <ul>
           <li>
-            <button class="btn-move-home btn-menu on">
-              <span>
-                <span class="btn-menu__img"><img src="img/btn-home.svg" alt=""></span>
-                <span class="btn-menu__ttl">ホーム</span>
-              </span>
-            </button>
+            <div class="btn-move-home btn-menu on">
+              <span class="btn-menu__img"><img src="img/btn-home.svg" alt=""></span>
+              <p class="btn-menu__ttl">ホーム</p>
+            </div>
           </li>
           <li>
-            <button class="btn-move-my btn-menu">
-              <span>
-                <span class="btn-menu__img"><img src="img/btn-my.svg" alt=""></span>
-                <span class="btn-menu__ttl">マイページ</span>
-              </span>
-            </button>
+            <div class="btn-move-my btn-menu">
+              <span class="btn-menu__img"><img src="img/btn-my.svg" alt=""></span>
+              <p class="btn-menu__ttl">マイページ</p>
+            </div>
           </li>
           <li>
-            <button class="btn-move-set btn-menu">
-              <span>
-                <span class="btn-menu__img"><img src="img/btn-set.svg" alt=""></span>
-                <span class="btn-menu__ttl">設定</span>
-              </span>
-            </button>
+            <div class="btn-move-set btn-menu">
+              <span class="btn-menu__img"><img src="img/btn-set.svg" alt=""></span>
+              <p class="btn-menu__ttl">設定</p>
+            </div>
           </li>
         </ul>
-      </nav> -->
+      </nav>
 
       
 
