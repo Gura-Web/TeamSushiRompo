@@ -1,5 +1,16 @@
 $(function(){
+  // 確認画面
   let btnConf = $(".btn-conf");
+  let scConf = $(".sc-conf");
+  let confName = $(".conf-name");
+  let confMail = $(".conf-mail");
+  let confPass01 = $(".conf-pass01");
+  let confPass02 = $(".conf-pass02");
+  let confGender = $(".conf-gender");
+  let confBirth = $(".conf-birth");
+  let confPartnerImg = $(".partner-img");
+  let confPartnerName = $(".partner-name");
+
 
   // 新規登録のバリデーション
   let errorFlg = false;
@@ -43,7 +54,6 @@ $(function(){
       $(".form-name").addClass("er");
     }
 
-    // console.log(mail.val().length >= 254);
     // メール：入力必須(優先) , 正規表現(https://qiita.com/sakuro/items/1eaa307609ceaaf51123) & 254文字以内
     if (!mail.val()) {
       errorFlg = true;
@@ -147,33 +157,76 @@ $(function(){
       $(".form-partner .error-text").text("パートナーを選択してください。");
     }
 
+
+    // ***********************************************
+    //  エラーがなかった時、確認画面へ
+    // ***********************************************
+
     if (!errorFlg){
       // 確認画面へデータを入れる
+      confName.text(name.val());
+      confMail.text(mail.val());
+      confPass01.text("********");
+      confPass02.text("********");
+      $(".conf-pass01").attr("data-pass", pass01.val());
+      switch (gender.val()){
+        case "0":
+          confGender.text("男性");
+          break;
+        case "1":
+          confGender.text("女性");
+          break;
+        case "2":
+          confGender.text("その他");
+          break;
+      }
+      confBirth.html(birthY + "年&nbsp;" + birthM + "月&nbsp;" + birthD + "日");
+      switch (partner.val()) {
+        case "0":
+          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムくん'></span>");
+          confPartnerName.text("生活リズムくん");
+          break;
+        case "1":
+          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムさん'></span>");
+          confPartnerName.text("生活リズムさん");
+          break;
+        case "2":
+          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムぶた'></span>");
+          confPartnerName.text("生活リズムぶた");
+          break;
+      }
+
+
+      // 確認画面へ移動
+      // 戻ってきた時に表示しておかないといけないため、
+      // regiのshowはもどさない
+      scConf.addClass("show");
     }
   })
+  
 
   // エラー出した後、入力した場合エラースタイルをなくす
   name.keyup(function(){
     $(".form-name").removeClass("er");
-    if(!name.val()){
+    if (errorFlg == true && !name.val()){
       $(".form-name").addClass("er");
     }
   })
   mail.keyup(function () {
     $(".form-mail").removeClass("er");
-    if (!mail.val()) {
+    if (errorFlg == true && !mail.val()) {
       $(".form-mail").addClass("er");
     }
   })
   pass01.keyup(function () {
     $(".form-pass01").removeClass("er");
-    if (!pass01.val()) {
+    if (errorFlg == true && !pass01.val()) {
       $(".form-pass01").addClass("er");
     }
   })
   pass02.keyup(function () {
     $(".box-form-txt").removeClass("er");
-    if (!pass02.val()) {
+    if (errorFlg == true && !pass02.val()) {
       $(".box-form-txt").addClass("er");
     }
   })
@@ -182,29 +235,20 @@ $(function(){
   let birthY = $("input[name='regi-birthY']");
   let birthM = $("input[name='regi-birthM']");
   let birthD = $("input[name='regi-birthD']");
+  let birth = $(".box-birth input")
   let partner = $("input[name='regi-partner']");
 
   gender.change(function(){
     $(".form-gender").removeClass("er");
   })
 
-  birthY.keyup(function(){
+  birth.keyup(function(){
     $(".form-birth").removeClass("er");
-    if (!birthY.val() || !birthM.val() || !birthD.val()){
+    if ( errorFlg == true ){
+      if(!birthY.val() || !birthM.val() || !birthD.val()){
       $(".form-birth").addClass("er");
-    }
-  })
-  birthM.keyup(function () {
-    $(".form-birth").removeClass("er");
-    if(!birthY.val() || !birthM.val() || !birthD.val()){
-      $(".form-birth").addClass("er");
-    }
-  })
-  birthD.keyup(function () {
-    $(".form-birth").removeClass("er");
-    if (!birthY.val() || !birthM.val() || !birthD.val()) {
-      $(".form-birth").addClass("er");
-    }
+      }
+    } 
   })
 
   partner.change(function () {
