@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <g id="グループ_13" data-name="グループ 13" transform="translate(-2434 -1430)">
-    <g id="_home" data-name=" home" transform="translate(1620 1144)">
-      <rect id="Path" width="24" height="24" transform="translate(814 286)" fill="rgba(0,0,0,0)"/>
-      <path id="Icon" d="M823,306h-3a1,1,0,0,1-1-1v-7h-1.7a.5.5,0,0,1-.33-.87l8.36-7.53a1.007,1.007,0,0,1,1.34,0l8.36,7.53a.5.5,0,0,1-.33.87H833v7a1,1,0,0,1-1,1h-3a1,1,0,0,1-1-1v-5h-4v5A1,1,0,0,1,823,306Z" fill="#fff"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="_home" data-name=" home" transform="translate(-814 -286)">
+    <rect id="Path" width="25" height="25" transform="translate(814 286)" fill="rgba(0,0,0,0)"/>
+    <path id="Icon" d="M825.223,312.068h-4.076a1.365,1.365,0,0,1-1.359-1.364v-9.55h-2.31a.68.68,0,0,1-.448-1.187l11.359-10.274a1.364,1.364,0,0,1,1.821,0l11.359,10.274a.677.677,0,0,1-.448,1.187h-2.31v9.55a1.365,1.365,0,0,1-1.359,1.364h-4.076a1.365,1.365,0,0,1-1.359-1.364v-6.822h-5.435V310.7A1.365,1.365,0,0,1,825.223,312.068Z" transform="translate(-2.802 -2.536)" fill="#fff"/>
   </g>
 </svg>

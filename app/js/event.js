@@ -42,6 +42,7 @@ $(function(){
   let btnMoveHome = $(".btn-move-home");
   let btnMoveMy = $(".btn-move-my");
   let btnMoveSet = $(".btn-move-set");
+
   // ホーム画面
   let scCheck = $(".sc-check");
   let scQuest = $(".sc-quest");
@@ -55,7 +56,14 @@ $(function(){
   let afScreens = $(".af-screens");
 
   btnMoveHome.on("click",function(){
+    btnMoveHome.addClass("on");
+    btnMoveMy.removeClass("on");
+    btnMoveSet.removeClass("on");
     afScreens.css("left","100%");
+    setTimeout(function(){
+      btnMoveHome.children("p").addClass("on");
+    },100)
+    btnMoveHome.children("p").removeClass("on");
     // 生活チェックから帰ってきた時だけでいい↓
     if(result.hasClass("on")){
       setTimeout(function () {
@@ -69,7 +77,14 @@ $(function(){
     }
   })
   btnMoveMy.on("click", function () {
+    btnMoveMy.addClass("on");
+    btnMoveHome.removeClass("on");
+    btnMoveSet.removeClass("on");
     afScreens.css("left", "0%");
+    setTimeout(function () {
+      btnMoveMy.children("p").addClass("on");
+    }, 100)
+    btnMoveMy.children("p").removeClass("on");
     if (result.hasClass("on")) {
       setTimeout(function () {
         scCheck.removeClass("on");
@@ -82,7 +97,14 @@ $(function(){
     }
   })
   btnMoveSet.on("click", function () {
+    btnMoveSet.addClass("on");
+    btnMoveHome.removeClass("on");
+    btnMoveMy.removeClass("on");
     afScreens.css("left", "-100%");
+    setTimeout(function () {
+      btnMoveSet.children("p").addClass("on");
+    }, 100)
+    btnMoveSet.children("p").removeClass("on");
     if (result.hasClass("on")) {
       setTimeout(function () {
         scCheck.removeClass("on");

@@ -56,13 +56,14 @@ $(function(){
     }
 
     // 100点
-    // morning:1     6
-    // lunch:1       6
-    // dinner:1      6
-    // vege:0,1,2    24(8*3)
-    // fish:0,1,2    24(8*3)
-    // fru:0,1,2     24(8*3)
-    // smoke:0       10
+    // morning:1       6
+    // lunch:1         6
+    // dinner:1        6
+    // vege:0,1,2      18(6*3)
+    // fish:0,1,2      18(6*3)
+    // fru:0,1,2       18(6*3)
+    // smoke:0         10
+    // sleep:7以上9以下/夜間  10 + 8 = 18    
 
     // morning:朝ごはん ,lunch:昼ごはん ,dinner:夜ご飯　
     // 0 => 食べてない　1 => 食べた

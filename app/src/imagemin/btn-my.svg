@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <g id="グループ_14" data-name="グループ 14" transform="translate(-2561 -1430)">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="グループ_10" data-name="グループ 10" transform="translate(-2561 -1430)">
     <g id="_person" data-name=" person" transform="translate(2427 -2668)">
-      <rect id="Path" width="24" height="24" transform="translate(134 4098)" fill="rgba(0,0,0,0)"/>
-      <path id="Icon" d="M153,4118H139a1,1,0,0,1-1-1v-1c0-.819.52-2,3-3a12.977,12.977,0,0,1,10,0c2.478.994,3,2.179,3,3v1A1,1,0,0,1,153,4118Zm-7-8a4,4,0,1,1,4-4A4,4,0,0,1,146,4110Z" fill="#fff"/>
+      <rect id="Path" width="25" height="25" transform="translate(134 4098)" fill="rgba(0,0,0,0)"/>
+      <path id="Icon" d="M23.437,25H1.563A1.565,1.565,0,0,1,0,23.436V21.874c0-1.28.813-3.131,4.686-4.685A23.227,23.227,0,0,1,12.5,15.623a23.228,23.228,0,0,1,7.815,1.566C24.187,18.742,25,20.593,25,21.874v1.562A1.565,1.565,0,0,1,23.437,25ZM12.5,12.5a6.249,6.249,0,1,1,6.249-6.249A6.256,6.256,0,0,1,12.5,12.5Z" transform="translate(134 4098.001)" fill="#fff"/>
     </g>
   </g>
 </svg>
