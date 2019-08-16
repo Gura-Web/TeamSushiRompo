@@ -1,0 +1,15 @@
+////////////////////////////////////////////
+
+----個人情報　テーブル名hack_u_user
+CREATE TABLE hack_u_user(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    user_name VARCHAR(64) NOT NULL, 
+    password VARCHAR(256) NOT NULL, 
+    mail VARCHAR(32),
+    sex INT UNSIGNED, -- 0:男性 1:女性 2:その他
+    bir VARCHAR(16),
+    partner INT UNSIGNED, -- パートナー  0:男 1:女 2:豚
+    created_at DATETIME NOT NULL
+)ENGINE=INNODB;
+--------------------------------------------
+
