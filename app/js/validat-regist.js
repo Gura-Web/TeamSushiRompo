@@ -79,7 +79,7 @@ $(function(){
       pass01.addClass("er");
       pass02.addClass("er");
       $(".form-pass01").addClass("er");
-      $(".box-form-txt").addClass("er");
+      $(".form-pass02").addClass("er");
     }
     else if (pass01.val().match(/^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,12}$/i) == null || pass02.val().match(/^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,12}$/i) == null) {
       errorFlg = true;
@@ -90,7 +90,7 @@ $(function(){
       pass01.addClass("er");
       pass02.addClass("er");
       $(".form-pass01").addClass("er");
-      $(".box-form-txt").addClass("er");
+      $(".form-pass02").addClass("er");
     }
     else if ( pass01.val() !== pass02.val()) {
       errorFlg = true;
@@ -101,7 +101,7 @@ $(function(){
       pass01.addClass("er");
       pass02.addClass("er");
       $(".form-pass01").addClass("er");
-      $(".box-form-txt").addClass("er");
+      $(".form-pass02").addClass("er");
     }
     // 性別：入力必須
     if (gender.val() == null){
@@ -247,9 +247,9 @@ $(function(){
     }
   })
   pass02.keyup(function () {
-    $(".box-form-txt").removeClass("er");
+    $(".form-pass02").removeClass("er");
     if (errorFlg == true && !pass02.val()) {
-      $(".box-form-txt").addClass("er");
+      $(".form-pass02").addClass("er");
     }
   })
 

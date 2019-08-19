@@ -6,6 +6,12 @@ $(function(){
   let btnMoveRegi = $(".btn-move-regi");
   let btnMoveLog = $(".btn-move-log");
   let btnReturn = $(".btn-return");
+  let scLoad = $(".sc-load");
+
+  // ロード画面
+  setTimeout(function(){
+    scLoad.css("opacity",0);
+  },1400);
   
   // 新規登録画面へ移動
   btnMoveRegi.on("click",function(){
