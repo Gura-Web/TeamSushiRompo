@@ -55,6 +55,9 @@ $(function(){
       point += fru.length * 8;
     }
 
+    // 現在の日時
+    var date = new Date(); 
+
     // 100点
     // morning:1       6
     // lunch:1         6
@@ -90,7 +93,8 @@ $(function(){
         fish: fish,
         fru: fru,
         // smoke: smoke,
-        point: point
+        point: point,
+        date: date
       },
       timeout: 3000
     })

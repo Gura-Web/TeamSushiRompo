@@ -1,5 +1,5 @@
 <?php
-
+print_r($_GET);
 // id => ユーザーid
 // morning => 朝ごはん
 // lunch => 昼ごはん
@@ -9,6 +9,9 @@
 // fru => フルーツ
 // smoke => タバコ
 // point => 生活チェックの点数
+// date 
+// sleep
+
 
 
 // morning,lunch,dinner

@@ -2,8 +2,43 @@
 
   // mail => メールアドレス,
   // pass => パスワード
-
-
+  require_once __DIR__ . "/define.php";
+  $mail=$_GET["mail"];
+  $password=$_GET["pass"];
+  $errorFlg = true;
+  $hashSalt = hash(HASH_ALG, HASH_SALT);
+  $hashPassword = hash(HASH_ALG, $password . $hashSalt);
+  if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
+    $instance->set_charset("utf8");
+    $sql = "SELECT * FROM hack_u_user WHERE mail='{$mail}'";
+    if (!$r = $instance->query($sql)) {
+			print $sql;
+			exit;
+    }
+    if ($r->num_rows) {
+			if ($result = $instance->query($sql)) {
+				// SQLの結果を取り出す
+				$userAuth = $result->fetch_assoc();
+      }
+      // print_r($userAuth);
+			// 入力したパスワードハッシュ化
+			$hashPassword = hash(HASH_ALG, $password . hash(HASH_ALG, HASH_SALT));
+			// 入力したパスワードチェック
+			if ($hashPassword === $userAuth["password"]) {
+        // print "ログインできる";
+      }
+      else{
+        $errorFlg = false;
+      }
+		}else {
+			$errorFlg = false;
+    }
+      $instance->close();
+  }
+  else{
+    header("Location:index.html");
+    exit;
+  }
   // ログインするPHP
   
   // メールアドレスが存在しない or パスワードが一致しない場合、
