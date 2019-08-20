@@ -1,0 +1,47 @@
+////////////////////////////////////////////
+
+----個人情報　テーブル名hack_u_user
+CREATE TABLE hack_u_user(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    user_name VARCHAR(64) NOT NULL, 
+    password VARCHAR(256) NOT NULL, 
+    mail VARCHAR(32),
+    sex INT UNSIGNED, -- 0:男性 1:女性 2:その他
+    bir VARCHAR(16),
+    partner INT UNSIGNED, -- パートナー  0:男 1:女 2:豚
+    created_at DATETIME NOT NULL
+)ENGINE=INNODB;
+--------------------------------------------
+----生活チェック テーブル名hack_u_check
+CREATE TABLE hack_u_check(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    user_id INT UNSIGNED, -- ユーザーid
+    point INT UNSIGNED, -- 生活チェックの点数
+    timing INT UNSIGNED, -- 0:診断する　1:毎日
+    fish INT UNSIGNED, -- 魚 0:食べてない 1:食べた
+    vege INT UNSIGNED, -- 野菜　0:食べてない 1:食べた
+    fru INT UNSIGNED, -- フルーツ　0:食べてない 1:食べた
+    smoke INT UNSIGNED, -- タバコ吸った数
+    sleeptime VARCHAR(8), -- 睡眠時間
+    CO2 VARCHAR(8), -- Co2
+    energie VARCHAR(8), -- エネルギー
+    sick VARCHAR(8), -- 病気
+    money VARCHAR(8), -- お金
+    electric VARCHAR(8), -- 電気
+    created_at DATETIME NOT NULL
+)ENGINE=INNODB;
+
+////////////////////////////////////////////
+生活チェック
+1時間ライト電気使用量:40*1/1000*35=1.4円(睡眠時間で計算)
+1時間コンセント電気使用量:1000W*27=27円(睡眠時間で計算)
+500円のタバコ1本:500/20=25円/本(タバコ吸った数で計算)
+
+LEDランプ1日/1時間
+エネルギー:3.29kWh
+Co2:1.6kg
+お金:70円
+病気:
+
+　
+
