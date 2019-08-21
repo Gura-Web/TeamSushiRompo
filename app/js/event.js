@@ -146,6 +146,7 @@ $(function(){
   })
 
   
+  
 
   // 生活チェック 戻るボタン
   let btnReturnQuest = $(".btn-return-quest");
@@ -207,5 +208,68 @@ $(function(){
       $(".btn-push-off").removeClass("check");
     }
   })
+
+
+  // ホーム画面
+  let btnMorning = $(".btn-morning");
+  let btnNight = $(".btn-night");
+  let btnAte = $(".btn-ate");
+  let modalOhayo = $(".modal-ohayo");
+  let modalOyasumi = $(".modal-oyasumi");
+  let modalBreak = $(".modal-break");
+  let modalLunch = $(".modal-lunch");
+  let btnClose = $(".btn-close");
+
+  btnMorning.on("click",function(){
+    modalOhayo.addClass("show");
+    // ** 起きた時間をストレージに記録する
+  })
+  btnNight.on("click", function () {
+    modalOyasumi.addClass("show");
+    // ** 寝る時間をストレージに記録する
+  })
+  btnClose.on("click",function(){
+    $(this).parents(".modal").removeClass("show");
+  })
+
+  let nowHour = new Date().getHours();
+  // 5:00~9:59 => あさごはん
+  // 10:00~14:59 => ひるごはん
+  // 15:00~4:59 => 押すとアラート
+  btnAte.on("click", function () {
+    if (nowHour >= 5 && nowHour <= 9){
+      modalBreak.addClass("show");
+    }
+    else if (nowHour >= 10 && nowHour <= 14){
+      modalLunch.addClass("show");
+    }
+    else{
+      alert("AM5時から朝ごはんチェック、AM10時から昼ごはんチェックが可能です。")
+    }
+  })
+
+  // 朝ごはん食べた
+  $(".btn-break-y").on("click",function(){
+    // ** 朝ごはん食べたことをストレージに記録
+    $(this).parents(".modal").removeClass("show");
+  })
+
+  // 昼ごはん食べた
+  $(".btn-lunch-y").on("click", function () {
+    // ** 昼ごはん食べたことをストレージに記録
+    $(this).parents(".modal").removeClass("show");
+  })
+
+  $(".btn-n").on("click",function(){
+    $(this).parents(".modal").removeClass("show");
+  })
+
+  // 生活チェック可能時間　18:00~23:59
+  setInterval(function () {
+    if (nowHour >= 18 && nowHour <=23){
+      btnCheck.addClass("on")
+    }
+  },60000)
+
 
 })

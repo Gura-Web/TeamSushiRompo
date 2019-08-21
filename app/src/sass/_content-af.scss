@@ -627,6 +627,74 @@
   text-align: left;
 }
 
+.modal{
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  transition: ease 1s;
+  &__quest{
+    font-size: 1.4rem;
+    color: $base;
+    background-image: url("../img/bg-com04.png");
+    width: 170px;
+    height: 78px;
+    background-size: contain;
+    text-align: center;
+    line-height: 66px;
+    font-weight: 500;
+  }
+  &__chara{
+    width: 94px;
+    margin-left: 166px;
+  }
+  &__btns{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    button{
+      height: 72px;
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+    .btn-n{
+      width: 50%;
+      background: rgba(82,178,162,0.8);
+      border-radius: 0 0 0 8px;
+    }
+    .btn-y{
+      width: 50%;
+      background: $base;
+      border-radius: 0 0 8px 0;
+    }
+  }
+  &.show{
+    display: block;
+  }
+}
+.inner-modal{
+  width: 310px;
+  height: 310px;
+  padding: 30px 20px;
+  background: #fff;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.btn-close{
+  width: 100%;
+  background: $base;
+  border-radius: 0 0 8px 8px;
+}
+
 
 
 /* sc-set */
