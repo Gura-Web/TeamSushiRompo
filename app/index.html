@@ -492,94 +492,107 @@
         </div>
 
         <!-- *************************** マイページ画面 *************************** -->
-        <div class="sc sc-my">
-          <div>
-            <button>1週間</button>
-            <button>1ヶ月</button>
+        <div class="sc sc-my bad">
+          <h2>健康状態：<span>悪い</span></h2>
+          <div class="graph-line">
+            <!-- １週間グラフ -->
           </div>
 
-          <div class="my-week">
-            <p class="my-week__state">健康状態：<span>悪い</span></p>
-            <canvas></canvas>
+          <div class="box-points">
             <p>今日の健康点数</p>
-            <p>35/100<span>点</span></p>
+            <p class="point-check">35/100<span>点</span></p>
+          </div>
 
-            <div>
-              <p>あなたの健康状態</p>
+          <p class="btn-history"><a>過去の点数を確認</a></p>
+          
+          <div class="box-data">
+            <div class="box-data__ttl">
+              <h3>診断時との変化</h3>
               <ul>
-                <li>現在</li>
-                <li>診断時</li>
+                <li class="over">現在</li>
+                <li class="first">診断時</li>
               </ul>
             </div>
 
-            <div>
-              <p>電気使用率<span>-3%</span></p>
-              <div>
-                <div>5%</div>
-                <div>8%</div>
-              </div>
+            <div class="inner-box-data">
+              <p class="data-when">今日のデータ</p>
+
+              <ul class="box-graph-rod">
+                <li>
+                  <p class="up">電気使用率<span>+<span>26</span>%</span></p>
+                  <div class="point-electric graph-rod">
+                    <div class="over"><span>85%</span></div>
+                    <div class="remain"></div>
+                  </div>
+                </li>
+                <li>
+                  <p class="down">タバコ本数<span>-<span>3</span>本</span></p>
+                  <div class="point-smoke graph-rod">
+                    <div class="now"><span>3本</span></div>
+                    <div class="first"><span>6本</span></div>
+                    <div class="remain"></div>
+                  </div>
+                </li>
+              </ul>
             </div>
-
-            <div>
-              <p>タバコ本数<span>-3本</span></p>
-              <div>
-                <div>12本</div>
-                <div>15本</div>
-              </div>
-            </div>
-
-            <ul>
-              <li>
-                <p>野菜</p>
-                <ul>
-                  <li>朝</li>
-                  <li>昼</li>
-                  <li>晩</li>
-                </ul>
-              </li>
-              <li>
-                <p>魚</p>
-                <ul>
-                  <li>朝</li>
-                  <li>昼</li>
-                  <li>晩</li>
-                </ul>
-              </li>
-              <li>
-                <p>フルーツ</p>
-                <ul>
-                  <li>朝</li>
-                  <li>昼</li>
-                  <li>晩</li>
-                </ul>
-              </li>
-            </ul>
-
-            <div>
-              <p><span>あなたの</span>社会貢献度数</p>
-              <p>生活リズムを改善したことで、社会に<br>貢献することのできたグラフです。</p>
-              <canvas></canvas>
-            </div>
-
           </div>
 
-          <div class="my-year">
-            <div>
-              <button class="btn-month-prev"><img src="" alt=""></button>
-              <p>6<span>2019</span></p>
-              <button class="btn-month-next"><img src="" alt=""></button>
+          <div class="box-data">
+            <div class="box-data__ttl">
+              <h3>摂取した食事データ</h3>
             </div>
-            <div>
-              <!-- カレンダー -->
-              <div>
-                <div>
-                  <p>2019.6.22(木曜)</p>
-                  <p>健康点数</p>
+            
+            <div class="inner-box-data">
+              <p class="data-when">今日のデータ</p>
+
+              <ul class="box-graph-select">
+                <li class="box-vege">
+                  <p><span><img src="img/icon-vege.svg" alt=""></span>野菜</p>
+                  <ul class="graph-select">
+                    <li class="point-vege-m on">朝</li>
+                    <li class="point-vege-l">昼</li>
+                    <li class="point-vege-n">晩</li>
+                  </ul>
+                </li>
+                <li class="box-fish">
+                  <p><span><img src="img/icon-fish.svg" alt=""></span>魚</p>
+                  <ul class="graph-select">
+                    <li class="point-fish-m on">朝</li>
+                    <li class="point-fish-l on">昼</li>
+                    <li class="point-fish-n">晩</li>
+                  </ul>
+                </li>
+                <li class="box-fruit">
+                  <p><span><img src="img/icon-fruit.svg" alt=""></span>フルーツ</p>
+                  <ul class="graph-select">
+                    <li class="point-fruit-m on">朝</li>
+                    <li class="point-fruit-l on">昼</li>
+                    <li class="point-fruit-n on">晩</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box-data">
+            <div class="box-data__ttl">
+              <h3>社会貢献度数</h3>
+            </div>
+
+            <div class="inner-box-data">
+              <p class="data-when">今日のデータ</p>
+
+              <div class="box-graph-radar">
+                <p>あなたの<br><span>社会貢献度数</span></p>
+                <p>生活リズムを改善したことで、社会に<br>貢献することのできたグラフです。</p>
+
+                <div class="graph-radar">
+                  <!-- レーダーチャート -->
                 </div>
-                <p><span>10</span>/100点</p>
               </div>
             </div>
           </div>
+          
         </div>
 
         <!-- *************************** 設定画面 *************************** -->
