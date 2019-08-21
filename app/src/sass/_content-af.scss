@@ -1,6 +1,12 @@
 /* wrap-af */
 .wrap-af{
+
+    color: $black;
+
   position: relative;
+  &.hid{
+    overflow: hidden;
+  }
 }
 .af-screens{
   position: relative;
@@ -25,10 +31,11 @@
   bottom: 0;
   z-index: 1;
   transition: 0.4s;
+  border-radius: 30px 30px 0 0;
   ul{
     width: 100%;
     display: flex;
-    margin-top: 16px;
+    margin-top: 20px;
     position: relative;
     li{
       width: 120px;
@@ -154,6 +161,14 @@
   >div:first-child header p{
     width: 100%;
   }
+  >div:not(:last-child){
+    background-image: url("../img/bg-chack.png");
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-position: right -26px bottom -34px;
+    background-repeat: no-repeat;
+  }
 }
 .sc-quest{
   width: 100%;
@@ -163,6 +178,7 @@
   position: absolute;
   background: #fff;
   transition: ease 0.4s;
+  z-index: 1;
   &:not(:first-child){
     left: 100%;
   }
@@ -170,7 +186,7 @@
     left: 0%;
   }
   &__ttl{
-    margin-top: 70px;
+    margin-top: 56px;
     font-size: 2.4rem;
     font-weight: 500;
     span{
@@ -178,22 +194,29 @@
       font-weight: 400;
     }
   }
-  .btn-next{
-    display: block;
-    margin: 30px auto 0 auto;
-    width: 170px;
-    height: 76px;
-    background: $base;
-    color: #fff;
-    font-size: 2.4rem;
-    font-weight: 500;
-  }
   figure{
     width: 170px;
     height: 170px;
-    background: tomato;
+    margin: 50px auto 62px;
+    background: #333;
   }
 }
+.btn-next,
+.btn-result{
+  display: block;
+  width: 170px;
+  height: 76px;
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $base;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
 .header-qu{
   display: flex;
   justify-content: space-between;
@@ -205,7 +228,7 @@
     border: solid 3px $gray;
     border-radius: 23px;
     font-size: 1.8rem;
-    line-height: 45px;
+    line-height: 40px;
     font-family: $roboto;
     font-weight: 500;
     text-align: center;
@@ -217,7 +240,9 @@
 }
 
 .box-choice{
-  width: 100%;
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 180px;
   >p{
     width: 100%;
     input{
@@ -230,12 +255,13 @@
       text-align: center;
       font-size: 2rem;
       border-radius: 6px;
-      line-height: 72px;
+      line-height: 66px;
       font-family: $roboto;
       font-weight: 500;
     }
   }
   .choice-y{
+    margin-bottom: 18px;
     input + label{
       border: solid 3px rgba(82,178,162,0.5);
       color: $base;
@@ -248,16 +274,19 @@
   .choice-n{
     input + label{
       border: solid 3px rgba(213,109,118,0.5);
-      color: $pink;
+      color: $red;
     }
     input:checked + label{
-      background: $pink;
+      background: $red;
       color: #fff;
     }
   }
 }
 
 .box-check{
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 180px;
   p{
     input{
       display: none;
@@ -270,14 +299,17 @@
         display: block;
         width: 100%;
         height: 62px;
-        border: solid 3px $base;
+        margin-top: 18px;
+        border: solid 4px rgba(82,178,162,0.5);
+        border-radius: 5px;
         font-size: 1.6rem;
         position: relative;
       }
     }
     span{
       display: block;
-      line-height: 62px;
+      line-height: 56px;
+      margin-left: 24px;
       &:last-child{
         width: 28px;
         height: 28px;
@@ -286,9 +318,9 @@
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
-        border: solid 1px $base;
+        border: solid 3px rgba(82,178,162,0.5);
         text-align: center;
-        line-height: 32px;
+        line-height: 24px;
         img{
           width: 50%;
           height: auto;
@@ -298,30 +330,278 @@
   }
 }
 
-
-
-/* sc-home */
-.sc-home{
-  .box-chara{
-    // &__mes{
-
-    // }
-    &__img{
-      width: 86px;
-    }
+.result{
+  padding-bottom: 120px;
+  overflow-y: scroll;
+}
+.box-result{
+  position: relative;
+  &::before,
+  &::after{
+    display: block;
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 760px;
+    border-radius: 50%;
+    background: rgba(82,178,162,0.7);
+    z-index: 0;
+    left: calc(-50% - 20px);
   }
-  .list-btn{
-    li{
-      width: 100%;
-      height: 30px;
-      border: solid 1px red;
-      button{
-        width: 100%;
-        height: 100%;
-      }
+  &::after{
+    top: -450px;
+  }
+  &::before{
+    top: -418px;
+  }
+  &__ttl{
+    font-size: 1.6rem;
+    padding-top: 60px;
+  }
+  &__point{
+    padding-top: 14px;
+    font-size: 3.2rem;
+    font-weight: 500;
+    span{
+      font-size: 2rem;
     }
   }
 }
+.inner-box-result{
+  width: 260px;
+  height: 260px;
+  margin: 40px auto 0;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  
+  .result-point{
+    font-size: 6rem;
+    &.bad{
+      color: $pink;
+    }
+    &.soso{
+      color: $base;
+    }
+    &.good{
+      color: $blue;
+    }
+  }
+}
+
+.btn-calender{
+  width: 100%;
+  height: 72px;
+  margin:130px 0 36px;
+  line-height: 72px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border:solid 4px rgba(213,109,118,0.5);
+  border-radius: 6px;
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: $black;
+  }
+}
+.list-comment{
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-bottom: 36px;
+  &__img{
+    width: 40px;
+    text-align: center;
+    span{
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: $deepGray;
+      font-family: $roboto;
+
+    }
+    img{
+      height: auto;
+    }
+  }
+  &__txt{
+    width: 276px;
+    height: 72px;
+    line-height: 72px;
+    background-image: url("../img/bg-com01.png");
+    color: $base;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.box-all{
+  display: flex;
+  justify-content: space-between;
+  &__txt{
+    width: 260px;
+    height: 200px;
+    padding: 15px;
+    background-image: url("../img/bg-com02.png");
+    color: $base;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: 1.3rem;
+  }
+  &__img{
+    width: 80px;
+    height: 200px;
+    background: #333;
+  }
+}
+
+
+/* sc-home */
+.box-chara{
+  background: $lightBase;
+  position: relative;
+  &__main{
+    padding: 40px 0;
+  }
+  &__mes{
+    width: 258px;
+    height: 86px;
+    margin: 0 auto;
+    padding: 14px;
+    background-image: url("../img/bg-com03.png");
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  &__img{
+    width: 110px;
+    margin: 20px auto 0;
+  }
+  &__info{
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.15);
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #fff;
+    position: absolute;
+    bottom: 18px;
+    left: 16px;
+    span:last-child{
+      font-size: 1.2rem;
+    }
+    &.bad span{
+      color: $pink;
+    }
+    &.soso span{
+      color: $base;
+    }
+    &.good span{
+      color: $blue;
+    }
+  }
+}
+.box-btn-main{
+  margin: 12px 16px 0;
+  display: flex;
+  justify-content: space-between;
+  div{
+    width: 106px;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding: 30px 0;
+    padding: 24px 0;
+    text-align: center;
+    p{
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin: 0 auto 4px;
+      padding: 6px;
+    }
+    span{
+      font-size: 1.2rem;
+    }
+  }
+}
+.btn-morning{
+  border: solid 1px rgba(255,231,178,0.43);
+  background: rgba(253,238,203,0.43);
+  p{
+    background: #ffe7b2;
+  }
+  span{
+    color: #FFB100;
+  }
+}
+.btn-night{
+  border: solid 1px #E0E5F9;
+  background: #F7F7F7;
+  p{
+    background: #E0E5F9;
+  }
+  span{
+    color: #4F69BE;
+  }
+}
+.btn-ate{
+  border: solid 1px rgba(249,211,211,0.63);
+  background: rgba(255,234,234,0.63);
+  p{
+    background: #F9D3D3;
+  }
+  span{
+    color: #FC6F6F;
+  }
+}
+.btn-check{
+  height: 80px;
+  line-height: 80px;
+  border-radius: 8px;
+  margin: 12px 16px 0;
+  background: #C5CBD0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.btn-check.on{
+  position: relative;
+  padding-left: 32px;
+  p{
+    width: 14px;
+    position: absolute;
+    right: 45px;
+    top: 14px;
+    z-index: 1;
+    &::before{
+      display: block;
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: #DE858C;
+      border-radius: 50%;
+      z-index: -1;
+      top: 12px;
+      right: -8px;
+    }
+  }
+  background: $red;
+  font-size: 1.6rem;
+  text-align: left;
+}
+
+.modal{
+  
+}
+
 
 /* sc-set */
 .sc-set{

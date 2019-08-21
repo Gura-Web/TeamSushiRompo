@@ -326,15 +326,15 @@
             <div class="box-check">
               <p>
                 <input type="checkbox" name="fish" value="0" id="fish01">
-                <label for="fish01">朝食に食べた<span><img src="img/btn-check.svg" alt="チェック"></span></label>
+                <label for="fish01"><span>朝食に食べた</span><span><img src="img/btn-check.svg" alt="チェック"></span></label>
               </p>
               <p>
                 <input type="checkbox" name="fish" value="1" id="fish02">
-                <label for="fish02">昼食に食べた<span><img src="img/btn-check.svg" alt="チェック"></span></label>
+                <label for="fish02"><span>昼食に食べた</span><span><img src="img/btn-check.svg" alt="チェック"></span></label>
               </p>
               <p>
                 <input type="checkbox" name="fish" value="2" id="fish03">
-                <label for="fish03">夕食に食べた<span><img src="img/btn-check.svg" alt="チェック"></span></label>
+                <label for="fish03"><span>夕食に食べた</span><span><img src="img/btn-check.svg" alt="チェック"></span></label>
               </p>
             </div>
           
@@ -351,15 +351,15 @@
             <div class="box-check">
               <p>
                 <input type="checkbox" name="fru" value="0" id="fru01">
-                <label for="fru01">朝食に食べた<span><img src="img/btn-check.svg" alt="チェック"></span></label>
+                <label for="fru01"><span>朝食に食べた</span><span><img src="img/btn-check.svg" alt="チェック"></span></label>
               </p>
               <p>
                 <input type="checkbox" name="fru" value="1" id="fru02">
-                <label for="fru02">昼食に食べた<span><img src="img/btn-check.svg" alt="チェック"></span></label>
+                <label for="fru02"><span>昼食に食べた</span><span><img src="img/btn-check.svg" alt="チェック"></span></label>
               </p>
               <p>
                 <input type="checkbox" name="fru" value="2" id="fru03">
-                <label for="fru03">夕食に食べた<span><img src="img/btn-check.svg" alt="チェック"></span></label>
+                <label for="fru03"><span>夕食に食べた</span><span><img src="img/btn-check.svg" alt="チェック"></span></label>
               </p>
             </div>
           
@@ -385,26 +385,30 @@
           </div>
 
           <div class="sc-quest result">
-            <div>
-              <p>今日の健康点数</p>
-              <p><span>35</span>/100<span>点</span></p>
+            <div class="box-result">
+              <div class="inner-box-result">
+                <p class="box-result__ttl">今日の健康点数</p>
+                <p class="box-result__point"><span class="result-point bad">35</span>/100<span>点</span></p>
+              </div>
             </div>
-            <p><a
-                href="https://calendar.yahoo.co.jp/?V=60&TITLE=%B3%D8%B9%BB&ST=20101224T1230&DUR=0130&IN_LOC=%C5%EC%B5%FE&URL=http%3A%2F%2Fwww.yahoo.co.jp%2F&DESC=%BB%BB%BF%F4&ENC=EUC-JP"><img
-                  src="https://s.yimg.jp/images/calendar/yc_btn_01.gif" width="145" height="25" alt="Yahoo!カレンダーに登録"></a></p>
+
+            <p class="btn-calender"><a
+                href="https://calendar.yahoo.co.jp/?V=60&TITLE=%B3%D8%B9%BB&ST=20101224T1230&DUR=0130&IN_LOC=%C5%EC%B5%FE&URL=http%3A%2F%2Fwww.yahoo.co.jp%2F&DESC=%BB%BB%BF%F4&ENC=EUC-JP">カレンダーに登録する
+              </a>
+            </p>
             <ul>
-              <li>
-                <p><span>Good</span><img src="" alt=""></p>
-                <p>ええ感じで肥えてますね</p>
+              <li class="list-comment">
+                <p class="list-comment__img"><span>Good</span><img src="img/icon-buta.svg" alt=""></p>
+                <p class="list-comment__txt">ええ感じで肥えてますね</p>
               </li>
-              <li>
-                <p><span>Good</span><img src="" alt=""></p>
-                <p>ええ感じで肥えてますね</p>
+              <li class="list-comment">
+                <p class="list-comment__img"><span>Good</span><img src="img/icon-buta.svg" alt=""></p>
+                <p class="list-comment__txt">ええ感じで肥えてますね</p>
               </li>
             </ul>
-            <div>
-              <p>まとめると、<br>まだまだこれからってことやな。<br>今までのデータ振り返ってなんか。<br>アドバイス的なの。</p>
-              <p><img src="" alt=""></p>
+            <div class="box-all">
+              <p class="box-all__txt">まとめると、<br>まだまだこれからってことやな。<br>今までのデータ振り返ってなんか。<br>アドバイス的なの。</p>
+              <p class="box-all__img"><img src="" alt=""></p>
             </div>
           </div>
         </div>
@@ -414,38 +418,57 @@
         <!-- *************************** ホーム画面 *************************** -->
         <div class="sc sc-home">
           <div class="box-chara">
-            <p class="box-chara__mes">Fuck you！！！！！！！！！！</p>
-            <p class="box-chara__img"><img src="img/partner.svg" alt="生活リズムさん"></p>
-          </div>
+            <div class="box-chara__main">
+              <p class="box-chara__mes">元気？<br>〇〇さん！</p>
+              <p class="box-chara__img"><img src="img/partner.svg" alt="生活リズムさん"></p>
+            </div>
 
-          <div>
-            <p><img src="" alt=""></p>
-            <div>
+            <div class="box-chara__info bad">
               <p>生活リズムくん</p>
-              <p>体調：悪い</p>
+              <p>体調：<span>悪い</span></p>
             </div>
           </div>
 
-          <ul class="list-btn">
-            <li><button class="btn-check">生活チェック</button></li>
-            <li><button class="btn-morn">おはよう</button></li>
-            <li><button class="btn-night">おやすみ</button></li>
-            <li><button class="btn-ate">食べた</button></li>
-          </ul>
+          <div class="box-btn-main">
+            <div class="btn-morning">
+              <p><img src="img/icon-morning.svg" alt=""></p>
+              <span>おはよう</span>
+            </div>
+            <div class="btn-night">
+              <p><img src="img/icon-night.svg" alt=""></p>
+              <span>おやすみ</span>
+            </div>
+            <div class="btn-ate">
+              <p><img src="img/icon-ate.svg" alt=""></p>
+              <span>食べた</span>
+            </div>
+          </div>
+          <div class="btn-check on">
+            <p><img src="img/icon-check.svg" alt=""></p>
+            生活チェック可能
+          </div>
 
-          <div class="modal-ohayo">
+          <div class="modal-ohayo modal">
 
           </div>
 
-          <div class="modal-oyasumi">
+          <div class="modal-oyasumi modal">
           
           </div>
 
-          <div class="modal-tabeta">
-            <p>朝食は食べた？</p>
-            <div>
-              <button class="btn-tabe-n">いいえ</button>
-              <button class="btn-tabe-y">はい</button>
+          <div class="modal-break modal">
+            <p class="modal__quest">朝食は食べた？</p>
+            <div class="modal__btns">
+              <button class="btn-break-n btn-n">いいえ</button>
+              <button class="btn-break-y btn-y">はい</button>
+            </div>
+          </div>
+
+          <div class="modal-lunch modal">
+            <p class="modal__quest">昼食は食べた？</p>
+            <div class="modal__btns">
+              <button class="btn-lunch-n btn-n">いいえ</button>
+              <button class="btn-lunch-y btn-y">はい</button>
             </div>
           </div>
         </div>

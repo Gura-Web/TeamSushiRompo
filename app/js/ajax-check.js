@@ -4,8 +4,11 @@ $(function(){
   let result = $(".result");
   let afNav = $(".af-nav");
   let scCheck = $(".sc-check");
+  let wrapAf = $(".wrap-af");
 
   btnResult.on("click",function(){
+
+    console.log("あああ")
 
     let morning = $("input[name='morning']:checked").val();
     let lunch = $("input[name='lunch']:checked").val();
@@ -93,8 +96,8 @@ $(function(){
         fish: fish,
         fru: fru,
         // smoke: smoke,
-        point: point,
-        date: date
+        point: point
+        // date: date
       },
       timeout: 3000
     })
@@ -105,6 +108,7 @@ $(function(){
       // 成功したら結果画面表示
       result.addClass("on");
       scCheck.css("z-index", 1);
+      wrapAf.removeClass("hid");
       setTimeout(function () {
         afNav.removeClass("down");
       }, 100)
@@ -120,7 +124,7 @@ $(function(){
 
     })
     .fail(function(error){
-      console.log("エラー")
+      console.log(error)
     })
   })
 })

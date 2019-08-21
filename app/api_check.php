@@ -1,5 +1,6 @@
 <?php
-print_r($_GET);
+// print_r($_GET);
+
 // id => ユーザーid
 // morning => 朝ごはん
 // lunch => 昼ごはん

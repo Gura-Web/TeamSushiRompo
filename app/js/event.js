@@ -7,6 +7,7 @@ $(function(){
   let btnMoveLog = $(".btn-move-log");
   let btnReturn = $(".btn-return");
   let scLoad = $(".sc-load");
+  let wrapAf = $(".wrap-af");
 
   // ロード画面
   setTimeout(function(){
@@ -129,6 +130,7 @@ $(function(){
   // ホーム画面
   btnCheck.on("click",function(){
     scCheck.addClass("on");
+    wrapAf.addClass("hid");
     setTimeout(function(){
       afNav.addClass("down");
     },400)
