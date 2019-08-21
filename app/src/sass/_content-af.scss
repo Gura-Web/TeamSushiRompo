@@ -151,6 +151,9 @@
   li{
     list-style-type: none;
   }
+  >div:first-child header p{
+    width: 100%;
+  }
 }
 .sc-quest{
   width: 100%;
@@ -169,26 +172,10 @@
   &__ttl{
     margin-top: 70px;
     font-size: 2.4rem;
+    font-weight: 500;
     span{
       font-size: 2rem;
-    }
-  }
-  header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    p{
-      width: 80%;
-      height: 45px;
-      border: solid 1px red;
-      font-size: 1.8rem;
-      line-height: 45px;
-      text-align: center;
-    }
-    button{
-      width: 10px;
-      height: 20px;
+      font-weight: 400;
     }
   }
   .btn-next{
@@ -201,54 +188,71 @@
     font-size: 2.4rem;
     font-weight: 500;
   }
+  figure{
+    width: 170px;
+    height: 170px;
+    background: tomato;
+  }
+}
+.header-qu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  p{
+    width: 80%;
+    height: 45px;
+    border: solid 3px $gray;
+    border-radius: 23px;
+    font-size: 1.8rem;
+    line-height: 45px;
+    font-family: $roboto;
+    font-weight: 500;
+    text-align: center;
+  }
+  button{
+    width: 10px;
+    height: 20px;
+  }
 }
 
 .box-choice{
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   >p{
-    width: 46%;
+    width: 100%;
     input{
       display: none;
     }
     input + label{
       display: block;
       width: 100%;
-      height: 300px;
-      
+      height: 72px;
       text-align: center;
-      span{
-        font-size: 3.2rem;
-      }
+      font-size: 2rem;
+      border-radius: 6px;
+      line-height: 72px;
+      font-family: $roboto;
+      font-weight: 500;
     }
   }
   .choice-y{
     input + label{
-      border: solid 3px $base;
-      span{
-        color: $base;
-      }
+      border: solid 3px rgba(82,178,162,0.5);
+      color: $base;
     }
     input:checked + label{
       background: $base;
-      span{
-        color: #fff;
-      }
+      color: #fff;
     }
   }
   .choice-n{
     input + label{
-      border: solid 3px $pink;
-      span{
-        color: $pink;
-      }
+      border: solid 3px rgba(213,109,118,0.5);
+      color: $pink;
     }
     input:checked + label{
       background: $pink;
-      span{
-        color: #fff;
-      }
+      color: #fff;
     }
   }
 }

@@ -1,5 +1,6 @@
 <?php
 
+
   // name => 名前,
   // mail => メールアドレス,
   // pass => パスワード,
@@ -56,8 +57,6 @@
     exit;
   }
 
-  
-  
 
   // 登録完了できたら "true" を返す
   print json_encode("true");

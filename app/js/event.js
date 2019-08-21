@@ -11,6 +11,9 @@ $(function(){
   // ロード画面
   setTimeout(function(){
     scLoad.css("opacity",0);
+    setTimeout(function(){
+      scLoad.css("z-index",0);
+    },100)
   },1400);
   
   // 新規登録画面へ移動
