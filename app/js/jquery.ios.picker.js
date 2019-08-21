@@ -1,4 +1,4 @@
- ! function (t) {
+! function (t) {
     var n = t.event.dispatch || t.event.handle,
         e = t.event.special,
         a = "D" + +new Date,
@@ -44,37 +44,29 @@
 (function ($) {
 
     //    $("head").append("<style type='text/css'></style>");
-    
+
 
     $.fn.picker = function (json, callback) {
-        console.log(json)
         var options = json.data;
         var lineHeight = 30;
         var name = json.name;
         $ele = $(this);
-        console.log($(this))
         $ele.empty();
         $ele.addClass("picker-wrapper");
-        $ele.append('<div class="clone-scroller clone-scroller'+name+'></div>');
+        $ele.append('<div class="clone-scroller clone-scroller-' + name + '"></div>');
         $ele.append('<div class="picker-up"></div>');
         $ele.append('<div class="picker-down"></div>');
-        $ele.append('<div class="picker-scroller picker-scroller'+name+'"></div>');
-
-
-
-        // clone-scroller がない？？
+        $ele.append('<div class="picker-scroller picker-scroller-' + name + '"></div>');
 
         if (typeof json.lineHeight != "undefined") {
             lineHeight = json.lineHeight;
         }
         $.each(options, function (index, option) {
-            $ele.find('.clone-scroller'+name).append('<div class="option">' + option + '</div>');
-            $ele.find('.picker-scroller'+name).append('<div class="option">' + option + '</div>');
+            $ele.find('.clone-scroller-'+name).append('<div class="option">' + option + '</div>');
+            $ele.find('.picker-scroller-' + name).append('<div class="option">' + option + '</div>');
         });
-        console.log(name)
-        console.log($('.picker-scroller'+name))
-        $ele.find('.clone-scroller'+name).bind("scroll", function () {
-            console.log(name)
+
+        $ele.find('.clone-scroller-' + name).bind("scroll", function () {
             //            $(this).parent().find(".picker-scroller").scrollTop($(this).scrollTop());
             //            var scrollAmount = Math.round($(this).scrollTop() / lineHeight);
             //            if (callback){
@@ -83,27 +75,28 @@
 
             clockWise(lineHeight,name);
         });
-
-        $ele.find(".clone-scroller"+name).bind("scrollstop", function (e) {
+        $ele.find(".clone-scroller-" + name).bind("scrollstop", function (e) {
+            console.log("アイウエオ")
             var scrollAmount = Math.round($(this).scrollTop() / lineHeight) * lineHeight;
-            $(this).parent().find(".clone-scroller"+name).animate({
+            $(this).parent().find(".clone-scroller-" + name).animate({
                 scrollTop: scrollAmount
             }, 100);
             
-             
-        var eIndex = Math.round(unit / 22.5);
-        var $scroller = $(".picker-scroller"+name);
-        var $clone = $(".clone-scroller"+name);
-        var $cloneScrollTop = $(".clone-scroller"+name).scrollTop();
-        var $options = $scroller.find(".option");
-        var $optionsNo = $options.length;
-        var $cloneHeight = lineHeight * $optionsNo;
-        var totalDeg = 22.5 * $optionsNo;
-        var unit = totalDeg / $cloneHeight * $cloneScrollTop;
             
-        unit = Math.round(unit/22.5)*22.5;
-        //    $(".output").html(totalDeg + "/" + $cloneHeight + "/" + $cloneScrollTop);
-        $scroller.css("-webkit-transform", "translateZ(-90px) rotateX(" + unit + "deg)");
+            
+            var eIndex = Math.round(unit / 22.5);
+            var $scroller = $(".picker-scroller-" + name);
+            var $clone = $(".clone-scroller-" + name);
+            var $cloneScrollTop = $(".clone-scroller-" + name).scrollTop();
+    var $options = $scroller.find(".option");
+    var $optionsNo = $options.length;
+    var $cloneHeight = lineHeight * $optionsNo;
+    var totalDeg = 22.5 * $optionsNo;
+    var unit = totalDeg / $cloneHeight * $cloneScrollTop;
+            
+            unit = Math.round(unit/22.5)*22.5;
+    //    $(".output").html(totalDeg + "/" + $cloneHeight + "/" + $cloneScrollTop);
+    $scroller.css("-webkit-transform", "translateZ(-90px) rotateX(" + unit + "deg)");
             
             
         });
@@ -112,11 +105,11 @@
         if (typeof json.lineHeight != "undefined") {
             $ele.css("height", (lineHeight * 7) + "px");
             $ele.css("line-height", lineHeight + "px");
-            $ele.find('.clone-scroller').css({
+            $ele.find('.clone-scroller-' + name).css({
                 "padding-top": (lineHeight * 3) + "px",
                 "padding-bottom": (lineHeight * 3) + "px"
             });
-            $ele.find('.picker-scroller'+name).css({
+            $ele.find('.picker-scroller-' + name).css({
                 "padding-top": (lineHeight * 3) + "px",
                 "padding-bottom": (lineHeight * 3) + "px"
             });
@@ -126,11 +119,19 @@
         }
         // default selected
         if (typeof json.selected != "undefined") {
-            $ele.find('.clone-scroller'+name).scrollTop(lineHeight * json.selected);
-            $ele.find('.picker-scroller'+name).scrollTop(lineHeight * json.selected);
+            console.log(lineHeight * json.selected);
+
+            console.log($ele.find('.clone-scroller-' + name).scrollTop());
+            // console.log($ele.find('.picker-scroller-' + name).scrollTop());
+
+            $('.clone-scroller-' + name).scrollTop(240);
+            // $ele.find('.picker-scroller-' + name).scrollTop(lineHeight * json.selected);
+
+            console.log($ele.find('.clone-scroller-' + name).scrollTop());
+            // console.log($ele.find('.picker-scroller-' + name).scrollTop());
         }
 
-        $ele.find('.picker-scroller'+name).find(".option").each(function (index, $option) {
+        $ele.find('.picker-scroller-' + name).find(".option").each(function (index, $option) {
             $option = $($option);
             $option.css("-webkit-transform", "rotateX(-" + (22.5 * index) + "deg) translateZ(90px)");
             if (index > 7) {
@@ -145,10 +146,11 @@
 var deg = 0;
 
 function clockWise(lineHeight,name) {
-    console.log(name)
-    var $scroller = $(".picker-scroller"+name);
-    var $clone = $(".clone-scroller"+name);
-    var $cloneScrollTop = $(".clone-scroller"+name).scrollTop();
+    console.log($('.clone-scroller-' + name).scrollTop());
+    // console.log($('.picker-scroller-' + name).scrollTop());
+    var $scroller = $(".picker-scroller-"+name);
+    var $clone = $(".clone-scroller-"+name);
+    var $cloneScrollTop = $(".clone-scroller-"+name).scrollTop();
     var $options = $scroller.find(".option");
     var $optionsNo = $options.length;
     var $cloneHeight = lineHeight * $optionsNo;
@@ -158,7 +160,7 @@ function clockWise(lineHeight,name) {
     $scroller.css("-webkit-transform", "translateZ(-90px) rotateX(" + unit + "deg)");
 
     var eIndex = Math.round(unit / 22.5);
-    $(".output").html(eIndex);
+    $(".picker-"+name).attr("data-"+name,eIndex);
     $($options).hide();
     $($options.get(eIndex)).show();
     for (i = eIndex; i < (eIndex + 7); i++) {

@@ -8,14 +8,17 @@ $(function(){
   let btnReturn = $(".btn-return");
   let scLoad = $(".sc-load");
   let wrapAf = $(".wrap-af");
+  let btnPush = $(".btn-push");
 
   // ロード画面
-  setTimeout(function(){
-    scLoad.css("opacity",0);
-    setTimeout(function(){
-      scLoad.css("z-index",0);
-    },100)
-  },1400);
+  scLoad.css("opacity", 0);
+  scLoad.css("z-index", 0);
+  // setTimeout(function(){
+  //   scLoad.css("opacity",0);
+  //   setTimeout(function(){
+  //     scLoad.css("z-index",0);
+  //   },100)
+  // },1400);
   
   // 新規登録画面へ移動
   btnMoveRegi.on("click",function(){
@@ -154,22 +157,55 @@ $(function(){
   // ピッカー(プラグイン)
   $(".picker-hour").picker({
     name: 'hour',
-    data: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12'],
-    lineHeight: 50, // default: 30,
-    selected: 0
+    data: ['00','01', '02', '03', '04', '05', '06', '07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
+    lineHeight: 30, // default: 30,
+    selected: 7
   });
   $(".picker-minute").picker({
     name: 'minute',
     data: [
-      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
+      '00','01', '02', '03', '04', '05', '06', '07', '08', '09', '10', 
       '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
       '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
       '31', '32', '33', '34', '35', '36', '37', '38', '39', '30',
       '41', '42', '43', '44', '45', '46', '47', '48', '49', '40',
       '51', '52', '53', '54', '55', '56', '57', '58', '59', '60'
     ],
-    lineHeight: 50, // default: 30,
-    selected: 0
+    lineHeight: 30, // default: 30,
+    selected: 10
   });
+  $(".picker-smoke").picker({
+    name: 'smoke',
+    data: [
+      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10本以上'],
+    lineHeight: 30, // default: 30,
+    selected: 0
+  })
+
+
+  $('.clone-scroller-hour').bind("scroll", function () {
+    $(".display-hour").text($(".picker-hour").attr("data-hour"));
+  });
+  $('.clone-scroller-minute').bind("scroll", function () {
+    $(".display-minute").text($(".picker-minute").attr("data-minute"));
+  });
+
+
+  // プッシュ通知ON/OFF
+  btnPush.on("click",function(){
+
+    if($(this).hasClass("on")){
+      $(this).removeClass("on");
+      $(this).addClass("off");
+      $(".btn-push-on").removeClass("check");
+      $(".btn-push-off").addClass("check");
+    }
+    else{
+      $(this).addClass("on");
+      $(this).removeClass("off");
+      $(".btn-push-on").addClass("check");
+      $(".btn-push-off").removeClass("check");
+    }
+  })
 
 })

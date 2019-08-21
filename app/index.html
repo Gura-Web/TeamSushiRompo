@@ -76,7 +76,7 @@
         <div class="form">
           <!-- <div class="box-form-txt"> -->
             <div class="form-parts form-name">
-              <input class="myid" type="hidden" name="name" data-id="1">
+              <input class="myid" type="hidden" name="name">
               <h3>名前</h3>
               <p><input type="text" name="regi-name" placeholder="あなたのお名前を入力"></p>
             </div>
@@ -226,7 +226,7 @@
     </div>
 
     <!-- ログイン後の画面たち -->
-    <div class="wrap-af">
+    <div class="wrap-af" data-id="1">
       <!-- *************************** 生活チェック *************************** -->
         <div class="sc sc-check">
           <div class="sc-quest quest01">
@@ -372,14 +372,14 @@
               <p><span>7</span>/<span>7</span></p>
             </header>
             <p class="sc-quest__ttl">今日、<br>タバコは何本吸いました？</p>
-          
-            <div class="box-select">
-              <div></div>
-              <p>
-                <input type="radio" name="smoke" value="0" id="smoke">
-                <label for="smoke">吸ってない</label>
-              </p>
+            
+            <div class="box-smoke">
+              <div class="picker-smoke" data-smoke=""></div>
             </div>
+            <p class="check-smoke">
+              <input type="checkbox" name="smoke" value="0" id="smoke">
+              <label for="smoke">吸ってない</label>
+            </p>
           
             <button class="btn-result">結果へ</button>
           </div>
@@ -580,16 +580,17 @@
             <div class="time-display">
               <span>起床時間</span>
               <div>
-                <p class="hour">07</p><span>：</span><p class="minute">30</p>
+                <p class="display-hour">07</p>：<p class="display-minute">30</p>
               </div>
             </div>
 
             <div class="time-change">
-              <div class="picker-hour"></div>
-              
+              <div class="picker-hour" data-hour=""></div>
+              <div class="picker-minute" data-minute=""></div>
             </div>
-            <div class="picker-minute"></div>
+            
           </div>
+          
 
           <button class="btn-logout">ログアウト</button>
         </div>
@@ -629,6 +630,6 @@
   <script src="js/ajax-check.js"></script>
   <script src="js/event.js"></script>
   <script src="js/validat-regist.js"></script>
-  <script src="js/ios-picker.js"></script>
+  <script src="js/jquery.ios.picker.js"></script>
 </body>
 </html>

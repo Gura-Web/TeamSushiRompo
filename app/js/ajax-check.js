@@ -8,8 +8,6 @@ $(function(){
 
   btnResult.on("click",function(){
 
-    console.log("あああ")
-
     let morning = $("input[name='morning']:checked").val();
     let lunch = $("input[name='lunch']:checked").val();
     let dinner = $("input[name='dinner']:checked").val();
@@ -58,8 +56,23 @@ $(function(){
       point += fru.length * 8;
     }
 
+    let smoke = 10;
+    
+    // たばこ本数計算
+    if ($("input[name='smoke']:checked") !== 0){
+      smoke = smoke -= $(".picker-smoke").attr("data-smoke");
+  
+    }
+
     // 現在の日時
-    var date = new Date(); 
+    let now = new Date();
+    let date = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay(); 
+
+
+    // 睡眠時間
+    // ストレージから計算
+    let sleep = 18;
+
 
     // 100点
     // morning:1       6
@@ -88,16 +101,17 @@ $(function(){
       dataType: "json",
       cashe: false,
       data: {
-        // id:id, // ストレージから？？
+        id: $(".wrap-af").attr("data-id"),
         morning: morning,
         lunch: lunch,
         dinner: dinner,
         vege: vege,
         fish: fish,
         fru: fru,
-        // smoke: smoke,
-        point: point
-        // date: date
+        smoke: smoke,
+        point: point,
+        date: date,
+        sleep: sleep
       },
       timeout: 3000
     })
