@@ -24,6 +24,7 @@
     //
     // 最新がいつか表示
     //
+    $(".box-points").html("");
     let now = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDay();
     if (timing == now){
       $(".box-points").append(`
@@ -43,6 +44,7 @@
     //
     // １週間グラフ
     //
+    $("#graph-week").html("");
     let graphWeek = $("#graph-week");
     let weekChart = new Chart(graphWeek, {
       type: 'line',
@@ -228,7 +230,7 @@
       sickDif = "▼";
     }
 
-
+    $("#graph-social").html("");
     let graphSocial = $("#graph-social");
     let socialChart = new Chart(graphSocial, {
       type: 'radar',

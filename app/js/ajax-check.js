@@ -145,7 +145,10 @@ $(function(){
       // マイページに表示
       $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
 
-      
+      // ** ストレージに生活チェック済みを記録 => ボタンの表示切り替え
+      // 選択内容を初期化
+      $(".sc-check input").prop('checked', false);
+
 
     })
     .fail(function(error){
