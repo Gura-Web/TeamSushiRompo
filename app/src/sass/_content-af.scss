@@ -33,7 +33,7 @@
   background: $base;
   position: absolute;
   bottom: 0;
-  z-index: 1;
+  z-index: 100;
   transition: 0.4s;
   border-radius: 30px 30px 0 0;
   ul{
@@ -837,7 +837,7 @@
     }
   }
   h2{
-    margin: 60px 0 50px 40px;
+    margin: 60px 0 32px 40px;
     font-size: 2.6rem;
     position: relative;
     font-weight: 500;
@@ -908,10 +908,18 @@
         border-radius: 2px;
         left: -24px;
       }
-      &.over::before{
+      &.now::before{
         background: $red;
       }
-      &.now::before{
+      &.now::after{
+        display: block;
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        left: -48px;
+        top: 0px;
         background: $base;
       }
       &.first::before{
@@ -1122,4 +1130,16 @@
     margin-top: 10px;
     font-size: 1.2rem;
   }
+}
+
+.graph-line{
+  margin: 0 20px 34px 20px;
+}
+.graph-radar{
+  overflow: hidden;
+  margin: 30px 0;
+}
+#graph-social{
+  position: relative;
+  left: -100px;
 }

@@ -1,7 +1,7 @@
 // 生活チェック
 $(function(){
   let btnResult = $(".btn-result");
-  let result = $(".result");
+  let scResult = $(".result");
   let afNav = $(".af-nav");
   let scCheck = $(".sc-check");
   let wrapAf = $(".wrap-af");
@@ -66,7 +66,7 @@ $(function(){
 
     // 現在の日時
     let now = new Date();
-    let date = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay(); 
+    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay(); 
 
 
     // 睡眠時間
@@ -110,7 +110,7 @@ $(function(){
         fru: fru,
         smoke: smoke,
         point: point,
-        date: date,
+        timing: timing,
         sleep: sleep
       },
       timeout: 3000
@@ -120,21 +120,32 @@ $(function(){
       console.log(data)
 
       // 成功したら結果画面表示
-      result.addClass("on");
+      scResult.addClass("on");
       scCheck.css("z-index", 1);
       wrapAf.removeClass("hid");
       setTimeout(function () {
         afNav.removeClass("down");
       }, 100)
 
-      // マイページにこのデータを反映
-      // ストレージに一番最新のチェックデータとして保存
-      // 一番最初のデータもストレージ？
-      // 電気使用率の計算
 
-      // 入力データ削除
-      // ボタンを済みにする
+      // apiでとったデータを入れる
+      let week = [10,20,30,40];
+      let result = 70;
+      let timing = "2019/8/4";
+      let electric = [50,30];
+      let smoke = [3,5];
+      let vege = ["null"];
+      let fish = [0,1];
+      let fruit = [0,1,2];
+      let co2 = [5 , "+"];
+      let energie = [3, "-"];
+      let sick = [4, ""];
+      let money = [5, "+"];
 
+      // マイページに表示
+      $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
+
+      
 
     })
     .fail(function(error){
