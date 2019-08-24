@@ -76,7 +76,6 @@
             clockWise(lineHeight,name);
         });
         $ele.find(".clone-scroller-" + name).bind("scrollstop", function (e) {
-            console.log("アイウエオ")
             var scrollAmount = Math.round($(this).scrollTop() / lineHeight) * lineHeight;
             $(this).parent().find(".clone-scroller-" + name).animate({
                 scrollTop: scrollAmount

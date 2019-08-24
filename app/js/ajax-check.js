@@ -138,8 +138,8 @@ $(function(){
       timeout: 3000
     })
     .done(function (data) {
-      console.log("成功")
-      console.log(data)
+      console.log("生活チェック通信成功")
+      console.log("生活チェック:"+data)
 
       // 成功したら結果画面表示
       scResult.addClass("on");
@@ -171,7 +171,6 @@ $(function(){
       let nowMonth = now.getMonth().toString()
       if (nowMonth.length == 1) {
         nowMonth = 0 + nowMonth;
-        console.log(nowMonth)
       }
       let nowDay = now.getDay().toString()
       if (nowDay.length == 1) {
@@ -297,7 +296,7 @@ $(function(){
 
     })
     .fail(function(error){
-      console.log(error)
+      console.log("生活チェックエラー"+error)
     })
   })
 })

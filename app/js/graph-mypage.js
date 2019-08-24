@@ -197,7 +197,6 @@
     //
     // 社会貢献度 レーダーチャート
     //
-    console.log(co2)
     let co2Dif = "";
     if (co2[1] == "+"){
       co2Dif = "▲";

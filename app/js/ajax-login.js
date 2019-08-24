@@ -19,7 +19,7 @@ $(function(){
       timeout: 3000
     })
       .done(function (data) {
-        console.log(data)
+        console.log("ログイン:"+data)
         if (data) {
           console.log("ログインできた")
           $(".wrap-af").addClass("in");
@@ -90,7 +90,7 @@ $(function(){
         }
       })
       .fail(function (error) {
-        console.log(error)
+        console.log("ログインエラー"+error)
       })
 
   })

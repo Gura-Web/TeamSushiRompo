@@ -17,7 +17,7 @@ function ajaxRegist(name,mail,pass,gender,birth,partner){
     timeout: 3000
   })
   .done(function(data){
-    console.log(data)
+    console.log("新規登録"+data)
     if(data){
       $(".sc-comp").addClass("show");
       setTimeout(function(){
@@ -29,6 +29,6 @@ function ajaxRegist(name,mail,pass,gender,birth,partner){
     }
   })
   .fail(function(error){
-    console.log(error)
+    console.log("新規登録"+error)
   })
 }
