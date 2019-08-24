@@ -5,23 +5,7 @@ $(function(){
   let btnLog = $(".btn-log");
 
   btnLog.on("click",function(){
-    // 正しくログインできた
-    $(".wrap-af").addClass("in");
-    $(".wrap-be").addClass("out");
-    setTimeout(function(){
-      $(".wrap-be").css("display","none");
-    },600);
-
-    // 正しくログインできなかった場合
-    // address.attr("placeholder", "メールアドレスが間違っています。");
-    // pass.attr("placeholder", "パスワードが間違っています。");
-    // address.addClass("er");
-    // pass.addClass("er");
-    // $(".form-address").addClass("er");
-    // $(".form-pass").addClass("er");
-    // address.val("");
-    // pass.val("");
-
+    
     // ajax通信
     $.ajax({
       url: "api_login.php",
@@ -37,12 +21,18 @@ $(function(){
       .done(function (data) {
         console.log(data)
         if (data) {
+          console.log("ログインできた")
+          $(".wrap-af").addClass("in");
+          $(".wrap-be").addClass("out");
+          setTimeout(function(){
+            $(".wrap-be").css("display","none");
+          },600);
 
           //** ユーザーidをdata属性に入れる
           //** 名前、性別、パートナーをストレージに入れる
 
 
-          console.log("ログインできた")
+          
           // 正しくログインできた
 
           // id : ユーザーid

@@ -152,7 +152,7 @@ $(function(){
       
 
 
-      // apiでとったデータを入れる
+      // ** apiでとったデータを入れる
       let week = [10,20,30,40];
       let result = 70;
       let timing = "2019/8/4";
