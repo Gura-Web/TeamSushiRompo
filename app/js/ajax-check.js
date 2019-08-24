@@ -37,33 +37,47 @@ $(function(){
 
 
     let point = 0;
+    let comRhythm = 0;
+    let comVege = 0;
+    let comFish = 0;
+    let comFru = 0;
+    let comSmoke = 0;
+    let comSleep = 0;
+
 
     // 生活チェックの点数計算
     if (morning == "1"){
       point += 6;
+      comRhythm += 6;
     }
     if (lunch == "1"){
       point += 6;
+      comRhythm += 6;
     }
     if (dinner == "1"){
       point += 6;
+      comRhythm += 6;
     }
     if (vege !== null){
       point += vege.length * 8;
+      comVege = vege.length * 8;
     }
     if (fish !== null) {
       point += fish.length * 8;
+      comFish = fish.length * 8;
     }
     if (fru !== null) {
       point += fru.length * 8;
+      comFru = fru.length * 8;
     }
 
     let smoke = 10;
+
     
     // たばこ本数計算
     if ($("input[name='smoke']:checked") !== 0){
       smoke = smoke -= $(".picker-smoke").attr("data-smoke");
-  
+      comSmoke = smoke * 18 /10;
     }
 
     // 現在の日時
@@ -72,13 +86,14 @@ $(function(){
     if (nowDay == 0){
       nowDay = 7;
     }
-    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDa()+ "/" + now.getDay(); 
+    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDate()+ "/" + now.getDay(); 
     
     
 
     // 睡眠時間
     // ストレージから計算
     let sleep = 18;
+    comSleep = 18;
 
 
     // 100点
@@ -172,6 +187,9 @@ $(function(){
       $(".btn-calender a").attr("href", encodeURI(registCalender));
 
       // 結果画面に表示
+      $(".result-point").removeClass("bad");
+      $(".result-point").removeClass("soso");
+      $(".result-point").removeClass("good");
       $(".result-point").text(result);
       if (result >= 0 && 40 >= result) {
         $(".result-point").addClass("bad");
@@ -186,6 +204,7 @@ $(function(){
       // 生活チェックのコメント表示
       let lastResult = week[week.length - 2];
       if (lastResult){
+        console.log("前回の記録と比較")
         if (lastResult > result) {
           // bad
           $(".list-comment__img span").text("Bad");
@@ -196,13 +215,14 @@ $(function(){
           $(".list-comment__img span").text("Soso");
           $(".com-result").text("前回と点数は変わりません")
         }
-        if (lastResult > result) {
+        if (lastResult < result) {
           // Good
           $(".list-comment__img span").text("Good");
           $(".com-result").text("前回より点数が上がった！")
         }
       }
       else{
+        console.log("前回なし")
         // 前回の記録がない場合
         if ($(".result-point").hasClass("bad")){
           // bad
@@ -220,7 +240,52 @@ $(function(){
           $(".com-result").text("今回の点数は良い。このまま１週間頑張りましょう")
         }
       }
-      
+
+      let comResult = [];
+      comResult.push(comRhythm);
+      comResult.push(comVege);
+      comResult.push(comFish);
+      comResult.push(comFru);
+      comResult.push(comSmoke);
+      comResult.push(comSleep);
+
+      let comGoodPoint = 0;
+      let comGoodCont = "";
+
+      $.each(comResult,function(i,e){
+        if (comGoodPoint < Number(e)){
+          comGoodPoint = Number(e);
+          comGoodCont = i;
+        }
+      })
+      switch (comGoodCont) {
+        case 0:
+          $(".com-good").text("生活リズムがGood！");
+          break;
+        case 1:
+          $(".com-good").text("野菜がGood！");
+          break;
+        case 2:
+          $(".com-good").text("魚がGood！");
+          break;
+        case 3:
+          $(".com-good").text("フルーツがGood！");
+          break;
+        case 4:
+          $(".com-good").text("たばこがGood！");
+          break;
+        case 5:
+          $(".com-good").text("睡眠時間がGood！");
+          break;
+      }
+
+      $(".box-all__txt").html(`
+        今日、あなたの生活リズムによって、貢献した社会貢献の項目と点数を発表します。<br>
+        CO2削減は、${co2[0]}ポイント！<br>
+        エネルギー削減は、${energie[0]}ポイント！<br>
+        病気予防は、${sick[0]}ポイント！<br>
+        節約度は、${money[0]}ポイント！<br>
+        ※ 全て5ポイントがMAXです！MAXを目指しましょう！`);
 
       // マイページに表示
       $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
