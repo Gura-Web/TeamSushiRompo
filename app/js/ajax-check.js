@@ -6,6 +6,8 @@ $(function(){
   let scCheck = $(".sc-check");
   let wrapAf = $(".wrap-af");
 
+
+
   btnResult.on("click",function(){
 
     let morning = $("input[name='morning']:checked").val();
@@ -66,8 +68,13 @@ $(function(){
 
     // 現在の日時
     let now = new Date();
-    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay(); 
-
+    let nowDay = now.getDay();
+    if (nowDay == 0){
+      nowDay = 7;
+    }
+    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDa()+ "/" + now.getDay(); 
+    
+    
 
     // 睡眠時間
     // ストレージから計算
@@ -127,6 +134,8 @@ $(function(){
         afNav.removeClass("down");
       }, 100)
 
+      
+
 
       // apiでとったデータを入れる
       let week = [10,20,30,40];
@@ -141,6 +150,77 @@ $(function(){
       let energie = [3, "-"];
       let sick = [4, ""];
       let money = [5, "+"];
+
+
+      // カレンダーに追加ボタンのURLを設定
+      let nowMonth = now.getMonth().toString()
+      if (nowMonth.length == 1) {
+        nowMonth = 0 + nowMonth;
+        console.log(nowMonth)
+      }
+      let nowDay = now.getDay().toString()
+      if (nowDay.length == 1) {
+        nowDay = 0 + nowDay;
+      }
+      now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay()
+      let registCalender =
+        "https://calendar.yahoo.co.jp/?V=60&TITLE=生活チェックは" + result +"点&ST="
+        + now.getFullYear() + nowMonth + nowDay +
+        "T1800&ET="
+        + now.getFullYear() + nowMonth + nowDay +
+        "T2359&DESC=この日の生活チェックの点数は、" + result + "点です。(生活リズムさんより)&ENC=UTF-8";
+      $(".btn-calender a").attr("href", encodeURI(registCalender));
+
+      // 結果画面に表示
+      $(".result-point").text(result);
+      if (result >= 0 && 40 >= result) {
+        $(".result-point").addClass("bad");
+      }
+      else if (result >= 41 && 79 >= result) {
+        $(".result-point").addClass("soso");
+      }
+      else {
+        $(".result-point").addClass("good");
+      }
+
+      // 生活チェックのコメント表示
+      let lastResult = week[week.length - 2];
+      if (lastResult){
+        if (lastResult > result) {
+          // bad
+          $(".list-comment__img span").text("Bad");
+          $(".com-result").text("前回より点数が落ちてしまった")
+        }
+        if (lastResult == result) {
+          // Soso
+          $(".list-comment__img span").text("Soso");
+          $(".com-result").text("前回と点数は変わりません")
+        }
+        if (lastResult > result) {
+          // Good
+          $(".list-comment__img span").text("Good");
+          $(".com-result").text("前回より点数が上がった！")
+        }
+      }
+      else{
+        // 前回の記録がない場合
+        if ($(".result-point").hasClass("bad")){
+          // bad
+          $(".list-comment__img span").text("Bad");
+          $(".com-result").text("今回の点数は悪い。１週間頑張りましょう")
+        }
+        if ($(".result-point").hasClass("soso")) {
+          // bad
+          $(".list-comment__img span").text("Soso");
+          $(".com-result").text("今回の点数は普通。１週間頑張りましょう")
+        }
+        if ($(".result-point").hasClass("good")) {
+          // bad
+          $(".list-comment__img span").text("Good");
+          $(".com-result").text("今回の点数は良い。このまま１週間頑張りましょう")
+        }
+      }
+      
 
       // マイページに表示
       $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
