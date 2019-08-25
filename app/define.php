@@ -27,7 +27,7 @@ define("DB_NAME", "db_seikatsu");
 // define("DB_HOST", "mysql1019.db.sakura.ne.jp");
 // define("DB_USER", "mmiki-web");
 // define("DB_PASS", "yururinpanda0317");
-// define("DB_NAME", "mmiki-web_kanpai");
+// define("DB_NAME", "mmiki-web_seikatsu");
 
 
 // click

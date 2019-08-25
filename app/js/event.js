@@ -61,7 +61,6 @@ $(function(){
   let scQuest = $(".sc-quest");
   let btnCheck = $(".btn-check");
   let btnNext = $(".btn-next");
-  let btnResult = $(".btn-result");
   let result = $(".result");
   let afNav = $(".af-nav");
 
@@ -140,9 +139,15 @@ $(function(){
   })
 
   btnNext.on("click",function(){
-    let nowNum = $(this).parents(".sc-quest").attr("class").split(" ")[1].split("0")[1];
-    let nextNum = Number(nowNum) + 1;
-    $(".quest0" + nextNum).addClass("on");
+    if ($(this).parents(".sc-quest").hasClass("not")){
+      $(".quest03").addClass("on");
+      $(this).removeClass("not")
+    }
+    else{
+      let nowNum = $(this).parents(".sc-quest").attr("class").split(" ")[1].split("0")[1];
+      let nextNum = Number(nowNum) + 1;
+      $(".quest0" + nextNum).addClass("on");
+    }
   })
 
   
@@ -248,17 +253,7 @@ $(function(){
     }
   })
 
-  // 朝ごはん食べた
-  $(".btn-break-y").on("click",function(){
-    // ** 朝ごはん食べたことをストレージに記録
-    $(this).parents(".modal").removeClass("show");
-  })
 
-  // 昼ごはん食べた
-  $(".btn-lunch-y").on("click", function () {
-    // ** 昼ごはん食べたことをストレージに記録
-    $(this).parents(".modal").removeClass("show");
-  })
 
   $(".btn-n").on("click",function(){
     $(this).parents(".modal").removeClass("show");

@@ -37,6 +37,8 @@ $(function(){
 
 
     let point = 0;
+
+    // コメントで一番よかった項目を出す
     let comRhythm = 0;
     let comVege = 0;
     let comFish = 0;
@@ -91,10 +93,9 @@ $(function(){
     
 
     // 睡眠時間
-    // ストレージから計算
-    let sleep = 18;
-    comSleep = 18;
-
+    // ストレージから
+    let sleep = localStorage.getItem("dataSleep");
+    comSleep = localStorage.getItem("dataSleep");
 
     // 100点
     // morning:1       6
@@ -123,7 +124,7 @@ $(function(){
       dataType: "json",
       cashe: false,
       data: {
-        id: $(".wrap-af").attr("data-id"),
+        id: localStorage.getItem("dataId"),
         morning: morning,
         lunch: lunch,
         dinner: dinner,
@@ -139,7 +140,7 @@ $(function(){
     })
     .done(function (data) {
       console.log("生活チェック通信成功")
-      console.log("生活チェック:"+data)
+      console.log(data)
 
       // 成功したら結果画面表示
       scResult.addClass("on");

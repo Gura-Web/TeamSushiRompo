@@ -183,9 +183,7 @@
   background: #fff;
   transition: ease 0.4s;
   z-index: 1;
-  &:not(:first-child){
-    left: 100%;
-  }
+  left: 100%;
   &.on{
     left: 0%;
   }

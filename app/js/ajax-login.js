@@ -19,7 +19,7 @@ $(function(){
       timeout: 3000
     })
       .done(function (data) {
-        console.log("ログイン:"+data)
+        console.log(data)
         if (data) {
           console.log("ログインできた")
           $(".wrap-af").addClass("in");
@@ -28,8 +28,37 @@ $(function(){
             $(".wrap-be").css("display","none");
           },600);
 
-          //** ユーザーidをdata属性に入れる
-          //** 名前、性別、パートナーをストレージに入れる
+          // dataNoFirstがない場合は普通に入れる
+          if (localStorage.getItem("dataNoFirst")){
+            // ** dataNoFirstがある場合、すでに保存されてるdataIdと比べる
+            if (localStorage.getItem("dataId") !== 1){
+              // 違った場合、ストレージ全て決して入れる
+              localStorage.removeItem("dataNoFirst");
+              localStorage.removeItem("dataCheck");
+              localStorage.removeItem("dataMor");
+              localStorage.removeItem("dataNig");
+              localStorage.removeItem("dataBre");
+              localStorage.removeItem("dataLun");
+              localStorage.removeItem("dataGetting");
+              localStorage.removeItem("dataSleep");
+              localStorage.removeItem("dataId");
+              localStorage.removeItem("dataName");
+              localStorage.removeItem("dataPartner");
+
+              //** id、名前、パートナーをストレージに入れる
+              localStorage.setItem("dataId", 1);
+              localStorage.setItem("dataName", "まちゃき");
+              localStorage.setItem("dataPartner", 1);
+            }
+          }
+          else{
+            //** id、名前、パートナーをストレージに入れる
+            localStorage.setItem("dataId", 1);
+            localStorage.setItem("dataName", "まちゃき");
+            localStorage.setItem("dataPartner", 1);
+          }
+          
+
 
 
           
