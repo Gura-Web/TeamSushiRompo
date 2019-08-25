@@ -27,33 +27,33 @@ $(function(){
     // 生活リズムくんを選んだ場合
     charaName.text("生活リズムくん")
     if (getStorage("dataHomeCheck2") == true){
-      charaImage.attr("src",""); // 体調悪い画像
+      charaImage.attr("src","img/chara01-body03.svg"); // 体調悪い画像
       charaStatus.text("悪い");
       charaMessage.html(userName+"さん、僕はとてもしんどいよ。<br>今日は生活チェックしてほしいです。")
     }
     else if (getStorage("dataHomeCheck1") == true){
-      charaImage.attr("src", ""); // 怒ってる画像
+      charaImage.attr("src", "img/chara01-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName+"さん！昨日生活チェックしてませんよ！<br>今日はしてくださいね！")
     }
     else if (getStorage("dataHomeNig") == true){
-      charaImage.attr("src", ""); // 怒ってる画像
+      charaImage.attr("src", "img/chara01-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！昨日おやすみ押してませんよ！<br>日付が変わる前には寝てくださいね！")
     }
     else{
       if (getStorage("dataPoint") >= 0 && 40 >= getStorage("dataPoint")) {
-        charaImage.attr("src", ""); // 体調悪い画像
+        charaImage.attr("src", "img/chara01-body03.svg"); // 体調悪い画像
         charaStatus.text("悪い")
         charaMessage.html(userName + "さん、少ししんどいな。<br>生活リズム頑張って直しましょうね！")
       }
       else if (getStorage("dataPoint") >= 41 && 79 >= getStorage("dataPoint")) {
-        charaImage.attr("src", ""); // 普通の画像
+        charaImage.attr("src", "img/chara01-body01.svg"); // 普通の画像
         charaStatus.text("普通")
         charaMessage.html(userName + "さん！僕は元気です。<br>生活リズムをもっと良くしていきましょう！")
       }
       else {
-        charaImage.attr("src", ""); // 良いの画像
+        charaImage.attr("src", "img/chara01-body02.svg"); // 良いの画像
         charaStatus.text("良い")
         charaMessage.html(userName + "さん！僕はとっても元気です。<br>生活リズムをキープしましょう！")
       }
@@ -63,33 +63,33 @@ $(function(){
     // 生活リズムさんを選んだ場合
     charaName.text("生活リズムさん")
     if (getStorage("dataHomeCheck2") == true) {
-      charaImage.attr("src", ""); // 体調悪い画像
+      charaImage.attr("src", "img/chara02-body03.svg"); // 体調悪い画像
       charaStatus.text("悪い");
       charaMessage.html(userName + "さん、私とてもしんどいよ。<br>今日は生活チェックしてほしいです。")
     }
     else if (getStorage("dataHomeCheck1") == true) {
-      charaImage.attr("src", ""); // 怒ってる画像
+      charaImage.attr("src", "img/chara02-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！昨日生活チェックしてませんよ！<br>今日はしてくださいね！")
     }
     else if (getStorage("dataHomeNig") == true) {
-      charaImage.attr("src", ""); // 怒ってる画像
+      charaImage.attr("src", "img/chara02-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！昨日おやすみ押してませんよ！<br>日付が変わる前には寝てくださいね！")
     }
     else {
       if (getStorage("dataPoint") >= 0 && 40 >= getStorage("dataPoint")) {
-        charaImage.attr("src", ""); // 体調悪い画像
+        charaImage.attr("src", "img/chara02-body03.svg"); // 体調悪い画像
         charaStatus.text("悪い")
         charaMessage.html(userName + "さん、少ししんどいな。<br>生活リズム頑張って直しましょうね！")
       }
       else if (getStorage("dataPoint") >= 41 && 79 >= getStorage("dataPoint")) {
-        charaImage.attr("src", ""); // 普通の画像
+        charaImage.attr("src", "img/chara02-body01.svg"); // 普通の画像
         charaStatus.text("普通")
         charaMessage.html(userName + "さん！私は元気です。<br>生活リズムをもっと良くしていきましょう！")
       }
       else {
-        charaImage.attr("src", ""); // 良いの画像
+        charaImage.attr("src", "img/chara02-body02.svg"); // 良いの画像
         charaStatus.text("良い")
         charaMessage.html(userName + "さん！私はとっても元気です。<br>生活リズムをキープしましょう！")
       }
@@ -99,33 +99,33 @@ $(function(){
     // 生活りずむんを選んだ場合
     charaName.text("生活りずむん")
     if (getStorage("dataHomeCheck2") == true) {
-      charaImage.attr("src", ""); // 体調悪い画像
+      charaImage.attr("src", "img/chara03-body03.svg"); // 体調悪い画像
       charaStatus.text("悪い");
       charaMessage.html(userName + "さん、僕とてもしんどいブ〜。<br>今日は生活チェックしてほしいブ〜。")
     }
     else if (getStorage("dataHomeCheck1") == true) {
-      charaImage.attr("src", ""); // 怒ってる画像
+      charaImage.attr("src", "img/chara03-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！昨日生活チェックしてないブ〜！<br>今日はしてブ〜！")
     }
     else if (getStorage("dataHomeNig") == true) {
-      charaImage.attr("src", ""); // 怒ってる画像
+      charaImage.attr("src", "img/chara03-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！昨日おやすみ押してないブ〜！<br>日付が変わる前には寝てブ〜！")
     }
     else {
       if (getStorage("dataPoint") >= 0 && 40 >= getStorage("dataPoint")) {
-        charaImage.attr("src", ""); // 体調悪い画像
+        charaImage.attr("src", "img/chara03-body03.svg"); // 体調悪い画像
         charaStatus.text("悪い")
         charaMessage.html(userName + "さん、僕少ししんどいブ〜。<br>生活リズム頑張って直そうブ〜！")
       }
       else if (getStorage("dataPoint") >= 41 && 79 >= getStorage("dataPoint")) {
-        charaImage.attr("src", ""); // 普通の画像
+        charaImage.attr("src", "img/chara03-body01.svg"); // 普通の画像
         charaStatus.text("普通")
         charaMessage.html(userName + "さん！僕、元気ブ〜！<br>生活リズムをもっと良くしていこうブ〜！")
       }
       else {
-        charaImage.attr("src", ""); // 良いの画像
+        charaImage.attr("src", "img/chara03-body02.svg"); // 良いの画像
         charaStatus.text("良い")
         charaMessage.html(userName + "さん！僕はとっても元気ブ〜！<br>この生活リズムをキープするブ〜！")
       }

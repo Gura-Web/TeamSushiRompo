@@ -212,32 +212,53 @@ $(function(){
         console.log("前回の記録と比較")
         if (lastResult > result) {
           // bad
-          $(".list-comment__img span").text("Bad");
+          $(".icon-result span").text("Bad");
           if (localStorage.getItem("dataPartner") == 2){
             $(".com-result").text("前回より点数が落ちちゃったブ〜。")
+            $(".icon-result img").attr("src","img/chara03-face03.svg")
           }
           else{
             $(".com-result").text("前回より点数が落ちてしまいましたね。")
+            if (localStorage.getItem("dataPartner") == 0){
+              $(".icon-result img").attr("src", "img/chara01-face03.svg")
+            }
+            else{
+              $(".icon-result img").attr("src", "img/chara02-face03.svg")
+            }
           }
         }
         if (lastResult == result) {
           // Soso
-          $(".list-comment__img span").text("Soso");
+          $(".icon-result span").text("Soso");
           if (localStorage.getItem("dataPartner") == 2) {
             $(".com-result").text("前回と点数は変わらないブ〜！")
+            $(".icon-result img").attr("src", "img/chara03-face01.svg")
           }
           else {
             $(".com-result").text("前回と点数は変わりませんね！")
+            if (localStorage.getItem("dataPartner") == 0) {
+              $(".icon-result img").attr("src", "img/chara01-face01.svg")
+            }
+            else {
+              $(".icon-result img").attr("src", "img/chara02-face01.svg")
+            }
           }
         }
         if (lastResult < result) {
           // Good
-          $(".list-comment__img span").text("Good");
+          $(".icon-result span").text("Good");
           if (localStorage.getItem("dataPartner") == 2) {
             $(".com-result").text("前回より点数が上がったブ〜！！")
+            $(".icon-result img").attr("src", "img/chara03-face02.svg")
           }
           else {
             $(".com-result").text("前回より点数が上がりましたね！！")
+            if (localStorage.getItem("dataPartner") == 0) {
+              $(".icon-result img").attr("src", "img/chara01-face02.svg")
+            }
+            else {
+              $(".icon-result img").attr("src", "img/chara02-face02.svg")
+            }
           }
         }
       }
@@ -246,32 +267,53 @@ $(function(){
         // 前回の記録がない場合
         if ($(".result-point").hasClass("bad")){
           // bad
-          $(".list-comment__img span").text("Bad");
+          $(".icon-result span").text("Bad");
           if (localStorage.getItem("dataPartner") == 2) {
             $(".com-result").text("今回の点数は悪い方だブ〜。１週間頑張れブ〜！")
+            $(".icon-result img").attr("src", "img/chara03-face03.svg")
           }
           else {
             $(".com-result").text("今回の点数は悪い方ですね。１週間頑張りましょう！")
+            if (localStorage.getItem("dataPartner") == 0) {
+              $(".icon-result img").attr("src", "img/chara01-face03.svg")
+            }
+            else {
+              $(".icon-result img").attr("src", "img/chara02-face03.svg")
+            }
           }
         }
         if ($(".result-point").hasClass("soso")) {
           // soso
-          $(".list-comment__img span").text("Soso");
+          $(".icon-result span").text("Soso");
           if (localStorage.getItem("dataPartner") == 2) {
             $(".com-result").text("今回の点数は普通だブ〜。１週間頑張れブ〜！")
+            $(".icon-result img").attr("src", "img/chara03-face01.svg")
           }
           else {
             $(".com-result").text("今回の点数は普通ですね。１週間頑張りましょう！")
+            if (localStorage.getItem("dataPartner") == 0) {
+              $(".icon-result img").attr("src", "img/chara01-face01.svg")
+            }
+            else {
+              $(".icon-result img").attr("src", "img/chara02-face01.svg")
+            }
           }
         }
         if ($(".result-point").hasClass("good")) {
           // bad
-          $(".list-comment__img span").text("Good");
+          $(".icon-result span").text("Good");
           if (localStorage.getItem("dataPartner") == 2) {
             $(".com-result").text("今回の点数は良いブ〜！１週間頑張れブ〜！")
+            $(".icon-result img").attr("src", "img/chara03-face02.svg")
           }
           else {
             $(".com-result").text("今回の点数は良いですね！１週間頑張りましょう！")
+            if (localStorage.getItem("dataPartner") == 0) {
+              $(".icon-result img").attr("src", "img/chara01-face02.svg")
+            }
+            else {
+              $(".icon-result img").attr("src", "img/chara02-face02.svg")
+            }
           }
         }
       }
@@ -293,6 +335,17 @@ $(function(){
           comGoodCont = i;
         }
       })
+
+      if (localStorage.getItem("dataPartner") == 0){
+        $(".icon-good img").attr("src", "img/chara01-face02.svg")
+      }
+      else if (localStorage.getItem("dataPartner") == 1){
+        $(".icon-good img").attr("src", "img/chara02-face02.svg") 
+      }
+      else{
+        $(".icon-good img").attr("src", "img/chara03-face02.svg")
+      }
+
       switch (comGoodCont) {
         case 0:
           if (localStorage.getItem("dataPartner") == 2) {
