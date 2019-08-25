@@ -1,4 +1,16 @@
 $(function(){
+
+  // ログインしたことあれば(dataIdあれば)ホーム表示
+  if(localStorage.getItem("dataId") !== null){
+    $(".wrap-af").addClass("in");
+    $(".wrap-be").addClass("out");
+    setTimeout(function () {
+      $(".wrap-be").css("display", "none");
+    }, 600);
+  }
+
+
+
   let scRegi = $(".sc-regi");
   let scLog = $(".sc-log");
   let scConf = $(".sc-conf");
@@ -26,7 +38,13 @@ $(function(){
   if(getStorage("dataPartner") == 0){
     // 生活リズムくんを選んだ場合
     charaName.text("生活リズムくん")
-    if (getStorage("dataHomeCheck2") == true){
+    if (!getStorage("dataNoFirst")){
+      // 初日の場合
+      charaImage.attr("src", "img/chara01-body01.svg");
+      charaStatus.text("普通");
+      charaMessage.html(userName + "さん！はじめまして！<br>生活チェックは18:00から可能です！")
+    }
+    else if (getStorage("dataHomeCheck2") == true){
       charaImage.attr("src","img/chara01-body03.svg"); // 体調悪い画像
       charaStatus.text("悪い");
       charaMessage.html(userName+"さん、僕はとてもしんどいよ。<br>今日は生活チェックしてほしいです。")
@@ -39,7 +57,7 @@ $(function(){
     else if (getStorage("dataHomeNig") == true){
       charaImage.attr("src", "img/chara01-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
-      charaMessage.html(userName + "さん！昨日おやすみ押してませんよ！<br>日付が変わる前には寝てくださいね！")
+      charaMessage.html(userName + "さん！昨日、日付が変わる前に寝ましたか？<br>しっかりおやすみボタンを押してから寝てくださいね。")
     }
     else{
       if (getStorage("dataPoint") >= 0 && 40 >= getStorage("dataPoint")) {
@@ -62,7 +80,13 @@ $(function(){
   else if (getStorage("dataPartner") == 1){
     // 生活リズムさんを選んだ場合
     charaName.text("生活リズムさん")
-    if (getStorage("dataHomeCheck2") == true) {
+    if (!getStorage("dataNoFirst")) {
+      // 初日の場合
+      charaImage.attr("src", "img/chara02-body01.svg");
+      charaStatus.text("普通");
+      charaMessage.html(userName + "さん！はじめまして！<br>生活チェックは18:00から可能です！")
+    }
+    else if (getStorage("dataHomeCheck2") == true) {
       charaImage.attr("src", "img/chara02-body03.svg"); // 体調悪い画像
       charaStatus.text("悪い");
       charaMessage.html(userName + "さん、私とてもしんどいよ。<br>今日は生活チェックしてほしいです。")
@@ -75,7 +99,7 @@ $(function(){
     else if (getStorage("dataHomeNig") == true) {
       charaImage.attr("src", "img/chara02-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
-      charaMessage.html(userName + "さん！昨日おやすみ押してませんよ！<br>日付が変わる前には寝てくださいね！")
+      charaMessage.html(userName + "さん！昨日、日付が変わる前に寝ましたか？<br>しっかりおやすみボタンを押してから寝てくださいね。")
     }
     else {
       if (getStorage("dataPoint") >= 0 && 40 >= getStorage("dataPoint")) {
@@ -98,7 +122,13 @@ $(function(){
   else{
     // 生活りずむんを選んだ場合
     charaName.text("生活りずむん")
-    if (getStorage("dataHomeCheck2") == true) {
+    if (!getStorage("dataNoFirst")) {
+      // 初日の場合
+      charaImage.attr("src", "img/chara03-body01.svg");
+      charaStatus.text("普通");
+      charaMessage.html(userName + "さん！はじめまして！<br>生活チェックは18:00から可能だブ！")
+    }
+    else if (getStorage("dataHomeCheck2") == true) {
       charaImage.attr("src", "img/chara03-body03.svg"); // 体調悪い画像
       charaStatus.text("悪い");
       charaMessage.html(userName + "さん、僕とてもしんどいブ〜。<br>今日は生活チェックしてほしいブ〜。")
@@ -111,7 +141,7 @@ $(function(){
     else if (getStorage("dataHomeNig") == true) {
       charaImage.attr("src", "img/chara03-body04.svg"); // 怒ってる画像
       charaStatus.text("普通");
-      charaMessage.html(userName + "さん！昨日おやすみ押してないブ〜！<br>日付が変わる前には寝てブ〜！")
+      charaMessage.html(userName + "さん！昨日、日付が変わる前に寝たブ？<br>しっかりおやすみボタンを押してから寝てブ〜。")
     }
     else {
       if (getStorage("dataPoint") >= 0 && 40 >= getStorage("dataPoint")) {

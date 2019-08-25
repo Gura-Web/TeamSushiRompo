@@ -1,5 +1,6 @@
 $(function(){
 
+  // 
 
   // ストレージデータ一覧
   // dataNoFirst => true/null
@@ -14,9 +15,8 @@ $(function(){
   // dataHomeCheck1 => 生活チェックしなかった時(1日)　true
   // dataHomeCheck2 => 生活チェックしなかった時(2日〜)　true
   // dataPoint => 生活チェックの点数
-  localStorage.removeItem("dataHomeNig");
-  localStorage.removeItem("dataHomeCheck1");
-  localStorage.removeItem("dataHomeCheck2");
+  
+  
 
   // dataId => ユーザid
   // dataName => ユーザ名前
@@ -177,6 +177,8 @@ $(function(){
   // dataNigに現在のY/M/Dを入れる => ボタン押せなくする
   $(".btn-night").on("click",function(){
 
+    localStorage.removeItem("dataHomeNig");
+
     // dataNigが今日と同じならalert
     if (getStorage("dataNig") == nowYear + "/" + nowMonth + "/" + nowDate) {
       alert("今日はすでに「おやすみ」ボタンを押しています。")
@@ -192,6 +194,10 @@ $(function(){
   // *****************************
 
   $(".btn-check").on("click",function(){
+
+    localStorage.removeItem("dataHomeCheck1");
+    localStorage.removeItem("dataHomeCheck2");
+
 
     // dataNoFirstにtrueを入れる(初日じゃなくする)
     setStorage("dataNoFirst", true);
@@ -343,6 +349,35 @@ $(function(){
 
   $(".btn-decision").on("click",function(){
     setStorage("dataGetting", $(".display-hour").text() + "/" + $(".display-minute").text());
+  })
+
+
+  // *****************************
+  //  ログアウト押した時
+  // *****************************
+  $(".btn-logout").on("click",function(){
+    localStorage.removeItem("dataNoFirst");
+    localStorage.removeItem("dataCheck");
+    localStorage.removeItem("dataMor");
+    localStorage.removeItem("dataNig");
+    localStorage.removeItem("dataBre");
+    localStorage.removeItem("dataLun");
+    localStorage.removeItem("dataGetting");
+    localStorage.removeItem("dataSleep");
+    localStorage.removeItem("dataId");
+    localStorage.removeItem("dataName");
+    localStorage.removeItem("dataPartner");
+    localStorage.removeItem("dataPoint");
+    localStorage.removeItem("dataHomeNig");
+    localStorage.removeItem("dataHomeCheck1");
+    localStorage.removeItem("dataHomeCheck2");
+
+    $(".wrap-be").css("display", "block");
+    
+    setTimeout(function () {
+      $(".wrap-af").removeClass("in");
+      $(".wrap-be").removeClass("out");
+    }, 600);
   })
 
   

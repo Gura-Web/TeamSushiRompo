@@ -32,7 +32,7 @@ $(function(){
           if (localStorage.getItem("dataNoFirst")){
             // ** dataNoFirstがある場合、すでに保存されてるdataIdと比べる
             if (localStorage.getItem("dataId") !== 1){
-              // 違った場合、ストレージ全て決して入れる
+              // 違った場合、ストレージ全て消して入れる
               localStorage.removeItem("dataNoFirst");
               localStorage.removeItem("dataCheck");
               localStorage.removeItem("dataMor");
@@ -45,6 +45,10 @@ $(function(){
               localStorage.removeItem("dataName");
               localStorage.removeItem("dataPartner");
               localStorage.removeItem("dataPoint");
+              localStorage.removeItem("dataHomeNig");
+              localStorage.removeItem("dataHomeCheck1");
+              localStorage.removeItem("dataHomeCheck2");
+
 
               //** id、名前、パートナーをストレージに入れる
               localStorage.setItem("dataId", 1);
