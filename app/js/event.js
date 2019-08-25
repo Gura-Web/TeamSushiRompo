@@ -7,6 +7,10 @@ $(function(){
     setTimeout(function () {
       $(".wrap-be").css("display", "none");
     }, 600);
+
+    if (localStorage.getItem("dataPartner") == 2) {
+      $(".box-chara__img").css("margin", "120px auto 110px");
+    }
   }
 
 
@@ -34,6 +38,9 @@ $(function(){
   function getStorage(key) {
     return localStorage.getItem(key);
   }
+
+  
+  
 
   if(getStorage("dataPartner") == 0){
     // 生活リズムくんを選んだ場合
@@ -124,38 +131,38 @@ $(function(){
     charaName.text("生活りずむん")
     if (!getStorage("dataNoFirst")) {
       // 初日の場合
-      charaImage.attr("src", "img/chara03-body01.svg");
+      charaImage.attr("src", "img/chara03-face01.svg");
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！はじめまして！<br>生活チェックは18:00から可能だブ！")
     }
     else if (getStorage("dataHomeCheck2") == true) {
-      charaImage.attr("src", "img/chara03-body03.svg"); // 体調悪い画像
+      charaImage.attr("src", "img/chara03-face03.svg"); // 体調悪い画像
       charaStatus.text("悪い");
       charaMessage.html(userName + "さん、僕とてもしんどいブ〜。<br>今日は生活チェックしてほしいブ〜。")
     }
     else if (getStorage("dataHomeCheck1") == true) {
-      charaImage.attr("src", "img/chara03-body04.svg"); // 怒ってる画像
+      charaImage.attr("src", "img/chara03-face04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！昨日生活チェックしてないブ〜！<br>今日はしてブ〜！")
     }
     else if (getStorage("dataHomeNig") == true) {
-      charaImage.attr("src", "img/chara03-body04.svg"); // 怒ってる画像
+      charaImage.attr("src", "img/chara03-face04.svg"); // 怒ってる画像
       charaStatus.text("普通");
       charaMessage.html(userName + "さん！昨日、日付が変わる前に寝たブ？<br>しっかりおやすみボタンを押してから寝てブ〜。")
     }
     else {
       if (getStorage("dataPoint") >= 0 && 40 >= getStorage("dataPoint")) {
-        charaImage.attr("src", "img/chara03-body03.svg"); // 体調悪い画像
+        charaImage.attr("src", "img/chara03-face03.svg"); // 体調悪い画像
         charaStatus.text("悪い")
         charaMessage.html(userName + "さん、僕少ししんどいブ〜。<br>生活リズム頑張って直そうブ〜！")
       }
       else if (getStorage("dataPoint") >= 41 && 79 >= getStorage("dataPoint")) {
-        charaImage.attr("src", "img/chara03-body01.svg"); // 普通の画像
+        charaImage.attr("src", "img/chara03-face01.svg"); // 普通の画像
         charaStatus.text("普通")
         charaMessage.html(userName + "さん！僕、元気ブ〜！<br>生活リズムをもっと良くしていこうブ〜！")
       }
       else {
-        charaImage.attr("src", "img/chara03-body02.svg"); // 良いの画像
+        charaImage.attr("src", "img/chara03-face02.svg"); // 良いの画像
         charaStatus.text("良い")
         charaMessage.html(userName + "さん！僕はとっても元気ブ〜！<br>この生活リズムをキープするブ〜！")
       }

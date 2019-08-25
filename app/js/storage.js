@@ -378,6 +378,7 @@ $(function(){
       $(".wrap-af").removeClass("in");
       $(".wrap-be").removeClass("out");
       $(".af-screens").css("left","100%")
+      $(".box-chara__img").css("margin", "20px auto 0");
     }, 600);
 
 

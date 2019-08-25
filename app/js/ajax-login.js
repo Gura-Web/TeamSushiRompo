@@ -28,9 +28,9 @@ $(function(){
             $(".wrap-be").css("display","none");
           },600);
 
-          // dataNoFirstがない場合は普通に入れる
+          // dataNoFirstがない(初日)場合は普通に入れる
           if (localStorage.getItem("dataNoFirst")){
-            // ** dataNoFirstがある場合、すでに保存されてるdataIdと比べる
+            // ** dataNoFirstがある(初日でない)場合、すでに保存されてるdataIdと比べる
             if (localStorage.getItem("dataId") !== 1){
               // 違った場合、ストレージ全て消して入れる
               localStorage.removeItem("dataNoFirst");
@@ -53,19 +53,22 @@ $(function(){
               //** id、名前、パートナーをストレージに入れる
               localStorage.setItem("dataId", 1);
               localStorage.setItem("dataName", "まちゃき");
-              localStorage.setItem("dataPartner", 1);
+              localStorage.setItem("dataPartner", 2);
             }
           }
           else{
             //** id、名前、パートナーをストレージに入れる
             localStorage.setItem("dataId", 1);
             localStorage.setItem("dataName", "まちゃき");
-            localStorage.setItem("dataPartner", 1);
+            localStorage.setItem("dataPartner", 2);
           }
           
+          // ぶたえらんだときホームの画像の高さ変える
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".box-chara__img").css("margin", "120px auto 110px");
+          }
 
-
-
+          
           
           // 正しくログインできた
 
@@ -107,7 +110,10 @@ $(function(){
           let money = [5, "+"];
 
           // マイページに表示
-          $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
+          if (localStorage.getItem("dataNoFirst")){
+            $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
+          }
+          
 
         }
         else {

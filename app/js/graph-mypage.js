@@ -19,6 +19,9 @@
 (function ($) {
   $.fn.graphMypage = function (week, result, timing,electric,smoke,vege,fish,fruit,co2,energie,sick,money) {
 
+    // 注意メッセージを消す
+    $(".msg").remove();
+
     let date = new Date();
 
     //

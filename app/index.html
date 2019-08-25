@@ -491,8 +491,9 @@
 
         <!-- *************************** マイページ画面 *************************** -->
         <div class="sc sc-my">
-          <h2>健康状態：<span>悪い</span></h2>
+          <h2>健康状態：<span>？？</span></h2>
           <div class="graph-line">
+            <p class="msg">生活チェックをすると、<br>ここに１週間のグラフが表示されます。</p>
             <!-- １週間グラフ -->
             <canvas id="graph-week"></canvas>
           </div>
@@ -514,12 +515,13 @@
             </div>
 
             <div class="inner-box-data">
-              <p class="data-when">今日のデータ</p>
+              <p class="data-when">？？のデータ</p>
 
               <ul class="box-graph-rod">
                 <li>
                   <p class=""></p>
                   <div class="point-electric graph-rod">
+                    生活チェックをすると、<br>ここに電気使用率のグラフが表示されます。
                     <!-- <div class="over"><span>85%</span></div>
                     <div class="remain"></div> -->
                   </div>
@@ -527,6 +529,7 @@
                 <li>
                   <p class=""></p>
                   <div class="point-smoke graph-rod">
+                    生活チェックをすると、<br>ここにタバコ本数のグラフが表示されます。
                     <!-- <div class="now"><span>3本</span></div>
                     <div class="first"><span>6本</span></div>
                     <div class="remain"></div> -->
@@ -542,8 +545,8 @@
             </div>
             
             <div class="inner-box-data">
-              <p class="data-when">今日のデータ</p>
-
+              <p class="data-when">？？のデータ</p>
+              <p class="msg">生活チェックをすると、<br>ここに食事データが表示されます。</p>
               <ul class="box-graph-select">
                 <li class="box-vege">
                   <p><span><img src="img/icon-vege.svg" alt=""></span>野菜</p>
@@ -579,15 +582,14 @@
             </div>
 
             <div class="inner-box-data">
-              <p class="data-when">今日のデータ</p>
+              <p class="data-when">？？のデータ</p>
 
               <div class="box-graph-radar">
                 <p>あなたの<br><span>社会貢献度数</span></p>
                 <p>生活リズムを改善したことで、社会に<br>貢献することのできたグラフです。</p>
-
+                <p class="msg">生活チェックをすると、<br>ここに社会貢献度のグラフが表示されます。</p>
                 <div class="graph-radar">
                   <!-- レーダーチャート -->
-                  <canvas id="graph-social"></canvas>
                 </div>
               </div>
             </div>
