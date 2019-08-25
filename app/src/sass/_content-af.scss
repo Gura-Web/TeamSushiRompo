@@ -788,6 +788,16 @@
 }
 
 /* マイページ */
+.msg{
+  font-size: 1.3rem;
+  color :$red;
+}
+.inner-box-data > .msg{
+  margin: 20px 0 28px;
+}
+.graph-line .msg{
+  margin: 0 10px;
+}
 .sc-my{
   padding-bottom: 200px;
   li{
