@@ -44,6 +44,7 @@ $(function(){
               localStorage.removeItem("dataId");
               localStorage.removeItem("dataName");
               localStorage.removeItem("dataPartner");
+              localStorage.removeItem("dataPoint");
 
               //** id、名前、パートナーをストレージに入れる
               localStorage.setItem("dataId", 1);

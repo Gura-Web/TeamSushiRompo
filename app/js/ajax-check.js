@@ -94,8 +94,13 @@ $(function(){
 
     // 睡眠時間
     // ストレージから
+    
     let sleep = localStorage.getItem("dataSleep");
     comSleep = localStorage.getItem("dataSleep");
+
+    point += sleep;
+
+    localStorage.setItem("dataPoint", point);
 
     // 100点
     // morning:1       6
@@ -208,17 +213,32 @@ $(function(){
         if (lastResult > result) {
           // bad
           $(".list-comment__img span").text("Bad");
-          $(".com-result").text("前回より点数が落ちてしまった")
+          if (localStorage.getItem("dataPartner") == 2){
+            $(".com-result").text("前回より点数が落ちちゃったブ〜。")
+          }
+          else{
+            $(".com-result").text("前回より点数が落ちてしまいましたね。")
+          }
         }
         if (lastResult == result) {
           // Soso
           $(".list-comment__img span").text("Soso");
-          $(".com-result").text("前回と点数は変わりません")
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-result").text("前回と点数は変わらないブ〜！")
+          }
+          else {
+            $(".com-result").text("前回と点数は変わりませんね！")
+          }
         }
         if (lastResult < result) {
           // Good
           $(".list-comment__img span").text("Good");
-          $(".com-result").text("前回より点数が上がった！")
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-result").text("前回より点数が上がったブ〜！！")
+          }
+          else {
+            $(".com-result").text("前回より点数が上がりましたね！！")
+          }
         }
       }
       else{
@@ -227,17 +247,32 @@ $(function(){
         if ($(".result-point").hasClass("bad")){
           // bad
           $(".list-comment__img span").text("Bad");
-          $(".com-result").text("今回の点数は悪い。１週間頑張りましょう")
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-result").text("今回の点数は悪い方だブ〜。１週間頑張れブ〜！")
+          }
+          else {
+            $(".com-result").text("今回の点数は悪い方ですね。１週間頑張りましょう！")
+          }
         }
         if ($(".result-point").hasClass("soso")) {
-          // bad
+          // soso
           $(".list-comment__img span").text("Soso");
-          $(".com-result").text("今回の点数は普通。１週間頑張りましょう")
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-result").text("今回の点数は普通だブ〜。１週間頑張れブ〜！")
+          }
+          else {
+            $(".com-result").text("今回の点数は普通ですね。１週間頑張りましょう！")
+          }
         }
         if ($(".result-point").hasClass("good")) {
           // bad
           $(".list-comment__img span").text("Good");
-          $(".com-result").text("今回の点数は良い。このまま１週間頑張りましょう")
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-result").text("今回の点数は良いブ〜！１週間頑張れブ〜！")
+          }
+          else {
+            $(".com-result").text("今回の点数は良いですね！１週間頑張りましょう！")
+          }
         }
       }
 
@@ -246,7 +281,7 @@ $(function(){
       comResult.push(comVege);
       comResult.push(comFish);
       comResult.push(comFru);
-      comResult.push(comSmoke);
+      // comResult.push(comSmoke);
       comResult.push(comSleep);
 
       let comGoodPoint = 0;
@@ -260,32 +295,76 @@ $(function(){
       })
       switch (comGoodCont) {
         case 0:
-          $(".com-good").text("生活リズムがGood！");
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-good").text("生活リズムがしっかりしてて良いブ〜！");
+          }
+          else {
+            $(".com-good").text("生活リズムがしっかりしてて良いですね！");
+          }
           break;
         case 1:
-          $(".com-good").text("野菜がGood！");
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-good").text("野菜がしっかり取れてて良いブ〜！");
+          }
+          else {
+            $(".com-good").text("野菜がしっかり取れてて良いですね！");
+          }
           break;
         case 2:
-          $(".com-good").text("魚がGood！");
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-good").text("魚がしっかり取れてて良いブ〜！");
+          }
+          else {
+            $(".com-good").text("魚がしっかり取れてて良いですね！");
+          }
           break;
         case 3:
-          $(".com-good").text("フルーツがGood！");
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-good").text("フルーツがしっかり取れてて良いブ〜！");
+          }
+          else {
+            $(".com-good").text("フルーツがしっかり取れてて良いですね！");
+          }
           break;
+        // case 4:
+        //   if (localStorage.getItem("dataPartner") == 2) {
+        //     $(".com-good").text("たばこ");
+        //   }
+        //   else {
+        //     $(".com-good").text("生活リズムがしっかりしていますね！");
+        //   }
+        //   $(".com-good").text("たばこがGood！");
+        //   break;
         case 4:
-          $(".com-good").text("たばこがGood！");
-          break;
-        case 5:
-          $(".com-good").text("睡眠時間がGood！");
+          if (localStorage.getItem("dataPartner") == 2) {
+            $(".com-good").text("睡眠時間がちょうど良いブ〜！");
+          }
+          else {
+            $(".com-good").text("睡眠時間がちょうど良いですね！");
+          }
           break;
       }
-
-      $(".box-all__txt").html(`
+      
+      if (localStorage.getItem("dataPartner") == 2) {
+        $(".box-all__txt").html(`
+        今日、キミの生活リズムによって、貢献した社会貢献の項目と点数を発表するブ〜。<br>
+        CO2削減は、${co2[0]}ポイント！<br>
+        エネルギー削減は、${energie[0]}ポイント！<br>
+        病気予防は、${sick[0]}ポイント！<br>
+        節約度は、${money[0]}ポイント！<br>
+        ※ 全て5ポイントがMAXだブ！MAXを目指して頑張るブ〜！`);
+      }
+      else {
+        $(".box-all__txt").html(`
         今日、あなたの生活リズムによって、貢献した社会貢献の項目と点数を発表します。<br>
         CO2削減は、${co2[0]}ポイント！<br>
         エネルギー削減は、${energie[0]}ポイント！<br>
         病気予防は、${sick[0]}ポイント！<br>
         節約度は、${money[0]}ポイント！<br>
         ※ 全て5ポイントがMAXです！MAXを目指しましょう！`);
+      }
+
+      
 
       // マイページに表示
       $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);

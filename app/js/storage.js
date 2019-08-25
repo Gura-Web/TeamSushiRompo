@@ -10,6 +10,13 @@ $(function(){
   // dataLun => Y/M/D
   // dataGetting => H/M
   // dataSleep => 睡眠時間の点数
+  // dataHomeNig => おやすみ押さなかった時 true
+  // dataHomeCheck1 => 生活チェックしなかった時(1日)　true
+  // dataHomeCheck2 => 生活チェックしなかった時(2日〜)　true
+  // dataPoint => 生活チェックの点数
+  localStorage.removeItem("dataHomeNig");
+  localStorage.removeItem("dataHomeCheck1");
+  localStorage.removeItem("dataHomeCheck2");
 
   // dataId => ユーザid
   // dataName => ユーザ名前
@@ -86,44 +93,47 @@ $(function(){
 
     //dataCheckの日付が今日と同じ
     if (getStorage("dataCheck") == nowYear + "/" + nowMonth + "/" + nowDate){
-      // => キャラ普通・ボタン押せない
+      // => ボタン押せない
 
       $(".btn-check").html("生活チェック不可能");
       $(".btn-check").removeClass("on");
 
       // dataNigの日付がおとといより前
       if (getStorage("dataNig") !== nowYear + "/" + nowMonth + "/" + nowDate || getStorage("dataNig") !== nowYear + "/" + yesMonth + "/" + yesDate) {
-        // ** => キャラ怒る・コメントにおやすみ押してよ追加
+        // => キャラ怒る・コメントにおやすみ押してよ追加
+        setStorage("dataHomeNig", true);
       }
     }
 
     //dataCheckの日付が昨日と同じ
     else if (getStorage("dataCheck") == nowYear + "/" + yesMonth + "/" + yesDate){
       //  => キャラ普通・ボタン押せる
-      // ** キャラ分岐で普通タイプの画像を表示(ホーム)
       $(".btn-check").html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
       $(".btn-check").addClass("on");
 
       // dataNigの日付がおとといより前
       if (getStorage("dataNig") !== nowYear + "/" + nowMonth + "/" + nowDate || getStorage("dataNig") !== nowYear + "/" + yesMonth + "/" + yesDate) {
-        // ** => キャラ怒る・コメントにおやすみ押してよ追加
+        // => キャラ怒る・コメントにおやすみ押してよ追加
+        setStorage("dataHomeNig", true);
       }
     }
 
     // dataCheckの日付がおとといと同じ
     else if(getStorage("dataCheck") == nowYear + "/" + befMonth + "/" + befDate){
       //  => キャラ怒る・ボタン押せる
-      // ** キャラ分岐で怒りタイプの画像を表示(ホーム)
       $(".btn-check").html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
       $(".btn-check").addClass("on");
+
+      setStorage("dataHomeCheck1", true);
     }
 
     // dataCheckの日付がおとといより前(今日、昨日、おととい以外)
     else{
       //  => キャラ体調不良・ボタン押せる
-      // ** キャラ分岐で体調不良タイプの画像を表示(ホーム)
       $(".btn-check").html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
       $(".btn-check").addClass("on");
+
+      setStorage("dataHomeCheck2", true);
     }
   }
 
@@ -131,11 +141,11 @@ $(function(){
     // dataNoFirstが存在しない(初日)で、dataCheckの日付がない
     if (!getStorage("dataCheck")){
       //  => キャラ普通
-      // ** キャラ分岐で普通タイプの画像を表示(ホーム)
     }
   }
 
   // 起床時間をセット
+  setStorage("dataGetting", $(".display-hour").text() + "/" + $(".display-minute").text())
   let getting = getStorage("dataGetting");
   let gettingH = getting.split("/")[0];
   let gettingM = getting.split("/")[1];
@@ -285,7 +295,6 @@ $(function(){
       // dataNoFirstが存在しない場合は、12点
       setStorage("dataSleep", 12);
     }
-    // ** => ajax-chack.jsでストレージにアクセスし、点数を取得
   })
   
 
