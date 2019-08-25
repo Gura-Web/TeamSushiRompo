@@ -377,7 +377,10 @@ $(function(){
     setTimeout(function () {
       $(".wrap-af").removeClass("in");
       $(".wrap-be").removeClass("out");
+      $(".af-screens").css("left","100%")
     }, 600);
+
+
   })
 
   
