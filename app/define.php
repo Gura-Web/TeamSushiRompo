@@ -18,16 +18,16 @@
 // define( "DB_NAME", "yanyan" );
 
 // miki local
-define("DB_HOST", "127.0.0.1");
-define("DB_USER", "root");
-define("DB_PASS", "yururinpanda");
-define("DB_NAME", "db_seikatsu");
+// define("DB_HOST", "127.0.0.1");
+// define("DB_USER", "root");
+// define("DB_PASS", "yururinpanda");
+// define("DB_NAME", "db_seikatsu");
 
 // miki 仮サーバー
-// define("DB_HOST", "mysql1019.db.sakura.ne.jp");
-// define("DB_USER", "mmiki-web");
-// define("DB_PASS", "yururinpanda0317");
-// define("DB_NAME", "mmiki-web_seikatsu");
+define("DB_HOST", "mysql1019.db.sakura.ne.jp");
+define("DB_USER", "mmiki-web");
+define("DB_PASS", "yururinpanda0317");
+define("DB_NAME", "mmiki-web_seikatsu");
 
 
 // click

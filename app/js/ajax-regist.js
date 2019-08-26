@@ -2,10 +2,10 @@
 // 新規登録のajax関数
 function ajaxRegist(name,mail,pass,gender,birth,partner){
   $.ajax({
-    url: "api_regist.php",
+    url: "https://momokamiki.com/seikatsu/api_regist.php",
     method: "get",
-    dataType: "json",
-    cashe: false,
+    dataType: "jsonp",
+    cache: false,
     data:{
       name:name,
       mail:mail,

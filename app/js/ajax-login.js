@@ -8,18 +8,21 @@ $(function(){
     
     // ajax通信
     $.ajax({
-      url: "api_login.php",
-      method: "get",
-      dataType: "json",
-      cashe: false,
+      url: "https://momokamiki.com/seikatsu/api_login.php",
+      type: "GET",
+      dataType: "jsonp",
+      // contentType: "application/json",
+      cache: false,
       data: {
         mail: address.val(),
         pass: pass.val()
       },
       timeout: 3000
+      // jsonpCallback: "seikatsu_login"
     })
       .done(function (data) {
         console.log(data)
+        console.log("通信できた")
         if (data) {
           console.log("ログインできた")
           $(".wrap-af").addClass("in");
@@ -53,14 +56,14 @@ $(function(){
               //** id、名前、パートナーをストレージに入れる
               localStorage.setItem("dataId", 1);
               localStorage.setItem("dataName", "まちゃき");
-              localStorage.setItem("dataPartner", 2);
+              localStorage.setItem("dataPartner", 1);
             }
           }
           else{
             //** id、名前、パートナーをストレージに入れる
             localStorage.setItem("dataId", 1);
             localStorage.setItem("dataName", "まちゃき");
-            localStorage.setItem("dataPartner", 2);
+            localStorage.setItem("dataPartner", 1);
           }
           
           // ぶたえらんだときホームの画像の高さ変える
@@ -130,7 +133,8 @@ $(function(){
         }
       })
       .fail(function (error) {
-        console.log("ログインエラー"+error)
+        console.log(error)
+        console.log("通信エラー"+error)
       })
 
   })

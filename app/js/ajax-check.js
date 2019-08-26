@@ -124,10 +124,10 @@ $(function(){
     // 生活チェック記録の
     // ajax通信
     $.ajax({
-      url: "api_check.php",
+      url: "https://momokamiki.com/seikatsu/api_check.php",
       method: "get",
-      dataType: "json",
-      cashe: false,
+      dataType: "jsonp",
+      cache: false,
       data: {
         id: localStorage.getItem("dataId"),
         morning: morning,

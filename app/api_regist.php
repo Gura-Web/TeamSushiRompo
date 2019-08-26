@@ -1,5 +1,6 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
 
   // name => 名前,
   // mail => メールアドレス,
