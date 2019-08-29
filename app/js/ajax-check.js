@@ -102,6 +102,23 @@ $(function(){
 
     localStorage.setItem("dataPoint", point);
 
+
+    // moneyとsickをAPIに渡す
+    let money;
+    let sick;
+    if (result >= 0 && 40 >= result) {
+      money = 1;
+      sick = 1;
+    }
+    else if (result >= 41 && 79 >= result) {
+      money = 2;
+      sick = 2;
+    }
+    else {
+      money = 3;
+      sick = 3;
+    }
+
     // 100点
     // morning:1       6
     // lunch:1         6
@@ -139,7 +156,9 @@ $(function(){
         smoke: smoke,
         point: point,
         timing: timing,
-        sleep: sleep
+        sleep: sleep,
+        money: money,
+        sick: sick
       },
       timeout: 3000
     })

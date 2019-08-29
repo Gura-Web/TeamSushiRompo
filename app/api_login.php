@@ -73,6 +73,7 @@ header("Content-type: application/javascript; charset=utf-8");
   // partner : パートナー 0=>男性 1=>女性 2=>豚
   $partner=$userAuth["kyara"];
   // week : １週間の生活チェックの点数 月曜〜日曜 [月,火,水,木,金,土,日]
+  $week=[10,20,30];  
 
   // result : 最新のチェックの点数
   $result=$rows[0]["point"];
@@ -142,6 +143,26 @@ header("Content-type: application/javascript; charset=utf-8");
   else{
       $CO2=null;
   }
+  if ($firstrows["sick"]) {
+    $sickfirst = $firstrows["sick"]; //最初診断の結果
+  } else {
+    $sickfirst = null;
+  }
+  if ($rows[0]["sick"]) {
+    $sick = $rows[0]["sick"]; //最新
+  } else {
+    $sick = null;
+  }
+  if ($firstrows["money"]) {
+    $moneyfirst = $firstrows["money"]; //最初診断の結果
+  } else {
+    $moneyfirst = null;
+  }
+  if ($rows[0]["money"]) {
+    $money = $rows[0]["money"]; //最新
+  } else {
+    $money = null;
+  }
   // energie : エネルギー節約 点数と+-
   if($firstrows["energie"]){
       $energiefirst=$firstrows["energie"]; //最初診断の結果
@@ -155,25 +176,30 @@ header("Content-type: application/javascript; charset=utf-8");
   else{
       $energie=null;
   }
-  // ●欲しいデータの例
-  // [{
-  //   id:1,
-  //   name:"あいうえお",
-  //   gender:0,
-  //   partner:0,
-  //   week:[0,0,0,0],
-  //   result:0,
-  //   timing: "2019/2/2",
-  //   electric: [0,0],
-  //   smoke: [0,0],
-  //   vege: [0,1,2],
-  //   fish: ["null"],
-  //   fruit: [0,1,2],
-  //   co2: [3,"+"]
-  //   energie: [3,"-"]
-  //   sick: [3,""]
-  //   money: [3,"+"]
-  // }]
+
+
+print $_GET['callback'] . '(' . json_encode(
+  array(
+    'name' => $name,
+    'gender' => $gender,
+    'partner' => $partner,
+    'week' => $week,
+    'result' => $result,
+    'timing' => $timing,
+    'electric' => $electric,
+    'smoke' => $smoke,
+    'vege' => $vege,
+    'fish' => $fish,
+    'fru' => $fru,
+    'cosfirst' => $CO2first,
+    'co2' => $CO2,
+    'energiefirst' => $energiefirst,
+    'energie' => $energie,
+    'moneyfirst' => $moneyfirst,
+    'money' => $money,
+    'sickfirst' => $sickfirst,
+    'sick' => $sick
+  )) . ');';
 
 
 // ●欲しいデータ
@@ -217,8 +243,3 @@ header("Content-type: application/javascript; charset=utf-8");
 //   sick: [3,""]
 //   money: [3,"+"]
 // }]
-
-
-
-// print json_encode(["mail","text"]);
-print $_GET['callback'] . '(' . json_encode($_GET) . ');';

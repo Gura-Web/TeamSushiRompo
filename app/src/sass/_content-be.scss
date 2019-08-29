@@ -41,12 +41,12 @@
   .box-btns{
     width: 290px;
     position: absolute;
-    bottom: 100px;
+    bottom: 8%;
     left: 50%;
     transform: translateX(-50%);
   }
   &__logo{
-    width: 156px;
+    width: 40%;
     margin: 0 auto;
   }
   &__ttl{
@@ -59,7 +59,7 @@
   }
 }
 .box-logo{
-  margin: 42% 0;
+  margin: 30% 0;
 }
 
 /* sc-regi */
@@ -68,7 +68,7 @@
     margin: 56px 0 26px;
   }
   .form-parts{
-    margin-left: 20px;
+    margin-left: 14px;
   }
 }
 
@@ -92,17 +92,15 @@
     }
   }
 }
-.form-name{
-  padding-top: 14px;
-  padding-bottom: 10px;
-}
+.form-name,
 .form-mail,
 .form-pass01,
 .form-pass02,
 .form-address{
-  padding-top: 34px;
+  padding-top: 14px;
   padding-bottom: 10px;
 }
+
 .form-name,
 .form-mail,
 .form-pass01,
@@ -147,7 +145,7 @@ input[name="regi-gender"]{
 }
 input[name="regi-gender"]+label{
   display: block;
-  width: 74px;
+  width: 66px;
   height: 30px;
   position: relative;
   text-align: center;

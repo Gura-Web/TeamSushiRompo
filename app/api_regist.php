@@ -1,6 +1,7 @@
 <?php
 
 header('Access-Control-Allow-Origin: *');
+header("Content-type: application/javascript; charset=utf-8");
 
   // name => 名前,
   // mail => メールアドレス,
@@ -60,4 +61,5 @@ header('Access-Control-Allow-Origin: *');
 
 
   // 登録完了できたら "true" を返す
-  print json_encode("true");
+  // print json_encode("true");
+print $_GET['callback'] . '(' . json_encode("true") . ');';
