@@ -1,4 +1,6 @@
 <?php
+
+header('Access-Control-Allow-Origin: *');
 // print_r($_GET);
 require_once __DIR__ . "/define.php";
 // ●$_GETの中
