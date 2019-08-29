@@ -6,10 +6,10 @@
 // 定数を定義するファイル
 
 //kenkenlocal
-// define( "DB_HOST", "localhost" );
-// define( "DB_USER", "root" );
-// define( "DB_PASS", "699177" );
-// define( "DB_NAME", "yanyan" );
+define( "DB_HOST", "localhost" );
+define( "DB_USER", "root" );
+define( "DB_PASS", "699177" );
+define( "DB_NAME", "yanyan" );
 
 //kenkenclick
 // define( "DB_HOST", "localhost" );
@@ -18,10 +18,10 @@
 // define( "DB_NAME", "yanyan" );
 
 // miki local
-define("DB_HOST", "127.0.0.1");
-define("DB_USER", "root");
-define("DB_PASS", "yururinpanda");
-define("DB_NAME", "db_seikatsu");
+// define("DB_HOST", "127.0.0.1");
+// define("DB_USER", "root");
+// define("DB_PASS", "yururinpanda");
+// define("DB_NAME", "db_seikatsu");
 
 // miki 仮サーバー
 // define("DB_HOST", "mysql1019.db.sakura.ne.jp");

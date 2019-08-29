@@ -17,19 +17,53 @@ CREATE TABLE hack_u_check(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     user_id INT UNSIGNED, -- ユーザーid
     point INT UNSIGNED, -- 生活チェックの点数
-    timing INT UNSIGNED, -- 0:診断する　1:毎日
-    fish INT UNSIGNED, -- 魚 0:食べてない 1:食べた
-    vege INT UNSIGNED, -- 野菜　0:食べてない 1:食べた
-    fru INT UNSIGNED, -- フルーツ　0:食べてない 1:食べた
+    diagnosis INT UNSIGNED, -- 0:診断する　1:毎日
+    timing VARCHAR(32), -- チェックした日時 Y/M/Date/Day  Day=> 1が月曜日 7が日曜日
+    fish INT UNSIGNED, -- 魚 null:食べてない　0:朝食べた　1:昼食べた　2:夜食べた
+    vege INT UNSIGNED, -- 野菜　null:食べてない　0:朝食べた　1:昼食べた　2:夜食べた
+    fru INT UNSIGNED, -- フルーツ　null:食べてない　0:朝食べた　1:昼食べた　2:夜食べた
     smoke INT UNSIGNED, -- タバコ吸った数
-    sleeptime VARCHAR(8), -- 睡眠時間
-    CO2 VARCHAR(8), -- Co2
-    energie VARCHAR(8), -- エネルギー
-    sick VARCHAR(8), -- 病気
-    money VARCHAR(8), -- お金
-    electric VARCHAR(8), -- 電気
+    sleep VARCHAR(16), -- 睡眠時間
+    CO2 VARCHAR(16), -- Co2
+    energie VARCHAR(16), -- エネルギー
+    sick VARCHAR(16), -- 病気
+    money VARCHAR(16), -- お金
+    electric VARCHAR(16), -- 電気
     created_at DATETIME NOT NULL
 )ENGINE=INNODB;
+INSERT INTO hack_u_check(
+        user_id,
+        point,
+        diagnosis,
+        timing,
+        fish,
+        vege,
+        fru,
+        smoke,
+        sleeptime,
+        CO2,
+        energie,
+        sick,
+        money,
+        electric,
+        created_at
+    )VALUES(
+        1,
+        null,
+        null,
+        '2019/3/21/4',
+        null,
+        null,
+        null,
+        null,
+        '10',
+        '10',
+        '10',
+        '10',
+        '10',
+        '10',
+        now()
+    )
 
 ////////////////////////////////////////////
 生活チェック
@@ -43,5 +77,5 @@ Co2:1.6kg
 お金:70円
 病気:
 
-　
+　localhost/hacku2/app/api_check.php?id=1&morning=1&lunch=1&dinner=1&vege=null&fish=null&fru=null&smoke=7&point=30&timing=2019/3/3/1&sleep=8
 

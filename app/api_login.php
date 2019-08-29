@@ -22,7 +22,7 @@
       }
       // print_r($userAuth);
 			// 入力したパスワードハッシュ化
-			$hashPassword = hash(HASH_ALG, $password . hash(HASH_ALG, HASH_SALT));
+			// $hashPassword = hash(HASH_ALG, $password . hash(HASH_ALG, HASH_SALT));
 			// 入力したパスワードチェック
 			if ($hashPassword === $userAuth["password"]) {
         // print "ログインできる";
@@ -32,6 +32,22 @@
       }
 		}else {
 			$errorFlg = false;
+    }
+    $id=$userAuth["id"];
+    // print $id;
+    // チェック情報出す
+    // 最初の診断の結果を出す
+    $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} AND diagnosis=0";
+    if ($result = $instance->query($sql)) {
+        $firstrows = $result->fetch_assoc();
+    }
+    // 毎日のデータ
+    $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} AND diagnosis=1 ORDER BY created_at DESC";
+    if ($result = $instance->query($sql)) {
+        $rows =[];
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
     }
       $instance->close();
   }
@@ -48,17 +64,62 @@
   // ●欲しいデータ
   // id : ユーザーid
   // name : ユーザー名
+  $name=$userAuth["user_name"];
   // gender : 性別 0=>男性 1=>女性 2=>その他
+  $gender=$userAuth["sex"];
   // partner : パートナー 0=>男性 1=>女性 2=>豚
+  $partner=$userAuth["kyara"];
   // week : １週間の生活チェックの点数 月曜〜日曜 [月,火,水,木,金,土,日]
+
   // result : 最新のチェックの点数
+  $result=$rows[0]["point"];
   // timing : 最新のチェックの日付 "Y/M/D"
+  $timing=$rows[0]["timing"];
   // electric : 電気使用率 最初と最新 [最初,最新] 例：[20,50]
+  if(!$rows){
+    $electric=[];
+    $electric[]=$firstrows["electric"];
+    $electric[]="0";
+    }
+    else{
+        $electric=[];
+        $electric[]=$firstrows["electric"];
+        $electric[]=$rows[0]["electric"];
+    }
   // smoke : タバコの本数 最初と最新 [最初,最新]
+  if(!$rows){
+    $smoke=[];
+    $smoke[]=$firstrows["smoke"];
+    $smoke[]="null";
+  }
+  else{
+    $smoke=[];
+    $smoke[]=$firstrows["smoke"];
+    $smoke[]=$rows[0]["smoke"];
+  }
+// print_r($smoke);
 
   // vege : 最新のチェック結果の野菜食べたタイミング [ null or 数字]
+  if(!$rows){
+    $vege=$firstrows["vege"];
+  }
+  else{
+      $vege=$rows[0]["vege"]; 
+  }
   // fish : 最新のチェック結果の魚食べたタイミング [ null or 数字 ]
-  // fruit : 最新のチェック結果の魚食べたタイミング [ null or 数字 ]
+  if(!$rows){
+    $fish=$firstrows["fish"];
+  }
+  else{
+    $fish=$rows["fish"]; 
+  }
+  // fruit : 最新のチェック結果の魚食べたタイミング [ null or 数字 ]]
+  if(!$rows){
+    $fru=$firstrows["fru"];
+  }
+  else{
+    $fru=$rows["fru"]; 
+  }
   // ( 食べてない => null  0 => 朝食べた 　1 => 昼食べた 　2 => 夜食べた )
 
   // co2 : CO2削減 点数と+-　 例：[ 3 , "+" ]  
@@ -66,7 +127,31 @@
   // sick : 病気予防 点数と+-
   // money : 節約 点数と+-
   // ( 最初と比べて上がった => "+"  下がった => "-"  変化無し => "" )
-
+  if($firstrows["CO2"]){
+    $CO2first=$firstrows["CO2"]; //最初診断の結果
+  }
+  else{
+      $CO2first=null;
+  }
+  if($rows[0]["CO2"]){
+      $CO2=$rows[0]["CO2"]; //最新
+  }
+  else{
+      $CO2=null;
+  }
+  // energie : エネルギー節約 点数と+-
+  if($firstrows["energie"]){
+      $energiefirst=$firstrows["energie"]; //最初診断の結果
+  }
+  else{
+      $energiefirst=null;
+  }
+  if($rows[0]["energie"]){
+      $energie=$rows[0]["energie"]; //最新
+  }
+  else{
+      $energie=null;
+  }
   // ●欲しいデータの例
   // [{
   //   id:1,
