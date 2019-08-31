@@ -3,6 +3,8 @@
 header('Access-Control-Allow-Origin: *');
 header("Content-type: application/javascript; charset=utf-8");
 
+
+
 // print_r($_GET);
 require_once __DIR__ . "/define.php";
 // ●$_GETの中
@@ -45,6 +47,7 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
     $sql = "SELECT * FROM hack_u_check WHERE user_id={$id}";
     
     if (!$r = $instance->query($sql)) {
+        print "あ";
         print $sql;
         exit;
     }
@@ -120,7 +123,10 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
             now()
         )";
     }
-    if (!$instance->query($sql)) {
+    
+    if (!$r = $instance->query($sql)) {
+        print "い";
+        print $r;
       print $sql;
     }
     // 情報出す
@@ -161,7 +167,7 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
     if(!$rows){
         $electric=[];
         $electric[]=$firstrows["electric"];
-        $electric[]="null";
+        $electric[]=null;
     }
     else{
         $electric=[];
@@ -174,7 +180,7 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
     if(!$rows){
         $smoke=[];
         $smoke[]=$firstrows["smoke"];
-        $smoke[]="null";
+        $smoke[]=null;
     }
     else{
         $smoke=[];
@@ -262,25 +268,26 @@ else{
     exit;
   }
 
-$array = array('バナナ', 'apple' => 'りんご', 'peach' => 'もも', 'pear' => 'なし', 'みかん');
 
-// print json_encode($_GET);
-print $_GET['callback'] . '(' . json_encode(array(
-    'week' => $week,
-    'result' => $result,
-    'timing' => $timing,
-    'electric' => $electric,
-    'smoke' => $smoke,
-    'vege' => $vege,
-    'fish' => $fish,
-    'fru' => $fru,
-    'cosfirst' => $CO2first,
-    'co2' => $CO2,
-    'energiefirst' => $energiefirst,
-    'energie' => $energie,
-    'moneyfirst' => $moneyfirst,
-    'money' => $money,
-    'sickfirst' => $sickfirst,
-    'sick' => $sick
-)) . ');';
+    print $_GET['callback'] . '(' . json_encode(
+        array(
+            'week' => $week,
+            'result' => $result,
+            'timing' => $timing,
+            'electric' => $electric,
+            'smoke' => $smoke,
+            'vege' => $vege,
+            'fish' => $fish,
+            'fru' => $fru,
+            'co2first' => $CO2first,
+            'co2' => $CO2,
+            'energiefirst' => $energiefirst,
+            'energie' => $energie,
+            'moneyfirst' => $moneyfirst,
+            'money' => $money,
+            'sickfirst' => $sickfirst,
+            'sick' => $sick
+        )
+    ) . ');';
+
 

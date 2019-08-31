@@ -13,27 +13,44 @@ $(function(){
     let morning = $("input[name='morning']:checked").val();
     let lunch = $("input[name='lunch']:checked").val();
     let dinner = $("input[name='dinner']:checked").val();
-    let vege = [];
-    $("input[name='vege']:checked").each(function(){
-      vege.push($(this).val());
-    });
-    if(!vege.length){
-      vege = null;
+
+    let arrVege = [];
+    let vege = "";
+    if ($("input[name='vege']:checked").length){
+      $("input[name='vege']:checked").each(function (i) {
+        vege = vege + $(this).val() + ",";
+        arrVege.push($(this).val());
+      });
     }
-    let fish = [];
-    $("input[name='fish']:checked").each(function () {
-      fish.push($(this).val());
-    });
-    if (!fish.length) {
-      fish = null;
+    else{
+      vege = "null";
     }
-    let fru = [];
-    $("input[name='fru']:checked").each(function () {
-      fru.push($(this).val());
-    });
-    if (!fru.length) {
-      fru = null;
+    
+    let arrFish = [];
+    let fish = "";
+    if ($("input[name='fish']:checked").length){
+      $("input[name='fish']:checked").each(function () {
+        fish = fish + $(this).val() + ",";
+        arrFish.push($(this).val());
+      });
     }
+    else {
+      fish = "null";
+    }
+    
+    let arrFru = [];
+    let fru = "";
+    if ($("input[name='fru']:checked").length){
+      $("input[name='fru']:checked").each(function () {
+        fru = fru + $(this).val() + ",";
+        arrFru.push($(this).val());
+      });
+    }
+    else {
+      fru = "null";
+    }
+    
+
 
 
     let point = 0;
@@ -61,16 +78,25 @@ $(function(){
       comRhythm += 6;
     }
     if (vege !== null){
-      point += vege.length * 8;
-      comVege = vege.length * 8;
+      point += arrVege.length * 8;
+      comVege = arrVege.length * 8;
+    }
+    else{
+      vege = null;
     }
     if (fish !== null) {
-      point += fish.length * 8;
-      comFish = fish.length * 8;
+      point += arrFish.length * 8;
+      comFish = arrFish.length * 8;
+    }
+    else {
+      fish = null;
     }
     if (fru !== null) {
-      point += fru.length * 8;
-      comFru = fru.length * 8;
+      point += arrFru.length * 8;
+      comFru = arrFru.length * 8;
+    }
+    else {
+      fru = null;
     }
 
     let smoke = 10;
@@ -106,11 +132,11 @@ $(function(){
     // moneyとsickをAPIに渡す
     let money;
     let sick;
-    if (result >= 0 && 40 >= result) {
+    if (point >= 0 && 40 >= point) {
       money = 1;
       sick = 1;
     }
-    else if (result >= 41 && 79 >= result) {
+    else if (point >= 41 && 79 >= point) {
       money = 2;
       sick = 2;
     }
@@ -142,7 +168,7 @@ $(function(){
     // ajax通信
     $.ajax({
       url: "https://momokamiki.com/seikatsu/api_check.php",
-      method: "get",
+      type: "GET",
       dataType: "jsonp",
       cache: false,
       data: {
@@ -166,6 +192,10 @@ $(function(){
       console.log("生活チェック通信成功")
       console.log(data)
 
+      let checkData = data;
+
+      console.log(checkData);
+
       // 成功したら結果画面表示
       scResult.addClass("on");
       scCheck.css("z-index", 1);
@@ -178,18 +208,18 @@ $(function(){
 
 
       // ** apiでとったデータを入れる
-      let week = [10,20,30,40];
-      let result = 70;
-      let timing = "2019/8/4";
-      let electric = [50,30];
-      let smoke = [3,5];
-      let vege = ["null"];
-      let fish = [0,1];
-      let fruit = [0,1,2];
-      let co2 = [5 , "+"];
-      let energie = [3, "-"];
-      let sick = [4, ""];
-      let money = [5, "+"];
+      let week = [10, 20, 30, 40] // checkData["week"];
+      let result = checkData["result"];
+      let timing = checkData["timing"];
+      let electric = checkData["electric"];
+      let smoke = checkData["smoke"];
+      let vege = checkData["vege"];
+      let fish = checkData["fish"];
+      let fruit = checkData["fruit"];
+      let co2 = checkData["co2"];
+      let energie = checkData["energie"];
+      let sick = checkData["sick"];
+      let money = checkData["money"];
 
 
       // カレンダーに追加ボタンのURLを設定

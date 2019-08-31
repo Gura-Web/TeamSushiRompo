@@ -54,7 +54,7 @@ $(function(){
       yesDate = 29;
       yesMonth -= 1;
     }
-    else if (birthM == 5 || birthM == 7 || birthM == 10 || birthM == 12){
+    else if (nowMonth == 5 || nowMonth == 7 || nowMonth == 10 || nowMonth == 12){
       yesDate = 30;
       yesMonth -= 1;
     }
@@ -73,7 +73,7 @@ $(function(){
       yesDate = 28;
       yesMonth -= 1;
     }
-    else if (birthM == 5 || birthM == 7 || birthM == 10 || birthM == 12) {
+    else if (nowMonth == 5 || nowMonth == 7 || nowMonth == 10 || nowMonth == 12) {
       yesDate = 29;
       yesMonth -= 1;
     }
