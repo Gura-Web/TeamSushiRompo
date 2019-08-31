@@ -85,8 +85,8 @@ $(function(){
     }
   }
   else if (getStorage("dataPartner") == 1){
-    // 生活リズムさんを選んだ場合
-    charaName.text("生活リズムさん")
+    // 生活リズムちゃんを選んだ場合
+    charaName.text("生活リズムちゃん")
     if (!getStorage("dataNoFirst")) {
       // 初日の場合
       charaImage.attr("src", "img/chara02-body01.svg");

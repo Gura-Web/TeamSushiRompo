@@ -66,14 +66,15 @@ header("Content-type: application/javascript; charset=utf-8");
 
   // ●欲しいデータ
   // id : ユーザーid
+  $id = $userAuth["id"];
   // name : ユーザー名
   $name=$userAuth["user_name"];
   // gender : 性別 0=>男性 1=>女性 2=>その他
   $gender=$userAuth["sex"];
   // partner : パートナー 0=>男性 1=>女性 2=>豚
-  $partner=$userAuth["kyara"];
+  $partner=$userAuth["partner"];
   // week : １週間の生活チェックの点数 月曜〜日曜 [月,火,水,木,金,土,日]
-  $week=[10,20,30];  
+  $week=[$rows[0],$orws[1],$rows[2]];  
 
   // result : 最新のチェックの点数
   $result=$rows[0]["point"];
@@ -178,28 +179,36 @@ header("Content-type: application/javascript; charset=utf-8");
   }
 
 
-print $_GET['callback'] . '(' . json_encode(
-  array(
-    'name' => $name,
-    'gender' => $gender,
-    'partner' => $partner,
-    'week' => $week,
-    'result' => $result,
-    'timing' => $timing,
-    'electric' => $electric,
-    'smoke' => $smoke,
-    'vege' => $vege,
-    'fish' => $fish,
-    'fru' => $fru,
-    'cosfirst' => $CO2first,
-    'co2' => $CO2,
-    'energiefirst' => $energiefirst,
-    'energie' => $energie,
-    'moneyfirst' => $moneyfirst,
-    'money' => $money,
-    'sickfirst' => $sickfirst,
-    'sick' => $sick
-  )) . ');';
+  if(!$errorFlg){
+  print $_GET['callback'] . '(' . json_encode(false) . ');';
+  }
+  else{
+  print $_GET['callback'] . '(' . json_encode(
+    array(
+      'id' => $id,
+      'name' => $name,
+      'gender' => $gender,
+      'partner' => $partner,
+      'week' => $week,
+      'result' => $result,
+      'timing' => $timing,
+      'electric' => $electric,
+      'smoke' => $smoke,
+      'vege' => $vege,
+      'fish' => $fish,
+      'fru' => $fru,
+      'cosfirst' => $CO2first,
+      'co2' => $CO2,
+      'energiefirst' => $energiefirst,
+      'energie' => $energie,
+      'moneyfirst' => $moneyfirst,
+      'money' => $money,
+      'sickfirst' => $sickfirst,
+      'sick' => $sick
+    )
+  ) . ');';
+  }
+
 
 
 // ●欲しいデータ

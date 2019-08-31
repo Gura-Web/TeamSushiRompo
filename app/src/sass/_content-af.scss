@@ -500,10 +500,21 @@
     height: 86px;
     margin: 0 auto;
     padding: 14px;
-    background-image: url("../img/bg-com03.png");
+    background: $base;
+    border-radius: 4px;
     color: #fff;
     text-align: center;
     font-size: 1.5rem;
+    position: relative;
+    &::before{
+      content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e0edff;
+    }
   }
   &__img{
     width: 110px;
@@ -695,7 +706,7 @@
 
 /* sc-set */
 .sc-set{
-  padding: 0 40px;
+  padding: 0 40px 100px 40px;
   h2{
     font-size: 3.2rem;
   }

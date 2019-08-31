@@ -31,10 +31,12 @@ $(function(){
             $(".wrap-be").css("display","none");
           },600);
 
+          let loginData = data;
+
           // dataNoFirstがない(初日)場合は普通に入れる
           if (localStorage.getItem("dataNoFirst")){
-            // ** dataNoFirstがある(初日でない)場合、すでに保存されてるdataIdと比べる
-            if (localStorage.getItem("dataId") !== 1){
+            // dataNoFirstがある(初日でない)場合、すでに保存されてるdataIdと比べる
+            if (localStorage.getItem("dataId") !== loginData["id"]){
               // 違った場合、ストレージ全て消して入れる
               localStorage.removeItem("dataNoFirst");
               localStorage.removeItem("dataCheck");
@@ -51,27 +53,19 @@ $(function(){
               localStorage.removeItem("dataHomeNig");
               localStorage.removeItem("dataHomeCheck1");
               localStorage.removeItem("dataHomeCheck2");
-
-
-              //** id、名前、パートナーをストレージに入れる
-              localStorage.setItem("dataId", 1);
-              localStorage.setItem("dataName", "まちゃき");
-              localStorage.setItem("dataPartner", 1);
             }
           }
-          else{
-            //** id、名前、パートナーをストレージに入れる
-            localStorage.setItem("dataId", 1);
-            localStorage.setItem("dataName", "まちゃき");
-            localStorage.setItem("dataPartner", 1);
-          }
+          
+          // id、名前、パートナーをストレージに入れる
+          localStorage.setItem("dataId", loginData["id"]);
+          localStorage.setItem("dataName", loginData["name"]);
+          localStorage.setItem("dataPartner", loginData["partner"]);
           
           // ぶたえらんだときホームの画像の高さ変える
           if (localStorage.getItem("dataPartner") == 2) {
             $(".box-chara__img").css("margin", "120px auto 110px");
           }
 
-          
           
           // 正しくログインできた
 
@@ -98,19 +92,19 @@ $(function(){
 
           // 取ってきた情報を表示する
 
-          // apiでとったデータを入れる
-          let week = [10, 20, 30, 40];
-          let result = 70;
-          let timing = "2019/8/4";
-          let electric = [50, 30];
-          let smoke = [3, 5];
-          let vege = ["null"];
-          let fish = [0, 1];
-          let fruit = [0, 1, 2];
-          let co2 = [5, "+"];
-          let energie = [3, "-"];
-          let sick = [4, ""];
-          let money = [5, "+"];
+          // ** apiでとったデータを入れる
+          let week = [10, 20, 30, 40]; //loginData["week"];//[10, 20, 30, 40];
+          let result = loginData["result"];
+          let timing = loginData["timing"];
+          let electric = loginData["electric"];;
+          let smoke = loginData["smoke"];
+          let vege = loginData["vege"];
+          let fish = loginData["fish"];
+          let fruit = loginData["fruit"];
+          let co2 = loginData["co2"];
+          let energie = loginData["energie"];
+          let sick = loginData["sick"];
+          let money = loginData["money"];
 
           // マイページに表示
           if (localStorage.getItem("dataNoFirst")){

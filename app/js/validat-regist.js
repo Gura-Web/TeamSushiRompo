@@ -192,8 +192,8 @@ $(function(){
           confPartnerImg.addClass("partner0");
           break;
         case "1":
-          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムさん'></span>");
-          confPartnerName.text("生活リズムさん");
+          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムちゃん'></span>");
+          confPartnerName.text("生活リズムちゃん");
           confPartnerImg.addClass("partner1");
           break;
         case "2":
