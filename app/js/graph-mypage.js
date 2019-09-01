@@ -173,27 +173,33 @@
     //
     // 野菜
     //
-    if(vege[0] !== "null"){
-      $.each(vege,function(i){
-        $(".point-vege").eq(i).addClass("on");
+    if(vege !== "null"){
+      let veges = vege.split("/");
+
+      $.each(veges,function(i,e){
+        $(".point-vege").eq(e).addClass("on");
       })
     }
 
     //
     // 魚
     //
-    if (fish[0] !== "null") {
-      $.each(fish, function (i) {
-        $(".point-fish").eq(i).addClass("on");
+    if (fish !== "null") {
+      let fishs = fish.split("/");
+
+      $.each(fishs, function (i,e) {
+        $(".point-fish").eq(e).addClass("on");
       })
     }
 
     //
     // フルーツ
     //
-    if (fruit[0] !== "null") {
-      $.each(fruit, function (i) {
-        $(".point-fruit").eq(i).addClass("on");
+    if (fruit !== "null") {
+      let fruits = fruit.split("/");
+
+      $.each(fruits, function (i,e) {
+        $(".point-fruit").eq(e).addClass("on");
       })
     }
 

@@ -18,9 +18,14 @@ $(function(){
     let vege = "";
     if ($("input[name='vege']:checked").length){
       $("input[name='vege']:checked").each(function (i) {
-        vege = vege + $(this).val() + ",";
+        console.log("まえ"+vege);
+        vege = vege + $(this).val() + "/";
+        console.log("あと" + vege);
         arrVege.push($(this).val());
       });
+      console.log(vege);
+      vege = vege.slice(0,-1);
+      console.log(vege);
     }
     else{
       vege = "null";
@@ -30,9 +35,10 @@ $(function(){
     let fish = "";
     if ($("input[name='fish']:checked").length){
       $("input[name='fish']:checked").each(function () {
-        fish = fish + $(this).val() + ",";
+        fish = fish + $(this).val() + "/";
         arrFish.push($(this).val());
       });
+      fish = fish.slice(0, -1);
     }
     else {
       fish = "null";
@@ -42,9 +48,10 @@ $(function(){
     let fru = "";
     if ($("input[name='fru']:checked").length){
       $("input[name='fru']:checked").each(function () {
-        fru = fru + $(this).val() + ",";
+        fru = fru + $(this).val() + "/";
         arrFru.push($(this).val());
       });
+      fru = fru.slice(0, -1);
     }
     else {
       fru = "null";
@@ -115,7 +122,7 @@ $(function(){
       nowDay = 7;
     }
     let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDate()+ "/" + now.getDay(); 
-    
+    console.log(timing)
     
 
     // 睡眠時間
@@ -207,15 +214,15 @@ $(function(){
       
 
 
-      // ** apiでとったデータを入れる
-      let week = [10, 20, 30, 40] // checkData["week"];
+      // apiでとったデータを入れる
+      let week = checkData["week"];
       let result = checkData["result"];
       let timing = checkData["timing"];
       let electric = checkData["electric"];
       let smoke = checkData["smoke"];
       let vege = checkData["vege"];
       let fish = checkData["fish"];
-      let fruit = checkData["fruit"];
+      let fruit = checkData["fru"];
       let co2 = checkData["co2"];
       let energie = checkData["energie"];
       let sick = checkData["sick"];

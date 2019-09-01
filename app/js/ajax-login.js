@@ -93,7 +93,7 @@ $(function(){
           // 取ってきた情報を表示する
 
           // ** apiでとったデータを入れる
-          let week = [10, 20, 30, 40]; //loginData["week"];//[10, 20, 30, 40];
+          let week = loginData["week"];//[10, 20, 30, 40];
           let result = loginData["result"];
           let timing = loginData["timing"];
           let electric = loginData["electric"];;
@@ -111,6 +111,8 @@ $(function(){
             $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
           }
           
+          // ホーム表示
+          $(".sc-home").charaMypage();
 
         }
         else {

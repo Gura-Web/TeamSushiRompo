@@ -74,7 +74,14 @@ header("Content-type: application/javascript; charset=utf-8");
   // partner : パートナー 0=>男性 1=>女性 2=>豚
   $partner=$userAuth["partner"];
   // week : １週間の生活チェックの点数 月曜〜日曜 [月,火,水,木,金,土,日]
-  $week=[$rows[0],$orws[1],$rows[2]];  
+  $points = array_column($rows, 'point');
+    $n=count($rows);
+    if($n>=7){
+      $week=array_slice($points ,0,7);
+    }
+    else{
+      $week=array_slice($points ,0,$n);
+    }
 
   // result : 最新のチェックの点数
   $result=$rows[0]["point"];

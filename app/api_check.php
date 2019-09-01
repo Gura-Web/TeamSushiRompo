@@ -74,9 +74,9 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
             {$point},
             0,
             '{$timing}',
-            {$fish},
-            {$vege},
-            {$fru},
+            '{$fish}',
+            '{$vege}',
+            '{$fru}',
             {$smoke},
             {$sleep},
             {$CO2},
@@ -110,9 +110,9 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
             {$point},
             1,
             '{$timing}',
-            {$fish},
-            {$vege},
-            {$fru},
+            '{$fish}',
+            '{$vege}',
+            '{$fru}',
             {$smoke},
             {$sleep},
             {$CO2},
@@ -147,7 +147,14 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
         }
     }
     // week : １週間の生活チェックの点数 月曜〜日曜 [月,火,水,木,金,土,日] チェックしたのが月曜日の場合、[月]だけ。
-    $week=[10,20,30];
+    $points = array_column($rows, 'point');
+    $n=count($rows);
+    if($n>=7){
+        $week=array_slice($points ,0,7);
+    }
+    else{
+        $week=array_slice($points ,0,$n);
+    }
 
     // result : 最新のチェックの点数
     if(!$rows){
@@ -202,14 +209,14 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
         $fish=$firstrows["fish"];
     }
     else{
-        $fish=$rows["fish"]; 
+        $fish=$rows[0]["fish"]; 
     }
     // fruit : 最新のチェック結果の魚食べたタイミング [ null or 数字 ]
     if(!$rows){
         $fru=$firstrows["fru"];
     }
     else{
-        $fru=$rows["fru"]; 
+        $fru=$rows[0]["fru"]; 
     }
 
     // ( 食べてない => null  0 => 朝食べた 　1 => 昼食べた 　2 => 夜食べた )

@@ -153,6 +153,15 @@ $(function(){
   $(".display-minute").text(gettingM);
 
 
+  // マイページに表示
+  if (localStorage.getItem("dataNoFirst")) {
+    $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
+  }
+
+  // ホーム表示
+  $(".sc-home").charaMypage();
+
+
   // *****************************
   //  おはようボタンを押した時
   // *****************************
