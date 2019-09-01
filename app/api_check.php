@@ -30,15 +30,27 @@ $point=$_GET["point"];
 $timing=$_GET["timing"];
 // sleep: 睡眠時間
 $sleep=$_GET["sleep"];
-if($sleep>=8){
-    $CO2=6.4;   //1.6*4
-    $energie=13.16;   //3.29*4;
+if($sleep>=15){
+    $CO2=5;   //1.6*4
+    $energie=5;   //3.29*4;
     $electric=285.6; //71.4*4
 }
-else{
-    $CO2=6.4+(8-$sleep)*1.6;
-    $energie=13.16+(8-$sleep)*3.29;
+else if($sleep >= 12){
+    $CO2=4;  //6.4+(8-$sleep)*1.6;
+    $energie=4;  //13.16+(8-$sleep)*3.29;
     $electric=285.6+(8-$sleep)*71.4;
+} else if ($sleep >= 8) {
+    $CO2 = 3; //6.4+(8-$sleep)*1.6;
+        $energie = 3; //13.16+(8-$sleep)*3.29;
+        $electric = 285.6 + (8 - $sleep) * 71.4;
+} else if ($sleep >= 4) {
+    $CO2 =2;  //6.4+(8-$sleep)*1.6;
+        $energie =2;  //13.16+(8-$sleep)*3.29;
+        $electric = 285.6 + (8 - $sleep) * 71.4;
+} else{
+    $CO2 =1;  //6.4+(8-$sleep)*1.6;
+        $energie = 1; //13.16+(8-$sleep)*3.29;
+        $electric = 285.6 + (8 - $sleep) * 71.4;
 }
 $money = $_GET["money"];
 $sick = $_GET["sleep"];
@@ -139,7 +151,9 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
         }
     }
     // 毎日診断のデータ
-    $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} AND diagnosis=1 ORDER BY created_at DESC";
+    // $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} AND diagnosis=1 ORDER BY created_at DESC";
+    $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} ORDER BY created_at DESC";
+
     if ($result = $instance->query($sql)) {
         $rows =[];
         while ($row = $result->fetch_assoc()) {
@@ -222,31 +236,30 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
     // ( 食べてない => null  0 => 朝食べた 　1 => 昼食べた 　2 => 夜食べた )
 
     // CO2 : CO2削減 点数と+-　 例：[ 3 , "+" ]  
-    if($firstrows["CO2"]){
-        $CO2first=$firstrows["CO2"]; //最初診断の結果
+    if ($firstrows["CO2"]) {
+        $CO2 = $firstrows["CO2"]; //最初診断の結果
+    } else {
+        $CO2 = null;
     }
-    else{
-        $CO2first=null;
+    if ($rows[0]["CO2"]) {
+        $CO2 = $rows[0]["CO2"];
     }
-    if($rows[0]["CO2"]){
-        $CO2=$rows[0]["CO2"]; //最新
-    }
-    else{
-        $CO2=null;
-    }
+
+    $CO2first = "null";
+
     // energie : エネルギー節約 点数と+-
-    if($firstrows["energie"]){
-        $energiefirst=$firstrows["energie"]; //最初診断の結果
+    if ($firstrows["energie"]) {
+        $energie = $firstrows["energie"]; //最初診断の結果
+    } else {
+        $energie = null;
     }
-    else{
-        $energiefirst=null;
+    if ($rows[0]["energie"]) {
+        $energie = $rows[0]["energie"];
     }
-    if($rows[0]["energie"]){
-        $energie=$rows[0]["energie"]; //最新
-    }
-    else{
-        $energie=null;
-    }
+
+    $energiefirst="null";
+
+
     // sick : 病気予防 点数と+-
     if ($firstrows["sick"]) {
         $sickfirst = $firstrows["sick"]; //最初診断の結果
@@ -256,6 +269,7 @@ if ($instance = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
     if ($rows[0]["sick"]) {
         $sick = $rows[0]["sick"];
     }
+
     // money : 節約 点数と+-
     if($firstrows["money"]){
         $moneyfirst=$firstrows["money"]; //最初診断の結果

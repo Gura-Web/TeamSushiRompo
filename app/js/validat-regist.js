@@ -187,18 +187,18 @@ $(function(){
       confBirth.html(birthY + "年&nbsp;" + birthM + "月&nbsp;" + birthD + "日");
       switch (partner.val()) {
         case "0":
-          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムくん'></span>");
+          confPartnerImg.html("<span><img src='img/chara01.svg' alt='生活リズムくん'></span>");
           confPartnerName.text("生活リズムくん");
           confPartnerImg.addClass("partner0");
           break;
         case "1":
-          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムちゃん'></span>");
+          confPartnerImg.html("<span><img src='img/chara02.svg' alt='生活リズムちゃん'></span>");
           confPartnerName.text("生活リズムちゃん");
           confPartnerImg.addClass("partner1");
           break;
         case "2":
-          confPartnerImg.html("<span><img src='img/partner.svg' alt='生活リズムぶた'></span>");
-          confPartnerName.text("生活リズムぶた");
+          confPartnerImg.html("<span><img src='img/chara03.svg' alt='生活リズムぶた'></span>");
+          confPartnerName.text("生活りずむん");
           confPartnerImg.addClass("partner2");
           break;
       }

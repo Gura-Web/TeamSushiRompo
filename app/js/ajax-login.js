@@ -4,6 +4,7 @@ $(function(){
   let pass = $("input[name='log-pass']");
   let btnLog = $(".btn-log");
 
+  
   btnLog.on("click",function(){
     
     // ajax通信
@@ -53,6 +54,19 @@ $(function(){
               localStorage.removeItem("dataHomeNig");
               localStorage.removeItem("dataHomeCheck1");
               localStorage.removeItem("dataHomeCheck2");
+
+              localStorage.removeItem("dataWeek");
+              localStorage.removeItem("dataResult");
+              localStorage.removeItem("dataTiming");
+              localStorage.removeItem("dataElectric");
+              localStorage.removeItem("dataSmoke");
+              localStorage.removeItem("dataVege");
+              localStorage.removeItem("dataFish");
+              localStorage.removeItem("dataFruit");
+              localStorage.removeItem("dataCo2");
+              localStorage.removeItem("dataEnergie");
+              localStorage.removeItem("dataSick");
+              localStorage.removeItem("dataMoney");
             }
           }
           
@@ -63,7 +77,7 @@ $(function(){
           
           // ぶたえらんだときホームの画像の高さ変える
           if (localStorage.getItem("dataPartner") == 2) {
-            $(".box-chara__img").css("margin", "120px auto 110px");
+            $(".box-chara__img").css("margin", "60px auto 110px");
           }
 
           
@@ -93,7 +107,7 @@ $(function(){
           // 取ってきた情報を表示する
 
           // ** apiでとったデータを入れる
-          let week = loginData["week"];//[10, 20, 30, 40];
+          let week = loginData["week"].reverse();//[10, 20, 30, 40];
           let result = loginData["result"];
           let timing = loginData["timing"];
           let electric = loginData["electric"];;
@@ -105,6 +119,20 @@ $(function(){
           let energie = loginData["energie"];
           let sick = loginData["sick"];
           let money = loginData["money"];
+
+          localStorage.setItem("dataWeek", week);
+          localStorage.setItem("dataResult", result);
+          localStorage.setItem("dataTiming", timing);
+          localStorage.setItem("dataElectric", electric);
+          localStorage.setItem("dataSmoke", smoke);
+          localStorage.setItem("dataVege", vege);
+          localStorage.setItem("dataFish", fish);
+          localStorage.setItem("dataFruit", fruit);
+          localStorage.setItem("dataCo2", co2);
+          localStorage.setItem("dataEnergie", energie);
+          localStorage.setItem("dataSick", sick);
+          localStorage.setItem("dataMoney", money);
+
 
           // マイページに表示
           if (localStorage.getItem("dataNoFirst")){

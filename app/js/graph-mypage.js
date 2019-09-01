@@ -19,16 +19,25 @@
 (function ($) {
   $.fn.graphMypage = function (week, result, timing,electric,smoke,vege,fish,fruit,co2,energie,sick,money) {
 
+    console.log("week"+ week);
+
     // 注意メッセージを消す
     $(".msg").remove();
 
     let date = new Date();
 
+    
+
     //
     // 最新がいつか表示
     //
     $(".box-points").html("");
-    let now = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDay();
+    let now = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
+
+    console.log(timing)
+    console.log(now)
+
+    
     if (timing == now){
       $(".box-points").append(`
         <p>今日の健康点数</p>
@@ -38,10 +47,10 @@
     }
     else{
       $(".box-points").append(`
-        <p>${date.getMonth() + "/" + date.getDay()}の健康点数</p>
+        <p>${date.getMonth() + "/" + date.getDate()}の健康点数</p>
         <p class="point-check">${result}/100<span>点</span></p>
       `);
-      $(".data-when").text(`${date.getMonth() + "/" + date.getDay()}のデータ`)
+      $(".data-when").text(`${date.getMonth() + "/" + date.getDate()}のデータ`)
     }
 
     //
@@ -102,6 +111,8 @@
     //
     // 電気使用率
     //
+    console.log(electric[0])
+    console.log(electric[1])
     if (electric[0] < electric[1]){
       $(".point-electric").html(`
         <div class="over"><span>${electric[1]}%</span></div>
@@ -109,26 +120,29 @@
       `)
       $(".point-electric").siblings().addClass("up");
       $(".point-electric").siblings().html(`
-        電気使用率<span>+<span>${electric[1] - electric[0]}</span>%</span>
+        電気使用率<span>+<span>${electric[1] - electric[0]}</span>kWh</span>
       `)
       $(".point-electric .over").css("width","80%");
     }
     else if (electric[0] == electric[1]){
       $(".point-electric").html(`
-        <div class="now"><span>${electric[1]}%</span></div>
+        <div class="now"><span>${electric[1]}kWh</span></div>
         <div class="remain"></div>
+      `)
+      $(".point-electric").siblings().html(`
+        電気使用率
       `)
       $(".point-electric .now").css("width", "50%");
     }
     else{
       $(".point-electric").html(`
-        <div class="now"><span>${electric[1]}%</span></div>
-        <div class="first"><span>${electric[0]}%</span></div>
+        <div class="now"><span>${electric[1]}kWh</span></div>
+        <div class="first"><span>${electric[0]}kWh</span></div>
         <div class="remain"></div>
       `)
       $(".point-electric").siblings().addClass("down");
       $(".point-electric").siblings().html(`
-        電気使用率<span>-<span>${electric[0] - electric[1]}</span>%</span>
+        電気使用率<span>-<span>${electric[0] - electric[1]}</span>kWh</span>
       `)
       $(".point-electric .now").css("width", "50%");
       $(".point-electric .first").css("width", "70%");
@@ -138,6 +152,8 @@
     //
     // タバコ本数
     //
+    smoke[0] = 10 - Number(smoke[0]);
+    smoke[1] = 10 - Number(smoke[1]);
     if (smoke[0] < smoke[1]) {
       $(".point-smoke").html(`
         <div class="over"><span>${smoke[1]}本</span></div>
@@ -153,6 +169,9 @@
       $(".point-smoke").html(`
         <div class="now"><span>${smoke[1]}本</span></div>
         <div class="remain"></div>
+      `)
+      $(".point-smoke").siblings().html(`
+        タバコ本数
       `)
       $(".point-smoke .over").css("width", "50%");
     }

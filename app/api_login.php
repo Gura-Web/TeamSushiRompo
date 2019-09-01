@@ -45,7 +45,9 @@ header("Content-type: application/javascript; charset=utf-8");
         $firstrows = $result->fetch_assoc();
     }
     // 毎日のデータ
-    $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} AND diagnosis=1 ORDER BY created_at DESC";
+    // $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} AND diagnosis=1 ORDER BY created_at DESC";
+    $sql = "SELECT * FROM hack_u_check WHERE user_id={$id} ORDER BY created_at DESC";
+
     if ($result = $instance->query($sql)) {
         $rows =[];
         while ($row = $result->fetch_assoc()) {

@@ -85,26 +85,28 @@ $(function(){
       comRhythm += 6;
     }
     if (vege !== null){
-      point += arrVege.length * 8;
-      comVege = arrVege.length * 8;
+      point += arrVege.length * 6;
+      comVege = arrVege.length * 6;
     }
     else{
       vege = null;
     }
     if (fish !== null) {
-      point += arrFish.length * 8;
-      comFish = arrFish.length * 8;
+      point += arrFish.length * 6;
+      comFish = arrFish.length * 6;
     }
     else {
       fish = null;
     }
     if (fru !== null) {
-      point += arrFru.length * 8;
-      comFru = arrFru.length * 8;
+      point += arrFru.length * 6;
+      comFru = arrFru.length * 6;
     }
     else {
       fru = null;
     }
+
+    
 
     let smoke = 10;
 
@@ -115,13 +117,15 @@ $(function(){
       comSmoke = smoke * 18 /10;
     }
 
+    console.log("ポイント" + point)
+
     // 現在の日時
     let now = new Date();
-    let nowDay = now.getDay();
+    let nowDay = now.getDate();
     if (nowDay == 0){
       nowDay = 7;
     }
-    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDate()+ "/" + now.getDay(); 
+    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDate(); 
     console.log(timing)
     
 
@@ -131,7 +135,9 @@ $(function(){
     let sleep = localStorage.getItem("dataSleep");
     comSleep = localStorage.getItem("dataSleep");
 
-    point += sleep;
+    point += Number(sleep);
+
+    
 
     localStorage.setItem("dataPoint", point);
 
@@ -213,9 +219,10 @@ $(function(){
 
       
 
-
+      
       // apiでとったデータを入れる
-      let week = checkData["week"];
+      let week = checkData["week"].reverse();
+      console.log(week);
       let result = checkData["result"];
       let timing = checkData["timing"];
       let electric = checkData["electric"];
@@ -228,17 +235,30 @@ $(function(){
       let sick = checkData["sick"];
       let money = checkData["money"];
 
+      localStorage.setItem("dataWeek", week);
+      localStorage.setItem("dataResult", result);
+      localStorage.setItem("dataTiming", timing);
+      localStorage.setItem("dataElectric", electric);
+      localStorage.setItem("dataSmoke", smoke);
+      localStorage.setItem("dataVege", vege);
+      localStorage.setItem("dataFish", fish);
+      localStorage.setItem("dataFruit", fruit);
+      localStorage.setItem("dataCo2", co2);
+      localStorage.setItem("dataEnergie", energie);
+      localStorage.setItem("dataSick", sick);
+      localStorage.setItem("dataMoney", money);
+
+
 
       // カレンダーに追加ボタンのURLを設定
       let nowMonth = now.getMonth().toString()
       if (nowMonth.length == 1) {
         nowMonth = 0 + nowMonth;
       }
-      let nowDay = now.getDay().toString()
+      let nowDay = now.getDate().toString()
       if (nowDay.length == 1) {
         nowDay = 0 + nowDay;
       }
-      now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay()
       let registCalender =
         "https://calendar.yahoo.co.jp/?V=60&TITLE=生活チェックは" + result +"点&ST="
         + now.getFullYear() + nowMonth + nowDay +
@@ -325,11 +345,11 @@ $(function(){
           // bad
           $(".icon-result span").text("Bad");
           if (localStorage.getItem("dataPartner") == 2) {
-            $(".com-result").text("今回の点数は悪い方だブ〜。１週間頑張れブ〜！")
+            $(".com-result").html("今回の点数は悪い方だブ〜。")
             $(".icon-result img").attr("src", "img/chara03-face03.svg")
           }
           else {
-            $(".com-result").text("今回の点数は悪い方ですね。１週間頑張りましょう！")
+            $(".com-result").html("今回の点数は悪い方ですね。")
             if (localStorage.getItem("dataPartner") == 0) {
               $(".icon-result img").attr("src", "img/chara01-face03.svg")
             }
@@ -342,11 +362,11 @@ $(function(){
           // soso
           $(".icon-result span").text("Soso");
           if (localStorage.getItem("dataPartner") == 2) {
-            $(".com-result").text("今回の点数は普通だブ〜。１週間頑張れブ〜！")
+            $(".com-result").html("今回の点数は普通だブ〜。")
             $(".icon-result img").attr("src", "img/chara03-face01.svg")
           }
           else {
-            $(".com-result").text("今回の点数は普通ですね。１週間頑張りましょう！")
+            $(".com-result").html("今回の点数は普通ですね。")
             if (localStorage.getItem("dataPartner") == 0) {
               $(".icon-result img").attr("src", "img/chara01-face01.svg")
             }
@@ -359,11 +379,11 @@ $(function(){
           // bad
           $(".icon-result span").text("Good");
           if (localStorage.getItem("dataPartner") == 2) {
-            $(".com-result").text("今回の点数は良いブ〜！１週間頑張れブ〜！")
+            $(".com-result").html("今回の点数は良いブ〜！")
             $(".icon-result img").attr("src", "img/chara03-face02.svg")
           }
           else {
-            $(".com-result").text("今回の点数は良いですね！１週間頑張りましょう！")
+            $(".com-result").html("今回の点数は良いですね！")
             if (localStorage.getItem("dataPartner") == 0) {
               $(".icon-result img").attr("src", "img/chara01-face02.svg")
             }
@@ -453,6 +473,7 @@ $(function(){
           }
           break;
       }
+      console.log(co2)
       
       if (localStorage.getItem("dataPartner") == 2) {
         $(".box-all__txt").html(`
@@ -461,7 +482,8 @@ $(function(){
         エネルギー削減は、${energie[0]}ポイント！<br>
         病気予防は、${sick[0]}ポイント！<br>
         節約度は、${money[0]}ポイント！<br>
-        ※ 全て5ポイントがMAXだブ！MAXを目指して頑張るブ〜！`);
+        ※ 全て5ポイントがMAXだブ！`);
+        $(".box-all__img img").attr("src","img/chara03-face01.svg");
       }
       else {
         $(".box-all__txt").html(`
@@ -470,10 +492,19 @@ $(function(){
         エネルギー削減は、${energie[0]}ポイント！<br>
         病気予防は、${sick[0]}ポイント！<br>
         節約度は、${money[0]}ポイント！<br>
-        ※ 全て5ポイントがMAXです！MAXを目指しましょう！`);
+        ※ 全て5ポイントがMAXです！`);
+        if (localStorage.getItem("dataPartner") == 0){
+          $(".box-all__img img").attr("src", "img/chara01-face01.svg");
+        }
+        else{
+          $(".box-all__img img").attr("src", "img/chara02-face01.svg");
+        }
+        
       }
+    
 
-      
+
+      $(".sc-home").charaMypage();
 
       // マイページに表示
       $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);

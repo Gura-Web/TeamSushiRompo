@@ -153,6 +153,28 @@ $(function(){
   $(".display-minute").text(gettingM);
 
 
+
+  let week = [];
+  if(!week.length == 0){
+    let weekPoints = localStorage.getItem("dataWeek").split(",");
+    $.each(weekPoints, function (i, e) {
+      week.push(e);
+    })
+  }
+  
+  let result = localStorage.getItem("dataResult");
+  let timing = localStorage.getItem("dataTiming");
+  let electric = localStorage.getItem("dataElectric");
+  let smoke = localStorage.getItem("dataSmoke");
+  let vege = localStorage.getItem("dataVege");
+  let fish = localStorage.getItem("dataFish");
+  let fruit = localStorage.getItem("dataFruit");
+  let co2 = localStorage.getItem("dataCo2");
+  let energie = localStorage.getItem("dataEnergie");
+  let sick = localStorage.getItem("dataSick");
+  let money = localStorage.getItem("dataMoney");
+
+
   // マイページに表示
   if (localStorage.getItem("dataNoFirst")) {
     $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
