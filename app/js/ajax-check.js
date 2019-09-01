@@ -211,7 +211,7 @@ $(function(){
 
       // 成功したら結果画面表示
       scResult.addClass("on");
-      scCheck.css("z-index", 1);
+      scCheck.css("z-index", 10);
       wrapAf.removeClass("hid");
       setTimeout(function () {
         afNav.removeClass("down");
