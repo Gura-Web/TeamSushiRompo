@@ -167,7 +167,7 @@ $(function(){
 
   // ホーム画面
   btnCheck.on("click",function(){
-    if ($(this).hasClass("on")) {
+    if($(this).hasClass("on")){
       scCheck.addClass("on");
       wrapAf.addClass("hid");
       setTimeout(function () {
@@ -280,15 +280,16 @@ $(function(){
   // 10:00~14:59 => ひるごはん
   // 15:00~4:59 => 押すとアラート
   btnAte.on("click", function () {
-    if (nowHour >= 5 && nowHour <= 9){
-      modalBreak.addClass("show");
-    }
-    else if (nowHour >= 10 && nowHour <= 14){
-      modalLunch.addClass("show");
-    }
-    else{
-      alert("午前5:00〜午前9:59に朝ごはんチェック、午前10:00〜午後14:59に昼ごはんチェックが可能です。")
-    }
+    modalLunch.addClass("show");
+    // if (nowHour >= 5 && nowHour <= 9){
+    //   modalBreak.addClass("show");
+    // }
+    // else if (nowHour >= 10 && nowHour <= 14){
+    //   modalLunch.addClass("show");
+    // }
+    // else{
+    //   alert("午前5:00〜午前9:59に朝ごはんチェック、午前10:00〜午後14:59に昼ごはんチェックが可能です。")
+    // }
   })
 
 
@@ -299,14 +300,16 @@ $(function(){
 
   console.log(nowHour);
   // 生活チェック可能時間　18:00~23:59
-  if (nowHour >= 18 && nowHour <=23){
-    btnCheck.html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
-    btnCheck.addClass("on")
-  }
-  else{
-    $(".btn-check").html("生活チェック不可能");
-    $(".btn-check").removeClass("on");
-  }
+  btnCheck.html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
+  btnCheck.addClass("on")
+  // if (nowHour >= 18 && nowHour <=23){
+  //   btnCheck.html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
+  //   btnCheck.addClass("on")
+  // }
+  // else{
+  //   $(".btn-check").html("生活チェック不可能");
+  //   $(".btn-check").removeClass("on");
+  // }
 
 
 })
