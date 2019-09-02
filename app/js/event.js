@@ -297,16 +297,14 @@ $(function(){
 
   console.log(nowHour);
   // 生活チェック可能時間　18:00~23:59
-  setInterval(function () {
-    if (nowHour >= 18 && nowHour <=23){
-      btnCheck.html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
-      btnCheck.addClass("on")
-    }
-    else{
-      $(".btn-check").html("生活チェック不可能");
-      $(".btn-check").removeClass("on");
-    }
-  },60000)
+  if (nowHour >= 18 && nowHour <=23){
+    btnCheck.html("<p><img src='img/icon-check.svg' alt=''></p>生活チェック可能");
+    btnCheck.addClass("on")
+  }
+  else{
+    $(".btn-check").html("生活チェック不可能");
+    $(".btn-check").removeClass("on");
+  }
 
 
 })
