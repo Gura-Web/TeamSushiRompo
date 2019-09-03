@@ -32,7 +32,7 @@
     // 最新がいつか表示
     //
     $(".box-points").html("");
-    let now = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
+    let now = date.getFullYear() + "/" + date.getMonth()+1 + "/" + date.getDate();
 
     console.log(timing)
     console.log(now)
@@ -47,7 +47,7 @@
     }
     else{
       $(".box-points").append(`
-        <p>${date.getMonth() + "/" + date.getDate()}の健康点数</p>
+        <p>${date.getMonth()+1 + "/" + date.getDate()}の健康点数</p>
         <p class="point-check">${result}/100<span>点</span></p>
       `);
       $(".data-when").text(`${date.getMonth() + "/" + date.getDate()}のデータ`)

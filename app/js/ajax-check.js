@@ -125,7 +125,7 @@ $(function(){
     if (nowDay == 0){
       nowDay = 7;
     }
-    let timing = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDate(); 
+    let timing = now.getFullYear() + "/" + now.getMonth()+1 + "/" + now.getDate(); 
     console.log(timing)
     
 
@@ -251,7 +251,7 @@ $(function(){
 
 
       // カレンダーに追加ボタンのURLを設定
-      let nowMonth = now.getMonth().toString()
+      let nowMonth = (now.getMonth()+1).toString()
       if (nowMonth.length == 1) {
         nowMonth = 0 + nowMonth;
       }

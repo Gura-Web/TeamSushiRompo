@@ -40,7 +40,7 @@ $(function(){
   // 現在の日付
   let now = new Date();
   let nowYear = now.getFullYear();
-  let nowMonth = now.getMonth();
+  let nowMonth = now.getMonth()+1;
   let nowDate = now.getDate();
   let nowHour = now.getHours();
   let nowMinute = now.getMinutes();
