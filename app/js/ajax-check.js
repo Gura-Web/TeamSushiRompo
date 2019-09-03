@@ -506,6 +506,12 @@ $(function(){
 
       $(".sc-home").charaMypage();
 
+      console.log(electric);
+      console.log(smoke);
+
+      electric = ""+electric[0]+","+electric[1]+"";
+      smoke = "" + smoke[0]+"," + smoke[1]+"";
+
       // マイページに表示
       $("#graph-week").graphMypage(week, result, timing, electric, smoke, vege, fish, fruit, co2, energie, sick, money);
 

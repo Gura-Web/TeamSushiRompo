@@ -111,22 +111,25 @@
     //
     // 電気使用率
     //
+    console.log(electric);
     console.log(electric[0])
     console.log(electric[1])
-    if (electric[0] < electric[1]){
+    let electric0 = Number(electric.split(",")[0]);
+    let electric1 = Number(electric.split(",")[1]);
+    if (electric0 < electric1){
       $(".point-electric").html(`
-        <div class="over"><span>${electric[1]}%</span></div>
+        <div class="over"><span>${electric1}kWh</span></div>
         <div class="remain"></div>
       `)
       $(".point-electric").siblings().addClass("up");
       $(".point-electric").siblings().html(`
-        電気使用率<span>+<span>${electric[1] - electric[0]}</span>kWh</span>
+        電気使用率<span>+<span>${electric1 - electric0}</span>kWh</span>
       `)
       $(".point-electric .over").css("width","80%");
     }
-    else if (electric[0] == electric[1]){
+    else if (electric0 == electric1){
       $(".point-electric").html(`
-        <div class="now"><span>${electric[1]}kWh</span></div>
+        <div class="now"><span>${electric1}kWh</span></div>
         <div class="remain"></div>
       `)
       $(".point-electric").siblings().html(`
@@ -136,13 +139,13 @@
     }
     else{
       $(".point-electric").html(`
-        <div class="now"><span>${electric[1]}kWh</span></div>
-        <div class="first"><span>${electric[0]}kWh</span></div>
+        <div class="now"><span>${electric1}kWh</span></div>
+        <div class="first"><span>${electric0}kWh</span></div>
         <div class="remain"></div>
       `)
       $(".point-electric").siblings().addClass("down");
       $(".point-electric").siblings().html(`
-        電気使用率<span>-<span>${electric[0] - electric[1]}</span>kWh</span>
+        電気使用率<span>-<span>${electric0 - electric1}</span>kWh</span>
       `)
       $(".point-electric .now").css("width", "50%");
       $(".point-electric .first").css("width", "70%");
@@ -152,22 +155,27 @@
     //
     // タバコ本数
     //
-    smoke[0] = 10 - Number(smoke[0]);
-    smoke[1] = 10 - Number(smoke[1]);
-    if (smoke[0] < smoke[1]) {
+    // smoke[0] = 10 - Number(smoke[0]);
+    // smoke[1] = 10 - Number(smoke[1]);
+    console.log(smoke)
+    console.log(smoke[0])
+    console.log(smoke[1])
+    let smoke0 = Number(smoke.split(",")[0]);
+    let smoke1 = Number(smoke.split(",")[1]);
+    if (smoke0 < smoke1) {
       $(".point-smoke").html(`
-        <div class="over"><span>${smoke[1]}本</span></div>
+        <div class="over"><span>${smoke1}本</span></div>
         <div class="remain"></div>
       `)
       $(".point-smoke").siblings().addClass("up");
       $(".point-smoke").siblings().html(`
-        タバコ本数<span>+<span>${smoke[1] - smoke[0]}</span>本</span>
+        タバコ本数<span>+<span>${smoke1 - smoke0}</span>本</span>
       `)
       $(".point-smoke .over").css("width", "80%");
     }
-    else if (smoke[0] == smoke[1]) {
+    else if (smoke0 == smoke1) {
       $(".point-smoke").html(`
-        <div class="now"><span>${smoke[1]}本</span></div>
+        <div class="now"><span>${smoke1}本</span></div>
         <div class="remain"></div>
       `)
       $(".point-smoke").siblings().html(`
@@ -177,13 +185,13 @@
     }
     else {
       $(".point-smoke").html(`
-        <div class="now"><span>${smoke[1]}本</span></div>
-        <div class="first"><span>${smoke[0]}本</span></div>
+        <div class="now"><span>${smoke1}本</span></div>
+        <div class="first"><span>${smoke0}本</span></div>
         <div class="remain"></div>
       `)
       $(".point-smoke").siblings().addClass("down");
       $(".point-smoke").siblings().html(`
-        タバコ本数<span>-<span>${smoke[0] - smoke[1]}</span>本</span>
+        タバコ本数<span>-<span>${smoke0 - smoke1}</span>本</span>
       `)
       $(".point-smoke .now").css("width", "50%");
       $(".point-smoke .first").css("width", "70%");

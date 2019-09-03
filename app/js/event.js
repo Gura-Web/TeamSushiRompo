@@ -9,7 +9,7 @@ $(function(){
     }, 600);
 
     if (localStorage.getItem("dataPartner") == 2) {
-      $(".box-chara__img").css("margin", "60px auto 110px");
+      $(".box-chara__img").css("margin", "45px auto 95px");
     }
   }
 
@@ -29,12 +29,12 @@ $(function(){
   // ロード画面
   scLoad.css("opacity", 0);
   scLoad.css("z-index", 0);
-  // setTimeout(function(){
-  //   scLoad.css("opacity",0);
-  //   setTimeout(function(){
-  //     scLoad.css("z-index",0);
-  //   },100)
-  // },1400);
+  setTimeout(function(){
+    scLoad.css("opacity",0);
+    setTimeout(function(){
+      scLoad.css("z-index",0);
+    },100)
+  },1400);
   
   // 新規登録画面へ移動
   btnMoveRegi.on("click",function(){

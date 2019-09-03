@@ -155,7 +155,7 @@ $(function(){
 
 
   let week = [];
-  if(!week.length == 0){
+  if(week !== null){
     let weekPoints = localStorage.getItem("dataWeek").split(",");
     $.each(weekPoints, function (i, e) {
       week.push(e);

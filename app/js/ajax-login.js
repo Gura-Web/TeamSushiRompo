@@ -77,7 +77,7 @@ $(function(){
           
           // ぶたえらんだときホームの画像の高さ変える
           if (localStorage.getItem("dataPartner") == 2) {
-            $(".box-chara__img").css("margin", "60px auto 110px");
+            $(".box-chara__img").css("margin", "45px auto 95px");
           }
 
           
