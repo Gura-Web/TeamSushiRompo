@@ -13,6 +13,16 @@ $(function(){
     }
   }
 
+  // セットする関数
+  function setStorage(key, value) {
+    localStorage.setItem(key, value);
+  }
+
+  // 読み込む関数
+  function getStorage(key) {
+    return localStorage.getItem(key);
+  }
+
 
 
   let scRegi = $(".sc-regi");
@@ -174,6 +184,166 @@ $(function(){
         afNav.addClass("down");
       }, 400)
     }
+
+    if ($(this).hasClass("on")) {
+
+      // 現在の日付
+      let now = new Date();
+      let nowYear = now.getFullYear();
+      let nowMonth = now.getMonth() + 1;
+      let nowDate = now.getDate();
+      let nowHour = now.getHours();
+      let nowMinute = now.getMinutes();
+
+      // 昨日の日付
+      let yesDate = now.getDate() - 1;
+      let yesMonth = nowMonth;
+
+      if (yesDate == 0) {
+        if (nowMonth == 3) {
+          yesDate = 29;
+          yesMonth -= 1;
+        }
+        else if (nowMonth == 5 || nowMonth == 7 || nowMonth == 10 || nowMonth == 12) {
+          yesDate = 30;
+          yesMonth -= 1;
+        }
+        else {
+          yesDate = 31;
+          yesMonth -= 1;
+        }
+      }
+
+      // おとといの日付
+      let befDate = now.getDate() - 2;
+      let befMonth = nowMonth;
+
+      if (yesDate == 0) {
+        if (nowMonth == 3) {
+          yesDate = 28;
+          yesMonth -= 1;
+        }
+        else if (nowMonth == 5 || nowMonth == 7 || nowMonth == 10 || nowMonth == 12) {
+          yesDate = 29;
+          yesMonth -= 1;
+        }
+        else {
+          yesDate = 30;
+          yesMonth -= 1;
+        }
+      }
+      
+      localStorage.removeItem("dataHomeCheck1");
+      localStorage.removeItem("dataHomeCheck2");
+
+      // dataNoFirstにtrueを入れる(初日じゃなくする)
+      setStorage("dataNoFirst", true);
+
+      // dataCheckに今日の日付を入れる => ボタン押せなくする
+      setStorage("dataCheck", nowYear + "/" + nowMonth + "/" + nowDate);
+      $(".btn-check").html("生活チェックは不可能");
+      $(".btn-check").removeClass("on");
+
+      // dataBre・dataLunに今日の日付がある場合は、生活チェックの問題を変更
+      if (getStorage("dataBre") == nowYear + "/" + nowMonth + "/" + nowDate && getStorage("dataLun") == nowYear + "/" + nowMonth + "/" + nowDate) {
+        // どちらもある場合
+        $(".quest03").addClass("on");
+        $('input[name="morning"]').eq(0).prop("checked", true);
+        $('input[name="lunch"]').eq(0).prop("checked", true);
+        console.log("aaaaa")
+        $(".quest03 .header-qu p").text("1/5");
+        $(".quest04 .header-qu p").text("2/5");
+        $(".quest05 .header-qu p").text("3/5");
+        $(".quest06 .header-qu p").text("4/5");
+        $(".quest07 .header-qu p").text("5/5");
+      }
+      else if (getStorage("dataBre") == nowYear + "/" + nowMonth + "/" + nowDate) {
+        // dataBreはある場合
+        $(".quest02").addClass("on");
+        $('input[name="morning"]').eq(0).prop("checked", true);
+        console.log("iiiii")
+        $(".quest02 .header-qu p").text("1/6");
+        $(".quest03 .header-qu p").text("2/6");
+        $(".quest04 .header-qu p").text("3/6");
+        $(".quest05 .header-qu p").text("4/6");
+        $(".quest06 .header-qu p").text("5/6");
+        $(".quest07 .header-qu p").text("6/6");
+      }
+      else if (getStorage("dataLun") == nowYear + "/" + nowMonth + "/" + nowDate) {
+        // dataLunはある場合
+        $(".quest01").addClass("on");
+        $(".quest01").addClass("not");
+        $('input[name="lunch"]').eq(0).prop("checked", true);
+        console.log("uuuuu")
+        $(".quest01 .header-qu p").text("1/6");
+        $(".quest03 .header-qu p").text("2/6");
+        $(".quest04 .header-qu p").text("3/6");
+        $(".quest05 .header-qu p").text("4/6");
+        $(".quest06 .header-qu p").text("5/6");
+        $(".quest07 .header-qu p").text("6/6");
+      }
+      else {
+        // どちらもない場合
+        $(".quest01").addClass("on");
+        console.log("eeeee")
+      }
+
+
+      // 睡眠時間の計算 
+      if (getStorage("dataNoFirst")) {
+        // dataNigが昨日の日付かつ、dataMorが今日の日付の場合
+        if (getStorage("dataNig") == nowYear + "/" + yesMonth + "/" + yesDate && getStorage("dataMor") == nowYear + "/" + nowMonth + "/" + nowDate) {
+          // 正常に計算する
+          let nights = getStorage("dataNig").split("/");
+          let nightH = nights[3];
+          let nightM = nights[4];
+
+          if (nightM == 0) {
+            nightH = 24 - nights[3];
+          }
+          else {
+            nightH = 24 - nights[3] - 1;
+            nightM = 60 - nightM;
+          }
+
+          let mornings = getStorage("dataMor").split("/");
+          let morningH = mornings[3];
+          let morningM = mornings[4];
+
+          let sleepH = nightH + morningH;
+          let sleepM = nightM + morningM;
+          if (sleepM >= 50) {
+            sleepH += 1;
+          }
+
+          if (sleepH >= 7 && sleepH <= 9) {
+            setStorage("dataSleep", 18);
+          }
+          else if (sleepH == 6 || sleepH == 10) {
+            setStorage("dataSleep", 15);
+          }
+          else if (sleepH == 5 || sleepH == 11) {
+            setStorage("dataSleep", 10);
+          }
+          else {
+            setStorage("dataSleep", 5);
+          }
+        }
+        else {
+          // どちらか、または両方を忘れていた場合は5点
+          setStorage("dataSleep", 5);
+        }
+      }
+      else {
+        // dataNoFirstが存在しない場合は、12点
+        setStorage("dataSleep", 12);
+      }
+
+    }
+    else {
+      alert("生活チェックは現在できません！")
+    }
+
   })
 
   btnNext.on("click",function(){
